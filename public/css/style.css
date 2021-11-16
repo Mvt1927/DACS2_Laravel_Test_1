@@ -1,0 +1,783 @@
+@import url(https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700);
+@import url(https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Indie+Flower&family=Press+Start+2P);
+@import url(https://fonts.googleapis.com/css2?family=Permanent+Marker);
+:root {
+    --blue: rgb(100, 200, 250);
+    --blue-0: rgba(100, 200, 250, 0.253);
+}
+
+* {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: all .2s linear;
+}
+
+*::selection {
+    background: var(--blue);
+    color: #fff;
+}
+
+html {
+    font-size: 75%;
+    overflow-x: hidden;
+    scroll-padding-top: 6rem;
+    scroll-behavior: smooth;
+}
+
+section {
+    padding: 2rem 9%;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #333;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 9%;
+}
+
+header #nav-bar a {
+    color: #fff;
+    font-size: 2rem;
+    margin: 0 .8rem;
+}
+
+header #nav-bar a:hover {
+    color: var(--blue);
+    text-decoration: none;
+}
+
+header .icons i {
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 2rem;
+}
+
+.btn {
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+    color: #fff;
+    background-color: var(--blue);
+    border-radius: .2rem;
+    border: solid .2rem var(--blue);
+}
+
+.btn:hover {
+    color: var(--blue);
+    background-color: var(--blue-0);
+}
+
+#menu-bar {
+    color: #fff;
+    border-radius: .5rem;
+    font-size: 2.5rem;
+    padding: .5rem 1.2rem;
+    cursor: pointer;
+    display: none;
+}
+
+#login-btn:hover {
+    color: var(--blue);
+}
+
+.container .card .card-header{
+    text-transform: none;
+    font-family: 'Noto Sans', sans-serif;
+    color: blue;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.container .card .card-body form .form-group{
+    text-transform: none;
+
+}
+
+.container .card .card-body form .form-group label{
+    text-transform: none;
+    font-size: 1.5rem;
+
+}
+.container .card .card-body form .form-group input{
+    text-transform: none;
+    font-size: 1.5rem;
+}
+.container .card .card-body form .form-group input[type='checkbox']{
+    left: 0;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+/* home */
+
+.home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    position: relative;
+    z-index: 0;
+}
+
+.home .content {
+    text-align: center;
+}
+
+.home .content h3 {
+    font-family: 'Press Start 2P', cursive;
+    font-weight: bold;
+    font-size: 4.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 0 .3rem .5rem rgba(0, 0, 0, .1);
+}
+
+.home .content a {
+    display: inline-block;
+    background-color: var(--blue);
+    font-size: 2rem;
+    border: solid .15rem var(--blue);
+    color: #fff;
+}
+
+.home .content a:hover {
+    background-color: var(--blue-0);
+    color: var(--blue);
+}
+
+.home .content p {
+    font-family: 'Indie Flower', cursive;
+    font-size: 2.5rem;
+    color: #fff;
+    padding: .5rem 0;
+}
+
+.home .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.home .controls {
+    padding: 1rem;
+    border-radius: 2rem;
+    background: rgba(0, 0, 0, .7);
+    position: relative;
+    top: 10rem;
+}
+
+.home .controls .vid-btn {
+    height: 1.2rem;
+    width: 1.2rem;
+    display: inline-block;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    margin: 0rem .5rem;
+    margin-top: 0.26rem;
+}
+
+.home .controls .vid-btn.active {
+    background: var(--blue);
+}
+
+
+/* book */
+
+.book .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.book .row .image img {
+    width: 50rem;
+}
+
+.review h1 span,
+.contact h1 span,
+.services h1 span,
+.rooms h1 span,
+.book h1 span {
+    font-family: 'Permanent Marker', cursive;
+    font-weight: 300;
+    font-size: 3rem;
+    color: rgb(50, 100, 255);
+    background-color: rgb(150, 200, 255);
+    border-radius: .5rem;
+    padding: .2rem 1rem;
+}
+
+.review h1 span.space,
+.contact h1 span.space,
+.services h1 span.space,
+.rooms h1 span.space,
+.book h1 span.space {
+    background-color: #fff;
+}
+
+.book .row form {
+    width: 45rem;
+    flex: 1 1 40rem;
+    padding: 1rem;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .1);
+    border-radius: .5rem;
+}
+
+.book .row form .inputBox {
+    padding: .5rem 0;
+}
+
+.book .row form .inputBox input {
+    width: 100%;
+    padding: 1rem;
+    border: .1rem solid rgba(0, 0, 0, .1);
+    font-size: 1.3rem;
+    color: #333;
+    text-transform: none;
+}
+
+.book .row form .inputBox input:focus {
+    color: #000000;
+    background-color: #fff;
+    border-color: var(--blue);
+    outline: 0;
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, .25)
+}
+
+.book .row form .inputBox h3 {
+    font-size: 1.5rem;
+    padding: 1rem 0;
+    color: #666;
+}
+
+.book .row form .inputBox h3>span {
+    display: none;
+    margin-left: .1rem;
+}
+
+.book .row form .inputBox.error h3 {
+    color: rgb(255, 0, 0);
+}
+
+.book .row form .inputBox.error h3>span {
+    display: inline;
+    color: rgb(255, 0, 0);
+}
+
+.book .row form .inputBox.error input {
+    border-color: rgb(255, 0, 0);
+}
+
+.book .row form button.btn,
+.book .row form input.btn {
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+    color: #fff;
+    background-color: var(--blue);
+    border-radius: .2rem;
+    border: solid .2rem var(--blue);
+}
+
+.book .row form button.btn:hover,
+.book .row form input.btn:hover {
+    color: var(--blue);
+    background-color: var(--blue-0);
+}
+
+
+/* rooms */
+.rooms h1 {
+    height: 6.6rem;
+}
+.rooms h1 span {
+    font-family: 'Permanent Marker', cursive;
+    font-weight: 300;
+    font-size: 3rem;
+    color: rgb(50, 100, 255);
+    background-color: rgb(150, 200, 255);
+    border-radius: .5rem;
+    padding: .2rem 1rem;
+    margin-left: 1rem;
+    /* margin: .3rem .3rem; */
+}
+
+.rooms .box-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.rooms .box-container .box {
+    flex: 1 1 30rem;
+    border-radius: .5rem;
+    overflow: hidden;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .1);
+    max-width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rooms .box-container .box.noactive {
+    display: none;
+}
+
+.rooms .more-rooms i {
+    cursor: pointer;
+    font-size: 5rem;
+    color: rgba(126, 126, 126, 0.822);
+}
+
+.rooms .more-rooms i:hover {
+    color: var(--blue);
+}
+
+.rooms .more-rooms i.clicked {
+    display: none;
+}
+
+.rooms .box-container .box img {
+    height: 25rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.rooms .box-container .box .content {
+    padding: 2rem;
+}
+
+.rooms .box-container .box .content h3 {
+    font-size: 2rem;
+    color: #333;
+}
+
+
+/* .rooms .box-container .box .content h3 img {
+    position: absolute;
+} */
+
+.rooms .box-container .box .content h3 i {
+    color: var(--orange);
+}
+
+.rooms .box-container .box .content p {
+    font-size: 1.7rem;
+    height: 6rem;
+    color: #666;
+    padding: 1rem 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.rooms .box-container .box .content .stars i {
+    font-size: 1.7rem;
+    color: var(--orange);
+}
+
+.rooms .box-container .box .content .price {
+    font-size: 2rem;
+    color: #333;
+    padding-top: 1rem;
+}
+
+.rooms .box-container .box .content .price span {
+    color: #666;
+    font-size: 1.5rem;
+    text-decoration: line-through;
+}
+
+.rooms .btn {
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+    color: #fff;
+    background-color: var(--blue);
+    border-radius: .2rem;
+    border: solid .2rem var(--blue);
+}
+
+.rooms .btn:hover {
+    color: var(--blue);
+    background-color: var(--blue-0);
+}
+
+
+/* services */
+
+.services .box-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.services .box-container .box {
+    flex: 1 1 30rem;
+    border-radius: .5rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.services .box-container .box i {
+    padding: 1rem;
+    font-size: 5rem;
+    color: var(--blue);
+}
+
+.services .box-container .box h3 {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.services .box-container .box p {
+    font-size: 1.5rem;
+    color: #666;
+    padding: 1rem 0;
+}
+
+.services .box-container .box:hover {
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .1);
+}
+
+
+/* review */
+
+.review .review-slider {
+    padding-bottom: 2rem;
+}
+
+.review .box {
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .1);
+    border-radius: .5rem;
+}
+
+.review .box img {
+    height: 13rem;
+    width: 13rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.review .box h3 {
+    color: #333;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.review .box p {
+    color: #666;
+    font-size: 1.2rem;
+    padding: 1rem 0;
+}
+
+.review .box .stars i {
+    color: var(--orange);
+    font-size: 1.7rem;
+}
+
+
+/* contact */
+
+.contact .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.contact .row .image {
+    flex: 1 1 35rem;
+}
+
+.contact .row .image img {
+    width: 100%;
+}
+
+.contact .row form {
+    flex: 1 1 45rem;
+    padding: 2rem;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .1);
+    border-radius: .5rem;
+}
+
+.contact .row form .inputBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.contact .row form .inputBox input,
+.contact .row form textarea {
+    width: 49%;
+    margin: 1rem 0;
+    padding: 1rem;
+    font-size: 1.7rem;
+    color: #333;
+    background: #f7f7f7;
+    text-transform: none;
+}
+
+.contact .row form textarea {
+    height: 15rem;
+    resize: none;
+    width: 100%;
+}
+
+.contact .btn {
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+    color: #fff;
+    background-color: var(--blue);
+    border-radius: .2rem;
+    border: solid .2rem var(--blue);
+}
+
+.contact .btn:hover {
+    color: var(--blue);
+    background-color: var(--blue-0);
+}
+
+
+/* Logo */
+
+.Github,
+.FontAwesome,
+.W3Schools,
+.Swiper,
+.stackoverflow,
+.Bootstrap {
+    height: 5rem;
+    width: 5rem;
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+.Github img,
+.Swiper img,
+.FontAwesome img,
+.W3Schools img,
+.stackoverflow img,
+.Bootstrap img {
+    height: 5rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* footer */
+
+.footer {
+    background: #333;
+    left: 2rem;
+}
+
+.footer .box-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer .box-container .box {
+    padding: 1rem 0;
+    flex: 1 1 10rem;
+}
+
+.footer .box-container .box a img {
+    height: 2rem;
+}
+
+.footer .box-container .box h3 {
+    font-size: 2rem;
+    padding: .7rem 0;
+    color: #fff;
+}
+
+.footer .box-container .box p {
+    font-size: 1.25rem;
+    padding: .7rem 0;
+    color: #eee;
+}
+
+.footer .box-container .box a {
+    display: block;
+    width: 50%;
+    height: 4rem;
+    float: left;
+    font-size: 1.25rem;
+    padding: .6rem 0;
+    color: #eee;
+}
+.footer .box-container .box a+a {
+    float: right;
+}
+.footer .box-container .box a:hover {
+    color: var(--blue);
+    text-decoration: underline;
+}
+
+.footer .box-container .box a label {
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+}
+
+.footer .box-container .box a label span {
+    font-weight: bold;
+    margin-left: 1px;
+}
+
+.footer .box-container .box a:hover label {
+    color: var(--blue);
+    text-decoration: underline;
+}
+
+.footer .credit {
+    text-align: center;
+    top: 50%;
+    padding: 0.6rem 0.6rem;
+    margin-top: 1rem;
+    margin-bottom: -1.5rem;
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: #fff;
+    border-top: .1rem solid rgba(255, 255, 255, .2);
+}
+
+.footer .credit span {
+    color: var(--blue);
+}
+.table td, .table th {
+    font-size: 1.2em !important;
+}
+
+/* media queries  */
+
+@media (max-width:1430px) {
+    .book .row .image img {
+        width: 45rem;
+    }
+}
+
+@media (max-width:1330px) {
+    .book .row .image img {
+        width: 40rem;
+    }
+}
+
+@media (max-width:1230px) {
+    .book .row .image img {
+        width: 36rem;
+    }
+    html {
+        font-size: 70%;
+    }
+}
+
+@media (max-width:1100px) {
+    .book .row .image img {
+        width: 36rem;
+    }
+    html {
+        font-size: 60%;
+    }
+}
+
+@media (max-width:1100px) {
+    html {
+        font-size: 57%;
+    }
+}
+
+@media (max-width:991px) {
+    header {
+        padding: 2rem;
+    }
+    section {
+        padding: 2rem;
+
+    }
+
+}
+
+@media (max-width:850px) {
+    html {
+        font-size: 55%;
+    }
+    header .logo .logo1 {
+        display: none;
+    }
+}
+
+@media (max-width:768px) {
+
+    .book .row .image img {
+        width: 75rem;
+    }
+    #menu-bar {
+        display: initial;
+    }
+    header #nav-bar {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        background: #333;
+        border-top: .1rem solid rgba(255, 255, 255, .2);
+        padding: 1rem 2rem;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    header #nav-bar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    header #nav-bar a {
+        display: block;
+        border-radius: .5rem;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        background: #222;
+    }
+    .follow {
+        display: none;
+    }
+    .footer .box-container .box a {
+        float: none;
+        width: 100%;
+    }
+    .container .card .card-body form .form-group .form-check{
+        margin-left: 1rem;
+    }
+}
+
+@media (max-width:450px) {
+    html {
+        font-size: 50%;
+    }
+}
