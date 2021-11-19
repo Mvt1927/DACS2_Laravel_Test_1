@@ -27,7 +27,11 @@ Route::get('DACS2_Laravel_Test_1', function () {
     return view('Classic_hotel/index');
 })->name("DACS2_Laravel_Test_1");
 Route::get('DACS2_Laravel_Test_1/logout', function () {
-    return view('Classic_hotel/index');
+    return redirect()->route('DACS2_Laravel_Test_1');
+});
+Route::post('DACS2_Laravel_Test_1/logout', function () {
+    Auth::logout();
+    return redirect()->route('DACS2_Laravel_Test_1');
 });
 Route::get('DACS2_Laravel_Test_1/bookroom-reserve', function () {
     return view('Classic_hotel/view/bookroom_reserve');

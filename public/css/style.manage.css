@@ -204,7 +204,7 @@ i {
 
 .breadcrumb>.breadcrumb-item>a {
     color: var(--cui-link-color, #321fdb);
-    text-decoration: underline;
+    /* text-decoration: underline; */
 }
 
 .avatar {
@@ -280,7 +280,17 @@ i {
     flex-wrap: inherit;
     justify-content: space-between;
 }
-
+.sidebar-nav .nav-link {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    padding: 0.8445rem 1rem;
+    color: var(--cui-sidebar-nav-link-color, rgba(255, 255, 255, 0.6));
+    text-decoration: none;
+    white-space: nowrap;
+    background: var(--cui-sidebar-nav-link-bg, transparent);
+    transition: background 0.15s ease, color 0.15s ease;
+}
 .header {
     align-items: center;
     background: var(--cui-header-bg, #fff);

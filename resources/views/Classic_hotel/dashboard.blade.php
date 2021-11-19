@@ -7,7 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <?php
-        $_COOKIE['remember-token']=Auth::user()->remember_token;
+        /* $_COOKIE['remember-token']=Auth::user()->remember_token; */
+        setcookie("user-name", '', time() - 600, "/");
+        setcookie("csrf-token", '', time() - 600, "/");
+        setcookie("user-name", Auth::user()->name, time() + 600000, "/");
+        setcookie("csrf-token", csrf_token(), time() + 600000, "/");
     ?>
 
     <!-- jquery -->
@@ -19,13 +23,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('fontawesome-pro-5.15.3-web') . '/' }}css/all.css">
     <!-- <link rel="stylesheet" href="D:\react\docs\4.0\styles.e1555f6910cae527a5ef.css"> -->
+    <link rel="stylesheet" href="{{ asset('css/style.coreui.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.manage.css') }}">
 
     <title>Dashboard</title>
 </head>
 
 <body >
-    <div class="root_dashboard">
+    <div id="root_dashboard">
         <div style="outline: none;" tabindex="-1">
             <div class="sidebar sidebar-fixed" id="sidebar">
                 <div class="sidebar-brand d-none d-md-flex">
@@ -38,7 +43,7 @@
                 </div>
             </div>
             <div class="wrapper d-flex flex-column min-vh-100">
-                <div class="header header-sticky mb-4 ">
+                <div class="header header-sticky mb-4 " id='header'>
                     <div class="container-fluid">
                         <i class="fal fa-bars" onclick="event.preventDefault();document.getElementById('sidebar').classList.toggle('hide')"></i>
                         <a class="header-brand mx-auto d-md-none" to="/"></a>
@@ -60,7 +65,7 @@
                                         class="badge bg-info-gradient rounded-pill position-absolute top-0 end-0">4</span></a>
                             </li>
                         </ul>
-                        <ul class="navbar-nav ml-auto header-nav ms-3 me-4" role="navigation">
+                        <ul class="navbar-nav ml-auto header-nav ms-3 me-4" role="navigation" id="user-morechoose">
                             <!-- Authentication Links -->
                             @guest
                                 @if (Route::has('login'))
@@ -104,7 +109,6 @@
                                 </li>
                             @endguest
                         </ul>
-
                     </div>
                     <div class="header-divider"></div>
                     <div class="container-fluid">
@@ -116,8 +120,8 @@
                         </nav>
                     </div>
                 </div>
-                <div class="container" id="root_dashboard">
-                    <h3>Navbar With Dropdown</h3>
+                <div class="container" class="root_dashboard">
+                    <h3 id="hah">Navbar With Dropdown</h3>
                     <p>This example adds a dropdown menu in the navbar.</p>
                 </div>
                 <footer style="margin-top: 60vh">

@@ -11,5 +11,6 @@ class MyGlobleSetting {
         today = yyyy + '-' + mm + '-' + dd;
         this.currentTime = today;
     }
+
 }
 export default (new MyGlobleSetting);
