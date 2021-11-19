@@ -10039,13 +10039,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _coreui_icons_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @coreui/icons-react */ "./node_modules/@coreui/icons-react/dist/index.es.js");
 /* harmony import */ var _coreui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @coreui/react */ "./node_modules/@coreui/react/dist/index.es.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
 var _nav = [{
+  component: _coreui_react__WEBPACK_IMPORTED_MODULE_2__.CNavItem,
+  name: 'Dashboard',
+  to: '/',
+  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+    className: "fal fa-tachometer-alt-fast mr-2"
+  })
+}, {
   component: _coreui_react__WEBPACK_IMPORTED_MODULE_2__.CNavGroup,
   name: 'Rooms',
   to: '/rooms',
+  icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+    className: "fal fa-bed mr-2"
+  }),
   items: [{
     component: _coreui_react__WEBPACK_IMPORTED_MODULE_2__.CNavItem,
     name: 'Book',
@@ -10080,10 +10092,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../routes */ "./resources/js/components/includes/manage/routes.js");
 /* harmony import */ var _coreui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @coreui/react */ "./node_modules/@coreui/react/dist/index.es.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _views_dashboard_MyGlobleSetting__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../views/dashboard/MyGlobleSetting */ "./resources/js/components/includes/manage/views/dashboard/MyGlobleSetting.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -10098,8 +10111,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var AppBreadcrumb = function AppBreadcrumb() {
-  var currentLocation = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useLocation)().pathname;
+  var currentLocation = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useLocation)().pathname;
 
   var getRouteName = function getRouteName(pathname, routes) {
     var currentRoute = routes.find(function (route) {
@@ -10122,16 +10136,26 @@ var AppBreadcrumb = function AppBreadcrumb() {
     return breadcrumbs;
   };
 
+  var NonDashBoard = function NonDashBoard() {
+    if (location.hash != '#/') {
+      // console.log(location.hash);
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CBreadcrumbItem, {
+        href: "dashboard#",
+        children: "Dashboard"
+      });
+    } else {
+      // console.log("true");
+      return null;
+    }
+  };
+
   var breadcrumbs = getBreadcrumbs(currentLocation);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CBreadcrumb, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CBreadcrumb, {
     className: "m-0 ms-2",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CBreadcrumbItem, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CBreadcrumbItem, {
       href: "/DACS2_Laravel_Test_1",
       children: "Home"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CBreadcrumbItem, {
-      href: "dashboard#",
-      children: "Dashboard"
-    }), breadcrumbs.map(function (breadcrumb, index) {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(NonDashBoard, {}), breadcrumbs.map(function (breadcrumb, index) {
       return /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CBreadcrumbItem, _objectSpread(_objectSpread({}, breadcrumb.active ? {
         active: true
       } : {
@@ -10159,13 +10183,101 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var _coreui_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @coreui/react */ "./node_modules/@coreui/react/dist/index.es.js");
+/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../routes */ "./resources/js/components/includes/manage/routes.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+ // routes config
+
+
 
 
 
 var AppContent = function AppContent() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    children: "hahaha"
+  /*  const NonContainer = () => {
+       if (routes.alive==true) {
+           return (
+               <CContainer lg>
+                   <Suspense fallback={<CSpinner color="primary" />}>
+                       <Switch>
+                           {routes.map((route, idx) => {
+                               return (
+                                   route.component && (
+                                       <Route
+                                           key={idx}
+                                           path={route.path}
+                                           exact={route.exact}
+                                           name={route.name}
+                                           render={(props) => (
+                                               <>
+                                                   <route.component {...props} />
+                                               </>
+                                           )}
+                                       />
+                                   )
+                               )
+                           })}
+                        </Switch>
+                   </Suspense>
+               </CContainer>
+           )
+       } else {
+           return (
+               <CContainer lg>
+                   <Suspense fallback={<CSpinner color="primary" />}>
+                       <Switch>
+                           {routes.map((route, idx) => {
+                               return (
+                                   route.component && (
+                                       <Route
+                                           key={idx}
+                                           path={route.path}
+                                           exact={route.exact}
+                                           name={route.name}
+                                           render={(props) => (
+                                               <>
+                                                   <route.component {...props} />
+                                               </>
+                                           )}
+                                       />
+                                   )
+                               )
+                           })}
+                        </Switch>
+                   </Suspense>
+               </CContainer>
+           )
+       }
+   } */
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_1__.CContainer, {
+    lg: true,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
+      fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_1__.CSpinner, {
+        color: "primary"
+      }),
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Switch, {
+        children: _routes__WEBPACK_IMPORTED_MODULE_2__["default"].map(function (route, idx) {
+          return route.component && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Route, {
+            path: route.path,
+            exact: route.exact,
+            name: route.name,
+            render: function render(props) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(route.component, _objectSpread({}, props))
+              });
+            }
+          }, idx);
+        })
+      })
+    })
   });
 };
 
@@ -10825,39 +10937,79 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
-/* const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
-const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
-const Typography = React.lazy(() => import('./views/theme/typography/Typography')) */
+var Dashboard = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_includes_manage_views_dashboard_Dashboard_js").then(__webpack_require__.bind(__webpack_require__, /*! ./views/dashboard/Dashboard */ "./resources/js/components/includes/manage/views/dashboard/Dashboard.js"));
+}); // const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
+// const Typography = React.lazy(() => import('./views/theme/typography/Typography'))
 
 var routes = [{
-  path: '/'
+  path: '/',
+  name: 'Dashboard',
+  alive: true,
+  component: Dashboard
 }, {
   path: '/rooms',
-  name: 'Rooms'
-  /*  component: Dashboard  */
+  name: 'Rooms',
+  alive: false
+  /*  component: Dashboard */
 
 }, {
   path: '/rooms/book-room',
-  name: 'Book room'
-  /*  component: Dashboard  */
+  name: 'Book room',
+  alive: false
+  /*  component: Dashboard */
 
 }, {
   path: '/rooms/information-room',
-  name: 'Information room'
-  /*  component: Dashboard  */
+  name: 'Information room',
+  alive: false
+  /* component: Dashboard */
 
 }, {
   path: '/rooms/information-book-room-reserve',
-  name: 'Information reserve'
-  /*  component: Dashboard  */
+  name: 'Information reserve',
+  alive: false
+  /* component: Dashboard  */
 
 }, {
   path: '/rooms/edit-book-room-reserve',
-  name: 'Edit reserve'
-  /*  component: Dashboard  */
+  name: 'Edit reserve',
+  alive: false
+  /* component: Dashboard  */
 
 }];
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (routes);
+
+/***/ }),
+
+/***/ "./resources/js/components/includes/manage/views/dashboard/MyGlobleSetting.js":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/includes/manage/views/dashboard/MyGlobleSetting.js ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var MyGlobleSetting = function MyGlobleSetting() {
+  _classCallCheck(this, MyGlobleSetting);
+
+  this.recaptcha_sitekey = '6LepPQwcAAAAABC_YEYjyH35U6uvJJ4a_GdR9jtg';
+  this.url = 'http://localhost:8000';
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+
+  var yyyy = today.getFullYear();
+  today = yyyy + '-' + mm + '-' + dd;
+  this.currentTime = today;
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new MyGlobleSetting());
 
 /***/ }),
 
