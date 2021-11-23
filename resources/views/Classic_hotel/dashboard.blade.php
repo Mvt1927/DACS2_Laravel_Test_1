@@ -29,7 +29,7 @@
     <title>Dashboard</title>
 </head>
 
-<body >
+<body>
     <div id="root_dashboard">
     </div>
     <script src="{{ asset('js/app.js') }}"></script>

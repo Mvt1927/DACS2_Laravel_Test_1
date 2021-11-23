@@ -2,7 +2,7 @@ import React from 'react'
 import MyGlobleSetting from '../MyGlobleSetting'
 const AppFooter = () => {
     return (
-        <footer style={{marginTop: '60vh'}}>
+        <footer style={{marginTop: '3vh'}}>
             <section className="footer" id="aboutus">
                 <div className="box-container">
                     <div className="box text-center">

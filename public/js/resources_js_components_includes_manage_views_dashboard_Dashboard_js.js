@@ -19415,30 +19415,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MyGlobleSetting__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MyGlobleSetting */ "./resources/js/components/includes/manage/views/dashboard/MyGlobleSetting.js");
 /* harmony import */ var _coreui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @coreui/react */ "./node_modules/@coreui/react/dist/index.es.js");
 /* harmony import */ var _coreui_react_chartjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @coreui/react-chartjs */ "./node_modules/@coreui/react-chartjs/dist/index.es.js");
-/* harmony import */ var _coreui_utils__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @coreui/utils */ "./node_modules/@coreui/utils/dist/coreui-utils.common.js");
-/* harmony import */ var _coreui_utils__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(_coreui_utils__WEBPACK_IMPORTED_MODULE_25__);
+/* harmony import */ var _coreui_utils__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @coreui/utils */ "./node_modules/@coreui/utils/dist/coreui-utils.common.js");
+/* harmony import */ var _coreui_utils__WEBPACK_IMPORTED_MODULE_26___default = /*#__PURE__*/__webpack_require__.n(_coreui_utils__WEBPACK_IMPORTED_MODULE_26__);
 /* harmony import */ var _coreui_icons_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @coreui/icons-react */ "./node_modules/@coreui/icons-react/dist/index.es.js");
-/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/free/cil-user.js");
-/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/free/cil-user-female.js");
-/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/brand/cib-google.js");
-/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/brand/cib-facebook.js");
-/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/brand/cib-twitter.js");
-/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/brand/cib-linkedin.js");
-/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/flag/cif-us.js");
-/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/brand/cib-cc-mastercard.js");
-/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/flag/cif-br.js");
-/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/brand/cib-cc-visa.js");
-/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/flag/cif-in.js");
-/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/brand/cib-cc-stripe.js");
-/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/flag/cif-fr.js");
-/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/brand/cib-cc-paypal.js");
-/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/flag/cif-es.js");
-/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/brand/cib-cc-apple-pay.js");
-/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/flag/cif-pl.js");
-/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/brand/cib-cc-amex.js");
-/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/free/cil-cloud-download.js");
-/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/free/cil-people.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Widget__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Widget */ "./resources/js/components/includes/manage/views/dashboard/Widget.js");
+/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/free/cil-user.js");
+/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/free/cil-user-female.js");
+/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/brand/cib-google.js");
+/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/brand/cib-facebook.js");
+/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/brand/cib-twitter.js");
+/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/brand/cib-linkedin.js");
+/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/flag/cif-us.js");
+/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/brand/cib-cc-mastercard.js");
+/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/flag/cif-br.js");
+/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/brand/cib-cc-visa.js");
+/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/flag/cif-in.js");
+/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/brand/cib-cc-stripe.js");
+/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/flag/cif-fr.js");
+/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/brand/cib-cc-paypal.js");
+/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/flag/cif-es.js");
+/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/brand/cib-cc-apple-pay.js");
+/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/flag/cif-pl.js");
+/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/brand/cib-cc-amex.js");
+/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/free/cil-cloud-download.js");
+/* harmony import */ var _coreui_icons__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! @coreui/icons */ "./node_modules/@coreui/icons/js/free/cil-people.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -19512,31 +19514,31 @@ var Dashboard = function Dashboard() {
   }];
   var progressGroupExample2 = [{
     title: 'Male',
-    icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_6__.cilUser,
+    icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_7__.cilUser,
     value: 53
   }, {
     title: 'Female',
-    icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_7__.cilUserFemale,
+    icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_8__.cilUserFemale,
     value: 43
   }];
   var progressGroupExample3 = [{
     title: 'Organic Search',
-    icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_8__.cibGoogle,
+    icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_9__.cibGoogle,
     percent: 56,
     value: '191,235'
   }, {
     title: 'Facebook',
-    icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_9__.cibFacebook,
+    icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_10__.cibFacebook,
     percent: 15,
     value: '51,223'
   }, {
     title: 'Twitter',
-    icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_10__.cibTwitter,
+    icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_11__.cibTwitter,
     percent: 11,
     value: '37,564'
   }, {
     title: 'LinkedIn',
-    icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_11__.cibLinkedin,
+    icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_12__.cibLinkedin,
     percent: 8,
     value: '27,319'
   }];
@@ -19552,7 +19554,7 @@ var Dashboard = function Dashboard() {
     },
     country: {
       name: 'USA',
-      flag: _coreui_icons__WEBPACK_IMPORTED_MODULE_12__.cifUs
+      flag: _coreui_icons__WEBPACK_IMPORTED_MODULE_13__.cifUs
     },
     usage: {
       value: 50,
@@ -19561,7 +19563,7 @@ var Dashboard = function Dashboard() {
     },
     payment: {
       name: 'Mastercard',
-      icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_13__.cibCcMastercard
+      icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_14__.cibCcMastercard
     },
     activity: '10 sec ago'
   }, {
@@ -19576,7 +19578,7 @@ var Dashboard = function Dashboard() {
     },
     country: {
       name: 'Brazil',
-      flag: _coreui_icons__WEBPACK_IMPORTED_MODULE_14__.cifBr
+      flag: _coreui_icons__WEBPACK_IMPORTED_MODULE_15__.cifBr
     },
     usage: {
       value: 22,
@@ -19585,7 +19587,7 @@ var Dashboard = function Dashboard() {
     },
     payment: {
       name: 'Visa',
-      icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_15__.cibCcVisa
+      icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_16__.cibCcVisa
     },
     activity: '5 minutes ago'
   }, {
@@ -19600,7 +19602,7 @@ var Dashboard = function Dashboard() {
     },
     country: {
       name: 'India',
-      flag: _coreui_icons__WEBPACK_IMPORTED_MODULE_16__.cifIn
+      flag: _coreui_icons__WEBPACK_IMPORTED_MODULE_17__.cifIn
     },
     usage: {
       value: 74,
@@ -19609,7 +19611,7 @@ var Dashboard = function Dashboard() {
     },
     payment: {
       name: 'Stripe',
-      icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_17__.cibCcStripe
+      icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_18__.cibCcStripe
     },
     activity: '1 hour ago'
   }, {
@@ -19624,7 +19626,7 @@ var Dashboard = function Dashboard() {
     },
     country: {
       name: 'France',
-      flag: _coreui_icons__WEBPACK_IMPORTED_MODULE_18__.cifFr
+      flag: _coreui_icons__WEBPACK_IMPORTED_MODULE_19__.cifFr
     },
     usage: {
       value: 98,
@@ -19633,7 +19635,7 @@ var Dashboard = function Dashboard() {
     },
     payment: {
       name: 'PayPal',
-      icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_19__.cibCcPaypal
+      icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_20__.cibCcPaypal
     },
     activity: 'Last month'
   }, {
@@ -19648,7 +19650,7 @@ var Dashboard = function Dashboard() {
     },
     country: {
       name: 'Spain',
-      flag: _coreui_icons__WEBPACK_IMPORTED_MODULE_20__.cifEs
+      flag: _coreui_icons__WEBPACK_IMPORTED_MODULE_21__.cifEs
     },
     usage: {
       value: 22,
@@ -19657,7 +19659,7 @@ var Dashboard = function Dashboard() {
     },
     payment: {
       name: 'Google Wallet',
-      icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_21__.cibCcApplePay
+      icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_22__.cibCcApplePay
     },
     activity: 'Last week'
   }, {
@@ -19672,7 +19674,7 @@ var Dashboard = function Dashboard() {
     },
     country: {
       name: 'Poland',
-      flag: _coreui_icons__WEBPACK_IMPORTED_MODULE_22__.cifPl
+      flag: _coreui_icons__WEBPACK_IMPORTED_MODULE_23__.cifPl
     },
     usage: {
       value: 43,
@@ -19681,38 +19683,38 @@ var Dashboard = function Dashboard() {
     },
     payment: {
       name: 'Amex',
-      icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_23__.cibCcAmex
+      icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_24__.cibCcAmex
     },
     activity: 'Last week'
   }];
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCard, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Widget__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCard, {
       className: "mb-4",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCardBody, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CRow, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCol, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCardBody, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CRow, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCol, {
             sm: 5,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h4", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h4", {
               id: "traffic",
               className: "card-title mb-0",
               children: "Traffic"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
               className: "small text-medium-emphasis",
               children: "January - July 2021"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCol, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCol, {
             sm: 7,
             className: "d-none d-md-block",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CButton, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CButton, {
               color: "primary",
               className: "float-end",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_icons_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
-                icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_24__.cilCloudDownload
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_icons_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_25__.cilCloudDownload
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CButtonGroup, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CButtonGroup, {
               className: "float-end me-3",
               children: ['Day', 'Month', 'Year'].map(function (value) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CButton, {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CButton, {
                   color: "outline-secondary",
                   className: "mx-0",
                   active: value === 'Month',
@@ -19721,7 +19723,7 @@ var Dashboard = function Dashboard() {
               })
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react_chartjs__WEBPACK_IMPORTED_MODULE_3__.CChartLine, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react_chartjs__WEBPACK_IMPORTED_MODULE_3__.CChartLine, {
           style: {
             height: '300px',
             marginTop: '40px'
@@ -19730,24 +19732,24 @@ var Dashboard = function Dashboard() {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
             datasets: [{
               label: 'My First dataset',
-              backgroundColor: (0,_coreui_utils__WEBPACK_IMPORTED_MODULE_25__.hexToRgba)((0,_coreui_utils__WEBPACK_IMPORTED_MODULE_25__.getStyle)('--cui-info'), 10),
-              borderColor: (0,_coreui_utils__WEBPACK_IMPORTED_MODULE_25__.getStyle)('--cui-info'),
-              pointHoverBackgroundColor: (0,_coreui_utils__WEBPACK_IMPORTED_MODULE_25__.getStyle)('--cui-info'),
+              backgroundColor: (0,_coreui_utils__WEBPACK_IMPORTED_MODULE_26__.hexToRgba)((0,_coreui_utils__WEBPACK_IMPORTED_MODULE_26__.getStyle)('--cui-info'), 10),
+              borderColor: (0,_coreui_utils__WEBPACK_IMPORTED_MODULE_26__.getStyle)('--cui-info'),
+              pointHoverBackgroundColor: (0,_coreui_utils__WEBPACK_IMPORTED_MODULE_26__.getStyle)('--cui-info'),
               borderWidth: 2,
               data: [random(50, 200), random(50, 200), random(50, 200), random(50, 200), random(50, 200), random(50, 200), random(50, 200)],
               fill: true
             }, {
               label: 'My Second dataset',
               backgroundColor: 'transparent',
-              borderColor: (0,_coreui_utils__WEBPACK_IMPORTED_MODULE_25__.getStyle)('--cui-success'),
-              pointHoverBackgroundColor: (0,_coreui_utils__WEBPACK_IMPORTED_MODULE_25__.getStyle)('--cui-success'),
+              borderColor: (0,_coreui_utils__WEBPACK_IMPORTED_MODULE_26__.getStyle)('--cui-success'),
+              pointHoverBackgroundColor: (0,_coreui_utils__WEBPACK_IMPORTED_MODULE_26__.getStyle)('--cui-success'),
               borderWidth: 2,
               data: [random(50, 200), random(50, 200), random(50, 200), random(50, 200), random(50, 200), random(50, 200), random(50, 200)]
             }, {
               label: 'My Third dataset',
               backgroundColor: 'transparent',
-              borderColor: (0,_coreui_utils__WEBPACK_IMPORTED_MODULE_25__.getStyle)('--cui-danger'),
-              pointHoverBackgroundColor: (0,_coreui_utils__WEBPACK_IMPORTED_MODULE_25__.getStyle)('--cui-danger'),
+              borderColor: (0,_coreui_utils__WEBPACK_IMPORTED_MODULE_26__.getStyle)('--cui-danger'),
+              pointHoverBackgroundColor: (0,_coreui_utils__WEBPACK_IMPORTED_MODULE_26__.getStyle)('--cui-danger'),
               borderWidth: 1,
               borderDash: [8, 5],
               data: [65, 65, 65, 65, 65, 65, 65]
@@ -19788,8 +19790,8 @@ var Dashboard = function Dashboard() {
             }
           }
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCardFooter, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CRow, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCardFooter, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CRow, {
           xs: {
             cols: 1
           },
@@ -19798,14 +19800,14 @@ var Dashboard = function Dashboard() {
           },
           className: "text-center",
           children: progressExample.map(function (item, index) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCol, {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCol, {
               className: "mb-sm-2 mb-0",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                 className: "text-medium-emphasis",
                 children: item.title
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("strong", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("strong", {
                 children: [item.value, " (", item.percent, "%)"]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CProgress, {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CProgress, {
                 thin: true,
                 className: "mt-2",
                 color: item.color,
@@ -19815,63 +19817,63 @@ var Dashboard = function Dashboard() {
           })
         })
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CRow, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCol, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CRow, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCol, {
         xs: true,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCard, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCard, {
           className: "mb-4",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCardHeader, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCardHeader, {
             children: ["Traffic ", ' & ', " Sales"]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCardBody, {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CRow, {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCol, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCardBody, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CRow, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCol, {
                 xs: 12,
                 md: 6,
                 xl: 6,
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CRow, {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCol, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CRow, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCol, {
                     sm: 6,
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
                       className: "border-start border-start-4 border-start-info py-1 px-3",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                         className: "text-medium-emphasis small",
                         children: "New Clients"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                         className: "fs-5 fw-semibold",
                         children: "9,123"
                       })]
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCol, {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCol, {
                     sm: 6,
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
                       className: "border-start border-start-4 border-start-danger py-1 px-3 mb-3",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                         className: "text-medium-emphasis small",
                         children: "Recurring Clients"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                         className: "fs-5 fw-semibold",
                         children: "22,643"
                       })]
                     })
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("hr", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {
                   className: "mt-0"
                 }), progressGroupExample1.map(function (item, index) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
                     className: "progress-group mb-4",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                       className: "progress-group-prepend",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
                         className: "text-medium-emphasis small",
                         children: item.title
                       })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
                       className: "progress-group-bars",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CProgress, {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CProgress, {
                         thin: true,
                         color: "info",
                         value: item.value1
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CProgress, {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CProgress, {
                         thin: true,
                         color: "danger",
                         value: item.value2
@@ -19879,85 +19881,85 @@ var Dashboard = function Dashboard() {
                     })]
                   }, index);
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCol, {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCol, {
                 xs: 12,
                 md: 6,
                 xl: 6,
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CRow, {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCol, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CRow, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCol, {
                     sm: 6,
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
                       className: "border-start border-start-4 border-start-warning py-1 px-3 mb-3",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                         className: "text-medium-emphasis small",
                         children: "Pageviews"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                         className: "fs-5 fw-semibold",
                         children: "78,623"
                       })]
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCol, {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCol, {
                     sm: 6,
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
                       className: "border-start border-start-4 border-start-success py-1 px-3 mb-3",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                         className: "text-medium-emphasis small",
                         children: "Organic"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                         className: "fs-5 fw-semibold",
                         children: "49,123"
                       })]
                     })
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("hr", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {
                   className: "mt-0"
                 }), progressGroupExample2.map(function (item, index) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
                     className: "progress-group mb-4",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
                       className: "progress-group-header",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_icons_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_icons_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
                         className: "me-2",
                         icon: item.icon,
                         size: "lg"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
                         children: item.title
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
                         className: "ms-auto fw-semibold",
                         children: [item.value, "%"]
                       })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                       className: "progress-group-bars",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CProgress, {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CProgress, {
                         thin: true,
                         color: "warning",
                         value: item.value
                       })
                     })]
                   }, index);
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                   className: "mb-5"
                 }), progressGroupExample3.map(function (item, index) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
                     className: "progress-group",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
                       className: "progress-group-header",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_icons_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_icons_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
                         className: "me-2",
                         icon: item.icon,
                         size: "lg"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
                         children: item.title
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
                         className: "ms-auto fw-semibold",
-                        children: [item.value, ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
+                        children: [item.value, ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
                           className: "text-medium-emphasis small",
                           children: ["(", item.percent, "%)"]
                         })]
                       })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                       className: "progress-group-bars",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CProgress, {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CProgress, {
                         thin: true,
                         color: "success",
                         value: item.percent
@@ -19966,91 +19968,91 @@ var Dashboard = function Dashboard() {
                   }, index);
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTable, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTable, {
               align: "middle",
               className: "mb-0 border",
               hover: true,
               responsive: true,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableHead, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableHead, {
                 color: "light",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableRow, {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableHeaderCell, {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableRow, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableHeaderCell, {
                     className: "text-center",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_icons_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
-                      icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_26__.cilPeople
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_icons_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                      icon: _coreui_icons__WEBPACK_IMPORTED_MODULE_27__.cilPeople
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableHeaderCell, {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableHeaderCell, {
                     children: "User"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableHeaderCell, {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableHeaderCell, {
                     className: "text-center",
                     children: "Country"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableHeaderCell, {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableHeaderCell, {
                     children: "Usage"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableHeaderCell, {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableHeaderCell, {
                     className: "text-center",
                     children: "Payment Method"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableHeaderCell, {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableHeaderCell, {
                     children: "Activity"
                   })]
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableBody, {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableBody, {
                 children: tableExample.map(function (item, index) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableRow, {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableRow, {
                     "v-for": "item in tableItems",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableDataCell, {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableDataCell, {
                       className: "text-center",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CAvatar, {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CAvatar, {
                         size: "md",
                         src: item.avatar.src,
                         status: item.avatar.status
                       })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableDataCell, {
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableDataCell, {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                         children: item.user.name
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
                         className: "small text-medium-emphasis",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
                           children: item.user["new"] ? 'New' : 'Recurring'
                         }), " | Registered:", ' ', item.user.registered]
                       })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableDataCell, {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableDataCell, {
                       className: "text-center",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_icons_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_icons_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
                         size: "xl",
                         icon: item.country.flag,
                         title: item.country.name
                       })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableDataCell, {
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableDataCell, {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
                         className: "clearfix",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                           className: "float-start",
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("strong", {
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("strong", {
                             children: [item.usage.value, "%"]
                           })
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                           className: "float-end",
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("small", {
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("small", {
                             className: "text-medium-emphasis",
                             children: item.usage.period
                           })
                         })]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CProgress, {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CProgress, {
                         thin: true,
                         color: item.usage.color,
                         value: item.usage.value
                       })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableDataCell, {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableDataCell, {
                       className: "text-center",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_icons_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_icons_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
                         size: "xl",
                         icon: item.payment.icon
                       })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableDataCell, {
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CTableDataCell, {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                         className: "small text-medium-emphasis",
                         children: "Last login"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("strong", {
                         children: item.activity
                       })]
                     })]
@@ -20066,6 +20068,189 @@ var Dashboard = function Dashboard() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Dashboard);
+
+/***/ }),
+
+/***/ "./resources/js/components/includes/manage/views/dashboard/Widget.js":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/includes/manage/views/dashboard/Widget.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _coreui_icons_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @coreui/icons-react */ "./node_modules/@coreui/icons-react/dist/index.es.js");
+/* harmony import */ var _coreui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @coreui/react */ "./node_modules/@coreui/react/dist/index.es.js");
+/* harmony import */ var _coreui_react_chartjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @coreui/react-chartjs */ "./node_modules/@coreui/react-chartjs/dist/index.es.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _MyGlobleSetting__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./MyGlobleSetting */ "./resources/js/components/includes/manage/views/dashboard/MyGlobleSetting.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+
+
+
+
+
+
+
+var Widget = /*#__PURE__*/function (_Component) {
+  _inherits(Widget, _Component);
+
+  var _super = _createSuper(Widget);
+
+  function Widget(props) {
+    var _this;
+
+    _classCallCheck(this, Widget);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      rooms: {
+        current: '0',
+        available: '0',
+        uncleaned: '0',
+        repair: '0'
+      }
+    };
+    return _this;
+  }
+
+  _createClass(Widget, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(_MyGlobleSetting__WEBPACK_IMPORTED_MODULE_5__["default"].url + '/api/control/get/inforooms').then(function (response) {
+        _this2.setState({
+          rooms: response.data.rooms
+        }); // console.log(this.state);
+
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CRow, {
+          className: "mb-4 cursor-default",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCol, {
+            sm: 3,
+            className: "text-white ",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CWidgetStatsE, {
+              className: "",
+              color: "primary",
+              title: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                className: "text-white",
+                children: "Current"
+              }),
+              value: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
+                  children: this.state.rooms.current
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                  className: "fs-6 fw-normal",
+                  children: "Rooms"
+                })]
+              })
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCol, {
+            sm: 3,
+            className: "text-white",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CWidgetStatsE, {
+              className: "",
+              color: "info",
+              title: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                className: "text-white",
+                children: "available"
+              }),
+              value: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
+                  children: this.state.rooms.available
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                  className: "fs-6 fw-normal",
+                  children: "Rooms"
+                })]
+              })
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCol, {
+            sm: 3,
+            className: "text-white",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CWidgetStatsE, {
+              className: "",
+              color: "warning",
+              title: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                className: "text-white",
+                children: "Uncleaned"
+              }),
+              value: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
+                  children: this.state.rooms.uncleaned
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                  className: "fs-6 fw-normal",
+                  children: "Rooms"
+                })]
+              })
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CCol, {
+            sm: 3,
+            className: "text-white",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CWidgetStatsE, {
+              className: "",
+              color: "danger",
+              title: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                className: "text-white",
+                children: "repair"
+              }),
+              value: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
+                  children: this.state.rooms.repair
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                  className: "fs-6 fw-normal",
+                  children: "Rooms"
+                })]
+              })
+            })
+          })]
+        })
+      });
+    }
+  }]);
+
+  return Widget;
+}(react__WEBPACK_IMPORTED_MODULE_4__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Widget);
 
 /***/ })
 

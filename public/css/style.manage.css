@@ -192,7 +192,18 @@ i {
     height: auto;
     width: 100%;
 }
+.cursor-default :is(h1,h2,h3,h4,h5,h6,div,a,i,p,label,span){
+    cursor: default;
 
+}
+.cursor-pointer :is(h1,h2,h3,h4,h5,h6,div,a,i,p,label,span){
+    cursor: pointer;
+
+}
+.cursor-default :is(h1,h2,h3,h4,h5,h6,div,a,i,p,label,span)::selection,
+.cursor-pointer :is(h1,h2,h3,h4,h5,h6,div,a,i,p,label,span)::selection{
+    background-color: unset;
+}
 .breadcrumb {
     background-color: var(--cui-breadcrumb-bg, unset);
     display: flex;
@@ -206,7 +217,9 @@ i {
     color: var(--cui-link-color, #321fdb);
     /* text-decoration: underline; */
 }
-
+a#navbarDropdown.nav-link>label[role=button]::selection{
+    background-color: white;
+}
 .avatar {
     align-items: center;
     border-radius: 50em;

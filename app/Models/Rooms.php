@@ -23,7 +23,8 @@ class Rooms extends Model
         'star',
         'price',
         'defprice',
-        'type'
+        'type',
+        'stats'
 
     ];
     protected $primaryKey = 'id';

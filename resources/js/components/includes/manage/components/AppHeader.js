@@ -19,7 +19,7 @@ class AppHeader extends Component {
         };
         axios.post(MyGlobleSetting.url + '/DACS2_Laravel_Test_1/logout', cookie)
             .then(response => {
-                window.location.href = MyGlobleSetting.url + '/DACS2_Laravel_Test_1/logout';
+                location.href = MyGlobleSetting.url + '/DACS2_Laravel_Test_1/logout';
             })
             .catch(function (error) {
                 console.log(error);
@@ -33,7 +33,7 @@ class AppHeader extends Component {
                     <a className="header-brand mx-auto d-md-none" to="/"></a>
                     <ul className="header-nav d-none d-md-flex me-auto" role="navigation">
                         <li className="nav-item"><a aria-current="page" className="nav-link active"
-                            href="#/dashboard">Dashboard</a></li>
+                            href="dashboard#/">Dashboard</a></li>
                     </ul>
                     <ul className="header-nav" role="navigation">
                         <li className="nav-item dropdown"><a href="#" className="nav-link" aria-expanded="false"><i
@@ -58,7 +58,7 @@ class AppHeader extends Component {
                                     src={MyGlobleSetting.url + "/resources/Image/mvt1927.jpg"}
                                     className="avatar-img" />
                                 </div>
-                                <label className="ml-2" htmlFor="">{getCookie('user-name').replace('%20', ' ')}</label>
+                                <label className="ml-2" role="button" htmlFor="">{getCookie('user-name').replace('%20', ' ')}</label>
                             </a>
                             <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a className="dropdown-item">

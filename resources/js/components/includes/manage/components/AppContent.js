@@ -6,88 +6,33 @@ import { CContainer, CSpinner } from '@coreui/react'
 import routes from '../routes'
 
 const AppContent = () => {
-   /*  const NonContainer = () => {
-        if (routes.alive==true) {
-            return (
-                <CContainer lg>
-                    <Suspense fallback={<CSpinner color="primary" />}>
-                        <Switch>
-                            {routes.map((route, idx) => {
-                                return (
-                                    route.component && (
-                                        <Route
-                                            key={idx}
-                                            path={route.path}
-                                            exact={route.exact}
-                                            name={route.name}
-                                            render={(props) => (
-                                                <>
-                                                    <route.component {...props} />
-                                                </>
-                                            )}
-                                        />
-                                    )
-                                )
-                            })}
-
-                        </Switch>
-                    </Suspense>
-                </CContainer>
-            )
-        } else {
-            return (
-                <CContainer lg>
-                    <Suspense fallback={<CSpinner color="primary" />}>
-                        <Switch>
-                            {routes.map((route, idx) => {
-                                return (
-                                    route.component && (
-                                        <Route
-                                            key={idx}
-                                            path={route.path}
-                                            exact={route.exact}
-                                            name={route.name}
-                                            render={(props) => (
-                                                <>
-                                                    <route.component {...props} />
-                                                </>
-                                            )}
-                                        />
-                                    )
-                                )
-                            })}
-
-                        </Switch>
-                    </Suspense>
-                </CContainer>
-            )
-        }
-    } */
     return (
-        <CContainer lg>
-                    <Suspense fallback={<CSpinner color="primary" />}>
-                        <Switch>
-                            {routes.map((route, idx) => {
-                                return (
-                                    route.component && (
-                                        <Route
-                                            key={idx}
-                                            path={route.path}
-                                            exact={route.exact}
-                                            name={route.name}
-                                            render={(props) => (
-                                                <>
-                                                    <route.component {...props} />
-                                                </>
-                                            )}
-                                        />
-                                    )
+        <>
+            <CContainer lg>
+                <Suspense fallback={<CSpinner color="primary" />}>
+                    <Switch>
+                        {routes.map((route, idx) => {
+                            return (
+                                route.component && (
+                                    <Route
+                                        key={idx}
+                                        path={route.path}
+                                        exact={route.exact}
+                                        name={route.name}
+                                        render={(props) => (
+                                            <>
+                                                <route.component {...props} />
+                                            </>
+                                        )}
+                                    />
                                 )
-                            })}
+                            )
+                        })}
 
-                        </Switch>
-                    </Suspense>
-                </CContainer>
+                    </Switch>
+                </Suspense>
+            </CContainer>
+        </>
     )
 }
 

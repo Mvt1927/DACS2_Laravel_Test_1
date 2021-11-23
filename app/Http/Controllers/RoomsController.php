@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Rooms;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RoomsController extends Controller
 {
@@ -67,7 +68,14 @@ class RoomsController extends Controller
     {
         //
     }
-
+    public function infoRooms()
+    {
+        $Rooms['current'] = DB::table('rooms')->count();
+        $Rooms['available'] = DB::table('rooms')->where('stats', 'available')->count();
+        $Rooms['uncleaned'] = DB::table('rooms')->where('stats', 'uncleaned')->count();
+        $Rooms['repair'] = DB::table('rooms')->where('stats', 'repair')->count();
+        return response()->json(['rooms'=>$Rooms], $this->successStatus);
+    }
     /**
      * Show the form for editing the specified resource.
      *

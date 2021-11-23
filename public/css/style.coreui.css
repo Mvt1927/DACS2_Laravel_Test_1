@@ -7297,7 +7297,7 @@ html:not([dir=rtl]) .header-nav {
   padding-right: 0;
 }
 .header-nav .nav-link {
-  padding-right: 0.5rem;
+  /* padding-right: 0.5rem; */
   padding-left: 0.5rem;
   color: var(--cui-header-color, rgba(44, 56, 74, 0.681));
 }

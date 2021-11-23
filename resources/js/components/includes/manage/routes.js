@@ -1,17 +1,19 @@
 import React from 'react'
 
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
+const Bookroom = React.lazy(() => import('./views/rooms/bookroom/Bookroom.js'))
+
 // const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
 // const Typography = React.lazy(() => import('./views/theme/typography/Typography'))
 
 
 const routes = [
-  { path: '/', name:'Dashboard', alive:true, component: Dashboard },
-  { path: '/rooms', name: 'Rooms',alive:false/*  component: Dashboard */ },
-  { path: '/rooms/book-room', name: 'Book room',alive:false/*  component: Dashboard */ },
-  { path: '/rooms/information-room', name: 'Information room',alive:false /* component: Dashboard */ },
-  { path: '/rooms/information-book-room-reserve', name: 'Information reserve', alive:false/* component: Dashboard  */},
-  { path: '/rooms/edit-book-room-reserve', name: 'Edit reserve',alive:false /* component: Dashboard  */},
+  { path: '/', name:'Dashboard', component: Dashboard, exact: true},
+  { path: '/rooms', name: 'Rooms',component: Bookroom, exact: true},
+  { path: '/rooms/book-room', name: 'Book room', component: Bookroom },
+  { path: '/rooms/information-room', name: 'Information room'},
+  { path: '/rooms/information-book-room-reserve', name: 'Information reserve'},
+  { path: '/rooms/edit-book-room-reserve', name: 'Edit reserve'},
 ]
 
 export default routes
