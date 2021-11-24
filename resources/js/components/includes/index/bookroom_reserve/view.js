@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MyGlobleSetting from '../MyGlobleSetting'
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 class View extends Component {
     constructor(props) {
         super(props);

@@ -82,6 +82,11 @@ class RoomsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function optionRooms()
+    {
+        $room = DB::table('rooms')->select('id','name')->where('stats','available')->get();
+        return response()->json($room);
+    }
     public function edit($id)
     {
         //

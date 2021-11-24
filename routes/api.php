@@ -38,6 +38,7 @@ Route::prefix('/control')->group(function () {
         Route::get('/getrooms', [RoomsController::class, 'index']);
         Route::get('/bookrooms-reserve/{id}', [Bookroom_reserveController::class, 'show']);
         Route::get('/inforooms', [RoomsController::class, 'infoRooms']);
+        Route::get('/option_rooms', [RoomsController::class, 'optionRooms']);
     });
     Route::prefix('/post')->group(function () {
         Route::post('/add-rooms', [RoomsController::class, 'store']);

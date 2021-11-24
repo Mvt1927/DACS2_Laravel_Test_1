@@ -33,8 +33,8 @@ const AppFooter = () => {
                         <p>Social network : </p>
                         <a href="https://www.facebook.com/Mvt1927/"><label htmlFor=""><i
                             className="fab fa-facebook"></i> Facebook</label></a>
-                        <a href="https://github.com/viettel3g1000"><label htmlFor=""><i className="fab fa-github"></i>
-                            Github</label></a>
+                        <a href="https://github.com/viettel3g1000">
+                            <label htmlFor=""><i className="fab fa-github"></i> Github</label></a>
                     </div>
                 </div>
                 <h1 className="credit"> Created by <span> MVT1927 </span></h1>
