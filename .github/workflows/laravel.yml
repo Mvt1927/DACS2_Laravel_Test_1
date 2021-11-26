@@ -33,8 +33,6 @@ jobs:
     - name: Run dev
       run: npm run dev
     - name: Start server
-      run: php artisan serve
-    - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
