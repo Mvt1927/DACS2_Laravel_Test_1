@@ -30,8 +30,8 @@ jobs:
       run: |
         mkdir -p database
         touch database/database.sqlite
-    - name: Run watch
-      run: npm run watch
+    - name: Run dev
+      run: npm run dev
     - name: Start server
       run: php artisan serve
     - name: Execute tests (Unit and Feature tests) via PHPUnit
