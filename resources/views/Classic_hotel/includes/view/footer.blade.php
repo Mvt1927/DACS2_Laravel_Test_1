@@ -42,9 +42,9 @@
                 <h3>follow us</h3>
                 <p>social network : </p>
                 <a href="https://www.facebook.com/Mvt1927/"><label for="">facebook</label></a>
-                <a href="https://github.com/viettel3g1000"><label for="">github</label></a>
+                <a href="https://github.com/Mvt1927"><label for="">github</label></a>
             </div>
         </div>
-        <h1 class="credit"> created by <span> MVT1927 </span></h1>
+        <h1 class="credit"> created by <span> Mvt1927 </span></h1>
     </section>
 </footer>
