@@ -3182,7 +3182,7 @@ var View = /*#__PURE__*/function (_Component) {
 
       // Router laravel
       //
-      if (window.location.hash == '#/search/' + this.props.match.params.id + '/view' || window.location.hash == '#/search/' + this.props.match.params.id + '/view/') {
+      if (location.hash == '#/search/' + this.props.match.params.id + '/view' || location.hash == '#/search/' + this.props.match.params.id + '/view/') {
         this.location = true;
       }
 
@@ -3543,6 +3543,14 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 
 var initialState = {
+  bookroom_form_value: {
+    name: 'a',
+    birth: '',
+    cccd: '1',
+    phone: '1',
+    num: '1',
+    day: '1'
+  },
   sidebarShow: true
 };
 

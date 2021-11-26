@@ -21,7 +21,7 @@ class View extends Component {
     componentDidMount() {
         // Router laravel
         //
-        if (window.location.hash == '#/search/' + this.props.match.params.id + '/view'||window.location.hash == '#/search/' + this.props.match.params.id + '/view/') {
+        if (location.hash == '#/search/' + this.props.match.params.id + '/view'||location.hash == '#/search/' + this.props.match.params.id + '/view/') {
             this.location = true;
         }
         axios.get(MyGlobleSetting.url + '/api/control/get/bookrooms-reserve/' + this.props.match.params.id)

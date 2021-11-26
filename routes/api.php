@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Bookroom_reserveController;
+use App\Http\Controllers\BookroomsController;
 use App\Http\Controllers\RoomsController;
 use App\Http\Controllers\UserController;
 
@@ -43,5 +44,6 @@ Route::prefix('/control')->group(function () {
     Route::prefix('/post')->group(function () {
         Route::post('/add-rooms', [RoomsController::class, 'store']);
         Route::post('/bookrooms-reserve', [Bookroom_reserveController::class, 'store']);
+        Route::post('/bookrooms', [BookroomsController::class, 'store']);
     });
 });

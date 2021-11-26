@@ -7,8 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-use function PHPUnit\Framework\isEmpty;
-
 class Bookroom_ReserveController extends Controller
 {
     public $successStatus = 200;
@@ -59,6 +57,7 @@ class Bookroom_ReserveController extends Controller
          * return response()->json(['success' => $this->check('id','202110300541AMFB0CD9')],401);
          * */
         do {
+            sleep(2);
             $regidate = date("Y-m-d H:i:s");
             $id=date("YmdhiA") . strtoupper(substr(MD5(rand()), 0, 6));
         } while ($this->check('id', $id));

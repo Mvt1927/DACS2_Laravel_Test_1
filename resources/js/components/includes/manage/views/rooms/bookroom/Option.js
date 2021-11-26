@@ -5,7 +5,7 @@ class Option extends Component{
     }
     render(){
         return(
-            <option value={this.props.num}>{this.props.obj.id}-{this.props.obj.name}</option>
+            <option value={this.props.obj.id}>{this.props.obj.id}-{this.props.obj.name}</option>
         )
     }
 }
