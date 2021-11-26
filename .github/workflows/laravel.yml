@@ -35,3 +35,7 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
+    - name: Run watch
+      run: npm run watch
+    - name: Start server
+      run: php artisan serve
