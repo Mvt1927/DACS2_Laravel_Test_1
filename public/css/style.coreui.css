@@ -7928,7 +7928,7 @@ html:not([dir=rtl]) .sidebar-nav .nav-group-toggle::after {
   list-style: none;
 }
 html:not([dir=rtl]) .sidebar-nav .nav-group-items .nav-link {
-  padding-left: 4rem;
+  padding-left: 2rem;
 }
 *[dir=rtl] .sidebar-nav .nav-group-items .nav-link {
   padding-right: 4rem;

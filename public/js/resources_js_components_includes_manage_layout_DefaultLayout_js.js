@@ -10060,15 +10060,15 @@ var _nav = [{
   }),
   items: [{
     component: _coreui_react__WEBPACK_IMPORTED_MODULE_2__.CNavItem,
-    name: 'Book',
+    name: 'Booking',
     to: '/rooms/book-room'
   }, {
     component: _coreui_react__WEBPACK_IMPORTED_MODULE_2__.CNavItem,
-    name: 'Information',
+    name: 'Room information',
     to: '/rooms/information-room'
   }, {
     component: _coreui_react__WEBPACK_IMPORTED_MODULE_2__.CNavItem,
-    name: 'Information reserve',
+    name: 'Preset booking information',
     to: '/rooms/information-book-room-reserve'
   }, {
     component: _coreui_react__WEBPACK_IMPORTED_MODULE_2__.CNavItem,
@@ -10266,7 +10266,7 @@ var AppFooter = function AppFooter() {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
             children: "Support"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-            children: "Thank for : "
+            children: "Thank"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
             href: "https://github.com/",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {

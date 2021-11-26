@@ -334,19 +334,20 @@ var Bookroom = /*#__PURE__*/function (_Component) {
                   xs: 12,
                   lg: 5,
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                    className: "h-100",
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CRow, {
                       className: "border border-dark",
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
                         className: "mb-3 mt-3",
                         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormLabel, {
                           htmlFor: "Find_code_FormControlInput1",
-                          children: "Bookroom reserve code or number phone"
+                          children: "Reservation code or phone number"
                         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CInputGroup, {
                           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormInput, {
                             type: "text",
                             id: "Find_code_FormControlInput",
                             name: "Find_code_FormControlInput",
-                            placeholder: "Bookroom reserve code or number phone",
+                            placeholder: "Reservation code or phone number",
                             onChange: function onChange(event) {
                               return _this3.isChange(event);
                             }
@@ -373,7 +374,28 @@ var Bookroom = /*#__PURE__*/function (_Component) {
                       })
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CRow, {
                       className: "mt-4 border border-dark",
-                      children: "table"
+                      style: {
+                        minHeight: "maxConten"
+                      },
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTable, {
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableHead, {
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableRow, {
+                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableHeaderCell, {
+                              scope: "col",
+                              children: "Reservation code"
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableHeaderCell, {
+                              scope: "col",
+                              children: "Name"
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableHeaderCell, {
+                              scope: "col",
+                              children: "Phone"
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableHeaderCell, {
+                              scope: "col",
+                              children: "Registration Date"
+                            })]
+                          })
+                        })
+                      })
                     })]
                   })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
@@ -396,7 +418,7 @@ var Bookroom = /*#__PURE__*/function (_Component) {
                       className: "mb-3 mt-3",
                       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormLabel, {
                         htmlFor: "Book_Room_Form_Input_Name",
-                        children: "First and last name"
+                        children: "Full name"
                       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormInput, {
                         type: "text",
                         name: "Book_Room_Form_Input_Name",

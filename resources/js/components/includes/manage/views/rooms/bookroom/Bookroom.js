@@ -1,4 +1,4 @@
-import { CButton, CCard, CCardBody, CCol, CContainer, CForm, CFormInput, CFormLabel, CFormSelect, CFormTextarea, CInputGroup, CRow } from "@coreui/react";
+import { CButton, CCard, CCardBody, CCol, CContainer, CForm, CFormInput, CFormLabel, CFormSelect, CFormTextarea, CInputGroup, CRow, CTable, CTableHead, CTableHeaderCell, CTableRow } from "@coreui/react";
 import axios from "axios";
 import React, { Component } from "react";
 import Option from "./Option";
@@ -173,12 +173,12 @@ class Bookroom extends Component {
                         <CContainer>
                             <CRow className="border border-dark p-4">
                                 <CCol xs={12} lg={5}>
-                                    <div>
+                                    <div className="h-100">
                                         <CRow className="border border-dark">
                                             <CCol className="mb-3 mt-3">
-                                                <CFormLabel htmlFor="Find_code_FormControlInput1">Bookroom reserve code or number phone</CFormLabel>
+                                                <CFormLabel htmlFor="Find_code_FormControlInput1">Reservation code or phone number</CFormLabel>
                                                 <CInputGroup>
-                                                    <CFormInput type="text" id="Find_code_FormControlInput" name="Find_code_FormControlInput" placeholder="Bookroom reserve code or number phone" onChange={(event) => this.isChange(event)} />
+                                                    <CFormInput type="text" id="Find_code_FormControlInput" name="Find_code_FormControlInput" placeholder="Reservation code or phone number" onChange={(event) => this.isChange(event)} />
                                                     <CButton type="submit" className="float-right" onClick={(event) => this.find(event)} disabled={this.state.loading_find}>
                                                         {this.state.loading_find && <><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></>}
                                                         {!this.state.loading_find && <><i className="far fa-search"></i></>}
@@ -186,8 +186,17 @@ class Bookroom extends Component {
                                                 </CInputGroup>
                                             </CCol>
                                         </CRow>
-                                        <CRow className='mt-4 border border-dark'>
-                                            table
+                                        <CRow className='mt-4 border border-dark' style={{minHeight:"maxConten"}}>
+                                            <CTable>
+                                                <CTableHead>
+                                                    <CTableRow>
+                                                        <CTableHeaderCell scope='col'>Reservation code</CTableHeaderCell>
+                                                        <CTableHeaderCell scope='col'>Name</CTableHeaderCell>
+                                                        <CTableHeaderCell scope='col'>Phone</CTableHeaderCell>
+                                                        <CTableHeaderCell scope='col'>Registration Date</CTableHeaderCell>
+                                                    </CTableRow>
+                                                </CTableHead>
+                                            </CTable>
                                         </CRow>
                                     </div>
                                 </CCol>
@@ -195,7 +204,7 @@ class Bookroom extends Component {
                                 <CCol xs={12} lg={6} className="border border-dark">
                                     <CRow xs={{ cols: 1 }}>
                                         <CCol xs={12} id="Book_Room_Form_Container_Name" className="mb-3 mt-3">
-                                            <CFormLabel htmlFor="Book_Room_Form_Input_Name">First and last name</CFormLabel>
+                                            <CFormLabel htmlFor="Book_Room_Form_Input_Name">Full name</CFormLabel>
                                             <CFormInput type="text" name="Book_Room_Form_Input_Name" onChange={this.isChange} defaultValue={this.state.Book_Room_Form_Input_Name} placeholder="Nguyen Van A" />
                                         </CCol>
                                         <CCol xs={12} id="Book_Room_Form_Container_Date_Of_Birth" className="mb-3 mt-2">

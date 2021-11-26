@@ -7,7 +7,7 @@ const AppFooter = () => {
                 <div className="box-container">
                     <div className="box text-center">
                         <h3>Support</h3>
-                        <p>Thank for : </p>
+                        <p>Thank</p>
                         <a href="https://github.com/"><i className="fab fa-github"></i><label
                             htmlFor="Github">Github</label></a>
                         <a href="https://fontawesome.com/"><i className="fab fa-font-awesome"></i><label

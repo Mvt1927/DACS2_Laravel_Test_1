@@ -17,17 +17,17 @@ const _nav = [
         items: [
             {
                 component: CNavItem,
-                name: 'Book',
+                name: 'Booking',
                 to: '/rooms/book-room',
             },
             {
                 component: CNavItem,
-                name: 'Information',
+                name: 'Room information',
                 to: '/rooms/information-room',
             },
             {
                 component: CNavItem,
-                name: 'Information reserve',
+                name: 'Preset booking information',
                 to: '/rooms/information-book-room-reserve',
             },
             {
