@@ -680,3 +680,39 @@ a#navbarDropdown.nav-link>label[role=button]::selection{
         width: 100%;
     }
 }
+table, th,td{
+    border: 1px solid rgb(63, 63, 63) !important;
+}
+@media (min-width:576px) {
+    .minH-md-25{
+        min-height: 25vh;
+    }
+    .minH-md-50{
+        min-height: 50vh;
+    }
+    .minH-md-75{
+        min-height: 75vh;
+    }
+    .minH-md-100{
+        min-height: 100vh;
+    }
+    .maxH-md-25{
+        max-height: 25vh;
+    }
+    .maxH-md-50{
+        max-height: 50vh;
+    }
+    .maxH-md-75{
+        max-height: 75vh;
+    }
+    .maxH-md-100{
+        max-height: 100vh;
+    }
+}
+
+@media (max-width:1186px) {
+    html{
+        font-size: 90%;
+    }
+}
+

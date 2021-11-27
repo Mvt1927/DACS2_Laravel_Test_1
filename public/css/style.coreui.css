@@ -663,6 +663,16 @@ html:not([dir=rtl]) .list-inline-item:not(:last-child) {
     max-width: 960px;
   }
 }
+@media (min-width: 1050px) {
+    .container-lg, .container-md, .container-sm, .container {
+      font-size: 92%;
+    }
+}
+@media (min-width: 1150px) {
+    .container-lg, .container-md, .container-sm, .container {
+      font-size: 95%;
+    }
+}
 @media (min-width: 1200px) {
   .container-xl, .container-lg, .container-md, .container-sm, .container {
     max-width: 1140px;
@@ -14042,3 +14052,4 @@ html:not([dir=rtl]) .wrapper {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
+

@@ -16,9 +16,9 @@ export function getCookie(cname) {
     }
     return "";
 }
-export function logout() {
+/* export function logout() {
     if (document.getElementById('logout-form')!=null) {
         event.preventDefault();
         document.getElementById('logout-form').submit();
     }
-}
+} */

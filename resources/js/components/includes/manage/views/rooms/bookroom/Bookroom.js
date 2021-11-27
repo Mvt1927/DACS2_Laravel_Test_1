@@ -1,4 +1,4 @@
-import { CButton, CCard, CCardBody, CCol, CContainer, CForm, CFormInput, CFormLabel, CFormSelect, CFormTextarea, CInputGroup, CRow, CTable, CTableHead, CTableHeaderCell, CTableRow } from "@coreui/react";
+import { CButton, CCard, CCardBody, CCol, CContainer, CForm, CFormInput, CFormLabel, CFormSelect, CFormTextarea, CInputGroup, CRow, CTable, CTableBody, CTableDataCell, CTableHead, CTableHeaderCell, CTableRow } from "@coreui/react";
 import axios from "axios";
 import React, { Component } from "react";
 import Option from "./Option";
@@ -19,7 +19,8 @@ class Bookroom extends Component {
             Book_Room_Form_Input_Number_Of_People: '1',
             Book_Room_Form_Input_Number_Of_Days_Stay: '1',
             Book_Room_Form_Input_Room_Code: '',
-            Find_code_FormControlInput: ''
+            Find_code_FormControlInput: '',
+            data: [],
         }
         if (localStorage.Book_Room_Form_Input_Name!=null) {
             this.state.Book_Room_Form_Input_Name = localStorage.Book_Room_Form_Input_Name;
@@ -171,8 +172,8 @@ class Bookroom extends Component {
                 <CCard className='mb-1'>
                     <CCardBody>
                         <CContainer>
-                            <CRow className="border border-dark p-4">
-                                <CCol xs={12} lg={5}>
+                            <CRow className="border border-dark p-4 ">
+                                <CCol xs={12} lg={6}>
                                     <div className="h-100">
                                         <CRow className="border border-dark">
                                             <CCol className="mb-3 mt-3">
@@ -186,22 +187,36 @@ class Bookroom extends Component {
                                                 </CInputGroup>
                                             </CCol>
                                         </CRow>
-                                        <CRow className='mt-4 border border-dark' style={{minHeight:"maxConten"}}>
-                                            <CTable>
-                                                <CTableHead>
-                                                    <CTableRow>
-                                                        <CTableHeaderCell scope='col'>Reservation code</CTableHeaderCell>
-                                                        <CTableHeaderCell scope='col'>Name</CTableHeaderCell>
-                                                        <CTableHeaderCell scope='col'>Phone</CTableHeaderCell>
-                                                        <CTableHeaderCell scope='col'>Registration Date</CTableHeaderCell>
+                                        <CRow className='mt-4 border border-dark p-2'>
+                                            <CTable hover bordered small className=''>
+                                                <CTableHead className="thead-light">
+                                                    <CTableRow >
+                                                        <CTableHeaderCell scope='col' className="col-4">Reservation code</CTableHeaderCell>
+                                                        <CTableHeaderCell scope='col' className='col-3'>Name</CTableHeaderCell>
+                                                        <CTableHeaderCell scope='col' className="col-2">Phone</CTableHeaderCell>
+                                                        <CTableHeaderCell scope='col' className="col-3">Registration Date</CTableHeaderCell>
                                                     </CTableRow>
                                                 </CTableHead>
+                                                <CTableBody>
+                                                    <CTableRow>
+                                                        <CTableDataCell>202110300541AMFB0CD9</CTableDataCell>
+                                                        <CTableDataCell>Tran minh vu</CTableDataCell>
+                                                        <CTableDataCell>0123456789</CTableDataCell>
+                                                        <CTableDataCell className="codeLine">2021-10-30 08:11:00</CTableDataCell>
+                                                    </CTableRow>
+                                                    <CTableRow>
+                                                        <CTableDataCell>202110300541AMFB0CD9</CTableDataCell>
+                                                        <CTableDataCell>Tran minh vu</CTableDataCell>
+                                                        <CTableDataCell>0123456789</CTableDataCell>
+                                                        <CTableDataCell className="codeLine">2021-10-30 08:11:00</CTableDataCell>
+                                                    </CTableRow>
+                                                </CTableBody>
                                             </CTable>
                                         </CRow>
                                     </div>
                                 </CCol>
-                                <CCol xs={12} lg={1} style={{ minHeight: '1rem' }} />
-                                <CCol xs={12} lg={6} className="border border-dark">
+                                <CCol xs={12} lg={1} style={{ minHeight: '1rem'}} />
+                                <CCol xs={12} lg={5} className="border border-dark">
                                     <CRow xs={{ cols: 1 }}>
                                         <CCol xs={12} id="Book_Room_Form_Container_Name" className="mb-3 mt-3">
                                             <CFormLabel htmlFor="Book_Room_Form_Input_Name">Full name</CFormLabel>

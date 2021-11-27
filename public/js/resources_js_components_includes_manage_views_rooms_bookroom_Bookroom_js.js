@@ -259,7 +259,8 @@ var Bookroom = /*#__PURE__*/function (_Component) {
       Book_Room_Form_Input_Number_Of_People: '1',
       Book_Room_Form_Input_Number_Of_Days_Stay: '1',
       Book_Room_Form_Input_Room_Code: '',
-      Find_code_FormControlInput: ''
+      Find_code_FormControlInput: '',
+      data: []
     };
 
     if (localStorage.Book_Room_Form_Input_Name != null) {
@@ -329,10 +330,10 @@ var Bookroom = /*#__PURE__*/function (_Component) {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCardBody, {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CContainer, {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CRow, {
-                className: "border border-dark p-4",
+                className: "border border-dark p-4 ",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
                   xs: 12,
-                  lg: 5,
+                  lg: 6,
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                     className: "h-100",
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CRow, {
@@ -373,28 +374,58 @@ var Bookroom = /*#__PURE__*/function (_Component) {
                         })]
                       })
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CRow, {
-                      className: "mt-4 border border-dark",
-                      style: {
-                        minHeight: "maxConten"
-                      },
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTable, {
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableHead, {
+                      className: "mt-4 border border-dark p-2",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTable, {
+                        hover: true,
+                        bordered: true,
+                        small: true,
+                        className: "",
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableHead, {
+                          className: "thead-light",
                           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableRow, {
                             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableHeaderCell, {
                               scope: "col",
+                              className: "col-4",
                               children: "Reservation code"
                             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableHeaderCell, {
                               scope: "col",
+                              className: "col-3",
                               children: "Name"
                             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableHeaderCell, {
                               scope: "col",
+                              className: "col-2",
                               children: "Phone"
                             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableHeaderCell, {
                               scope: "col",
+                              className: "col-3",
                               children: "Registration Date"
                             })]
                           })
-                        })
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableBody, {
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableRow, {
+                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableDataCell, {
+                              children: "202110300541AMFB0CD9"
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableDataCell, {
+                              children: "Tran minh vu"
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableDataCell, {
+                              children: "0123456789"
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableDataCell, {
+                              className: "codeLine",
+                              children: "2021-10-30 08:11:00"
+                            })]
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableRow, {
+                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableDataCell, {
+                              children: "202110300541AMFB0CD9"
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableDataCell, {
+                              children: "Tran minh vu"
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableDataCell, {
+                              children: "0123456789"
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableDataCell, {
+                              className: "codeLine",
+                              children: "2021-10-30 08:11:00"
+                            })]
+                          })]
+                        })]
                       })
                     })]
                   })
@@ -406,7 +437,7 @@ var Bookroom = /*#__PURE__*/function (_Component) {
                   }
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
                   xs: 12,
-                  lg: 6,
+                  lg: 5,
                   className: "border border-dark",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CRow, {
                     xs: {

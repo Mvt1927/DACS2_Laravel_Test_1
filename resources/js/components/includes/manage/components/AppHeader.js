@@ -8,16 +8,46 @@ import {
     CHeaderDivider,
 } from '@coreui/react'
 import AppBreadcrumb from './AppBreadcrumb'
+/* window.axios = require('axios');
+
+window.axios.defaults.headers.common = {
+  'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+  'X-Requested-With': 'XMLHttpRequest'
+};
+window.axios.interceptors.response.use(
+    response => response.data,
+    error => {
+        if (error.response && 419 === error.response.status) {
+            window.location.reload()
+        }
+
+        return Promise.reject(error)
+    }
+) */
 class AppHeader extends Component {
     constructor(props) {
         super(props);
+        if (document.querySelector('meta[name="csrf-token"]')==null) {
+            location.href = MyGlobleSetting.url + '/DACS2_Laravel_Test_1/login';
+        }
+
     };
     logout = (event) => {
         event.preventDefault();
         var cookie = {
-            _token: getCookie('csrf-token')
+            _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
         };
-        axios.post(MyGlobleSetting.url + '/DACS2_Laravel_Test_1/logout', cookie)
+        // console.log(cookie);
+       /*  axios.post(MyGlobleSetting.url + '/DACS2_Laravel_Test_1/logout', cookie)
+            .then(response => {
+                location.href = MyGlobleSetting.url + '/DACS2_Laravel_Test_1/logout';
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+            lỗi 419
+            */
+        axios.get(MyGlobleSetting.url + '/DACS2_Laravel_Test_1/logout', cookie)
             .then(response => {
                 location.href = MyGlobleSetting.url + '/DACS2_Laravel_Test_1/logout';
             })

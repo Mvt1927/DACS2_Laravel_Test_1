@@ -10449,6 +10449,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+/* window.axios = require('axios');
+
+window.axios.defaults.headers.common = {
+  'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+  'X-Requested-With': 'XMLHttpRequest'
+};
+window.axios.interceptors.response.use(
+    response => response.data,
+    error => {
+        if (error.response && 419 === error.response.status) {
+            window.location.reload()
+        }
+
+        return Promise.reject(error)
+    }
+) */
+
 
 
 
@@ -10467,14 +10484,29 @@ var AppHeader = /*#__PURE__*/function (_Component) {
     _defineProperty(_assertThisInitialized(_this), "logout", function (event) {
       event.preventDefault();
       var cookie = {
-        _token: (0,_cookie__WEBPACK_IMPORTED_MODULE_2__.getCookie)('csrf-token')
-      };
-      axios__WEBPACK_IMPORTED_MODULE_1___default().post(_MyGlobleSetting__WEBPACK_IMPORTED_MODULE_3__["default"].url + '/DACS2_Laravel_Test_1/logout', cookie).then(function (response) {
+        _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+      }; // console.log(cookie);
+
+      /*  axios.post(MyGlobleSetting.url + '/DACS2_Laravel_Test_1/logout', cookie)
+           .then(response => {
+               location.href = MyGlobleSetting.url + '/DACS2_Laravel_Test_1/logout';
+           })
+           .catch(function (error) {
+               console.log(error);
+           })
+           lỗi 419
+           */
+
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(_MyGlobleSetting__WEBPACK_IMPORTED_MODULE_3__["default"].url + '/DACS2_Laravel_Test_1/logout', cookie).then(function (response) {
         location.href = _MyGlobleSetting__WEBPACK_IMPORTED_MODULE_3__["default"].url + '/DACS2_Laravel_Test_1/logout';
       })["catch"](function (error) {
         console.log(error);
       });
     });
+
+    if (document.querySelector('meta[name="csrf-token"]') == null) {
+      location.href = _MyGlobleSetting__WEBPACK_IMPORTED_MODULE_3__["default"].url + '/DACS2_Laravel_Test_1/login';
+    }
 
     return _this;
   }
@@ -10796,8 +10828,7 @@ AppSidebarNav.propTypes = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "setCookie": () => (/* binding */ setCookie),
-/* harmony export */   "getCookie": () => (/* binding */ getCookie),
-/* harmony export */   "logout": () => (/* binding */ logout)
+/* harmony export */   "getCookie": () => (/* binding */ getCookie)
 /* harmony export */ });
 function setCookie(cname, cvalue, exdays) {
   var d = new Date();
@@ -10822,12 +10853,12 @@ function getCookie(cname) {
 
   return "";
 }
-function logout() {
-  if (document.getElementById('logout-form') != null) {
-    event.preventDefault();
-    document.getElementById('logout-form').submit();
-  }
-}
+/* export function logout() {
+    if (document.getElementById('logout-form')!=null) {
+        event.preventDefault();
+        document.getElementById('logout-form').submit();
+    }
+} */
 
 /***/ }),
 
