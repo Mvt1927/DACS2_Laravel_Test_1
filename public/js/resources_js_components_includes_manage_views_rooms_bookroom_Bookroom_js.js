@@ -47,10 +47,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _Option__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Option */ "./resources/js/components/includes/manage/views/rooms/bookroom/Option.js");
 /* harmony import */ var _MyGlobleSetting__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../MyGlobleSetting */ "./resources/js/components/includes/manage/views/rooms/MyGlobleSetting.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -84,8 +81,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-
-
 var Bookroom = /*#__PURE__*/function (_Component) {
   _inherits(Bookroom, _Component);
 
@@ -98,18 +93,86 @@ var Bookroom = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
 
+    _defineProperty(_assertThisInitialized(_this), "inputValueSelect", function (event, id) {});
+
+    _defineProperty(_assertThisInitialized(_this), "btnfind", function (event) {
+      event.preventDefault();
+
+      _this.setState({
+        loading_find: true,
+        currentPage: '1'
+      });
+
+      var searchString = _this.state.Find_code_FormControlInput; // console.log(searchString + ':' + searchString.length);
+
+      var data = _this.state.bookroom_reserveData.at(0);
+
+      if (data != null) {
+        var filteredData = data.filter(function (element) {
+          return element.id.toLowerCase().includes(searchString.toLowerCase()) || element.phone.toLowerCase().includes(searchString.toLowerCase()) || element.name.toLowerCase().includes(searchString.toLowerCase());
+        });
+        var n = 16; //items per line
+
+        var pageNumbers = Math.ceil(filteredData.length / n);
+        var splitData = new Array(Math.ceil(filteredData.length / n)).fill().map(function (_) {
+          return filteredData.splice(0, n);
+        });
+
+        if (splitData.at(0) == null) {
+          _this.setState({
+            loading_find: false,
+            pageNumbers: '1',
+            splitData: [[]]
+          });
+        } else {
+          _this.setState({
+            loading_find: false,
+            pageNumbers: pageNumbers,
+            splitData: splitData
+          });
+        }
+      }
+    });
+
     _defineProperty(_assertThisInitialized(_this), "find", function (event) {
       event.preventDefault();
 
       _this.setState({
-        loading_find: true
+        Find_code_FormControlInput: event.target.value,
+        loading_find: true,
+        currentPage: '1'
       });
 
-      setTimeout(function () {
-        _this.setState({
-          loading_find: false
+      localStorage[event.target.name] = event.target.value;
+      var searchString = event.target.value;
+
+      var data = _this.state.bookroom_reserveData.at(0);
+
+      if (data != null) {
+        var filteredData = data.filter(function (element) {
+          return element.id.toLowerCase().includes(searchString.toLowerCase()) || element.phone.toLowerCase().includes(searchString.toLowerCase()) || element.name.toLowerCase().includes(searchString.toLowerCase());
         });
-      }, 2000);
+        var n = 16; //items per line
+
+        var pageNumbers = Math.ceil(filteredData.length / n);
+        var splitData = new Array(Math.ceil(filteredData.length / n)).fill().map(function (_) {
+          return filteredData.splice(0, n);
+        });
+
+        if (splitData.at(0) == null) {
+          _this.setState({
+            loading_find: false,
+            pageNumbers: '1',
+            splitData: [[]]
+          });
+        } else {
+          _this.setState({
+            loading_find: false,
+            pageNumbers: pageNumbers,
+            splitData: splitData
+          });
+        }
+      }
     });
 
     _defineProperty(_assertThisInitialized(_this), "save", function (event) {
@@ -245,7 +308,47 @@ var Bookroom = /*#__PURE__*/function (_Component) {
       localStorage[event.target.name] = event.target.value; // console.log(event.target.name+" : "+event.target.value);
 
       event.target.offsetParent.firstChild.classList.remove('text-danger');
-      event.target.offsetParent.lastChild.classList.remove('border-danger');
+      event.target.offsetParent.lastChild.classList.remove('border-danger'); // console.log(this.state);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "pageNextOnClick", function (event) {
+      event.preventDefault();
+
+      if (_this.state.currentPage < _this.state.pageNumbers) {
+        _this.setState({
+          currentPage: _this.state.currentPage - 0 + 1
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "pageLastOnClick", function (event) {
+      event.preventDefault();
+
+      if (_this.state.currentPage < _this.state.pageNumbers) {
+        _this.setState({
+          currentPage: _this.state.pageNumbers
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "pagePreOnClick", function (event) {
+      event.preventDefault();
+
+      if (_this.state.currentPage > 1) {
+        _this.setState({
+          currentPage: _this.state.currentPage - 1
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "pageFistOnClick", function (event) {
+      event.preventDefault();
+
+      if (_this.state.currentPage > 1) {
+        _this.setState({
+          currentPage: 1
+        });
+      }
     });
 
     _this.state = {
@@ -258,9 +361,12 @@ var Bookroom = /*#__PURE__*/function (_Component) {
       Book_Room_Form_Input_Phone: '',
       Book_Room_Form_Input_Number_Of_People: '1',
       Book_Room_Form_Input_Number_Of_Days_Stay: '1',
-      Book_Room_Form_Input_Room_Code: '',
+      Book_Room_Form_Input_Room_Code: '0',
       Find_code_FormControlInput: '',
-      data: []
+      splitData: [[]],
+      bookroom_reserveData: [[]],
+      pageNumbers: '1',
+      currentPage: '1'
     };
 
     if (localStorage.Book_Room_Form_Input_Name != null) {
@@ -285,24 +391,80 @@ var Bookroom = /*#__PURE__*/function (_Component) {
 
     if (localStorage.Book_Room_Form_Input_Number_Of_Days_Stay != null) {
       _this.state.Book_Room_Form_Input_Number_Of_Days_Stay = localStorage.Book_Room_Form_Input_Number_Of_Days_Stay;
-    } // console.log(localStorage);
-
+    }
 
     return _this;
   }
 
   _createClass(Bookroom, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
+    key: "getbookroom",
+    value: function getbookroom() {
       var _this2 = this;
 
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(_MyGlobleSetting__WEBPACK_IMPORTED_MODULE_4__["default"].url + '/api/control/get/bookroom-reserve').then(function (response) {
+        var n = 16; //items per page
+
+        var data = response.data.Bookroom_reserve;
+
+        if (data.length != 0) {
+          var pageNumbers = Math.ceil(data.length / n);
+          var splitData = new Array(pageNumbers).fill().map(function (_) {
+            return data.splice(0, n);
+          });
+
+          _this2.setState({
+            pageNumbers: pageNumbers,
+            splitData: splitData
+          });
+        } else {
+          _this2.setState({
+            pageNumbers: '1',
+            splitData: [[]]
+          });
+        }
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  }, {
+    key: "getbookroom_reserveData",
+    value: function getbookroom_reserveData() {
+      var _this3 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(_MyGlobleSetting__WEBPACK_IMPORTED_MODULE_4__["default"].url + '/api/control/get/bookroom-reserve').then(function (response) {
+        var data = response.data.Bookroom_reserve;
+        var pageNumbers = Math.ceil(1);
+        var splitData = new Array(pageNumbers).fill().map(function (_) {
+          return data.splice(0, data.length);
+        });
+
+        _this3.setState({
+          bookroom_reserveData: splitData
+        }); // console.log(this.state.bookroom_reserveData);
+
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  }, {
+    key: "getoptionroom",
+    value: function getoptionroom() {
+      var _this4 = this;
+
       axios__WEBPACK_IMPORTED_MODULE_1___default().get(_MyGlobleSetting__WEBPACK_IMPORTED_MODULE_4__["default"].url + '/api/control/get/option_rooms').then(function (response) {
-        _this2.setState({
+        _this4.setState({
           options: response.data
         });
       })["catch"](function (error) {
         console.log(error);
       });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.getbookroom();
+      this.getbookroom_reserveData();
+      this.getoptionroom();
     }
   }, {
     key: "option",
@@ -312,7 +474,7 @@ var Bookroom = /*#__PURE__*/function (_Component) {
       if (this.state.options instanceof Array) {
         return this.state.options.map(function (object, i) {
           num++;
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Option__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Option__WEBPACK_IMPORTED_MODULE_3__["default"], {
             obj: object,
             num: num
           }, i);
@@ -320,165 +482,266 @@ var Bookroom = /*#__PURE__*/function (_Component) {
       }
     }
   }, {
+    key: "pageNext",
+    value: function pageNext() {
+      if (this.state.currentPage < this.state.pageNumbers) {
+        return "cursor-pointer";
+      } else return "disabled";
+    }
+  }, {
+    key: "pageLast",
+    value: function pageLast() {
+      if (this.state.currentPage < this.state.pageNumbers) {
+        return "cursor-pointer";
+      } else return "disabled";
+    }
+  }, {
+    key: "pagePre",
+    value: function pagePre() {
+      if (this.state.currentPage > 1) {
+        return "cursor-pointer";
+      } else return "disabled";
+    }
+  }, {
+    key: "pageFist",
+    value: function pageFist() {
+      if (this.state.currentPage > 1) {
+        return "cursor-pointer";
+      } else return "disabled";
+    }
+  }, {
+    key: "table",
+    value: function table() {
+      if (this.state.splitData.at(this.state.currentPage - 1).length != 0) {
+        // console.log(this.state.splitData.at(this.state.currentPage - 1));
+        return this.state.splitData.at(this.state.currentPage - 1).map(function (i) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableRow, {
+            id: i.id,
+            onClick: function onClick(event) {
+              return console.log(event);
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableDataCell, {
+              children: i.id
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableDataCell, {
+              children: i.name
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableDataCell, {
+              children: i.phone
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableDataCell, {
+              children: i.regidate
+            })]
+          }, i.id);
+        });
+      } else {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableRow, {
+          disabled: true,
+          className: "font-italic text-center",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableDataCell, {
+            children: "null"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableDataCell, {
+            children: "null"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableDataCell, {
+            children: "null"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableDataCell, {
+            children: "null"
+          })]
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this5 = this;
 
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCard, {
+      var index = 0;
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCard, {
           className: "mb-1",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCardBody, {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CContainer, {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CRow, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCardBody, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CContainer, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CRow, {
                 className: "border border-dark p-4 ",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
                   xs: 12,
                   lg: 6,
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                     className: "h-100",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CRow, {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CRow, {
                       className: "border border-dark",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
                         className: "mb-3 mt-3",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormLabel, {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormLabel, {
                           htmlFor: "Find_code_FormControlInput1",
                           children: "Reservation code or phone number"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CInputGroup, {
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormInput, {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CInputGroup, {
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormInput, {
                             type: "text",
                             id: "Find_code_FormControlInput",
                             name: "Find_code_FormControlInput",
                             placeholder: "Reservation code or phone number",
+                            defaultValue: this.state.Find_code_FormControlInput,
                             onChange: function onChange(event) {
-                              return _this3.isChange(event);
+                              return _this5.find(event);
                             }
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CButton, {
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CButton, {
                             type: "submit",
-                            className: "float-right",
-                            onClick: function onClick(event) {
-                              return _this3.find(event);
-                            },
+                            className: "float-right"
+                            /* onClick={(event) => this.btnfind(event)} */
+                            ,
                             disabled: this.state.loading_find,
-                            children: [this.state.loading_find && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+                            children: [this.state.loading_find && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                                 className: "spinner-border spinner-border-sm",
                                 role: "status",
                                 "aria-hidden": "true"
                               })
-                            }), !this.state.loading_find && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("i", {
+                            }), !this.state.loading_find && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
                                 className: "far fa-search"
                               })
                             })]
                           })]
                         })]
                       })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CRow, {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CRow, {
                       className: "mt-4 border border-dark p-2",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTable, {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                        className: "float-left",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
+                          className: "pagination",
+                          style: {
+                            justifyContent: "flex-end"
+                          },
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+                            className: "cursor-default page-item " + this.pageFist(),
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+                              className: "page-link",
+                              onClick: function onClick(event) {
+                                return _this5.pageFistOnClick(event);
+                              },
+                              "aria-label": "Go to first page",
+                              children: "\xAB"
+                            })
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+                            className: "cursor-default page-item " + this.pagePre(),
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+                              className: "page-link",
+                              onClick: function onClick(event) {
+                                return _this5.pagePreOnClick(event);
+                              },
+                              "aria-label": "Go to previous page",
+                              children: "\u27E8"
+                            })
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+                            className: "cursor-default page-item active",
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+                              className: "page-link",
+                              "aria-label": "Go to previous page",
+                              children: this.state.currentPage
+                            })
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+                            className: "cursor-default page-item " + this.pageNext(),
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+                              className: "page-link",
+                              onClick: function onClick(event) {
+                                return _this5.pageNextOnClick(event);
+                              },
+                              "aria-label": "Go to next page",
+                              children: "\u27E9"
+                            })
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+                            className: "cursor-default page-item " + this.pageLast(),
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+                              className: "page-link",
+                              onClick: function onClick(event) {
+                                return _this5.pageLastOnClick(event);
+                              },
+                              "aria-label": "Go to last page",
+                              children: "\xBB"
+                            })
+                          })]
+                        })
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTable, {
                         hover: true,
                         bordered: true,
                         small: true,
-                        className: "",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableHead, {
+                        className: "cursor-pointer",
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableHead, {
                           className: "thead-light",
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableRow, {
-                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableHeaderCell, {
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableRow, {
+                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableHeaderCell, {
                               scope: "col",
                               className: "col-4",
                               children: "Reservation code"
-                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableHeaderCell, {
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableHeaderCell, {
                               scope: "col",
                               className: "col-3",
                               children: "Name"
-                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableHeaderCell, {
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableHeaderCell, {
                               scope: "col",
                               className: "col-2",
                               children: "Phone"
-                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableHeaderCell, {
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableHeaderCell, {
                               scope: "col",
                               className: "col-3",
                               children: "Registration Date"
                             })]
                           })
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableBody, {
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableRow, {
-                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableDataCell, {
-                              children: "202110300541AMFB0CD9"
-                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableDataCell, {
-                              children: "Tran minh vu"
-                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableDataCell, {
-                              children: "0123456789"
-                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableDataCell, {
-                              className: "codeLine",
-                              children: "2021-10-30 08:11:00"
-                            })]
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableRow, {
-                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableDataCell, {
-                              children: "202110300541AMFB0CD9"
-                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableDataCell, {
-                              children: "Tran minh vu"
-                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableDataCell, {
-                              children: "0123456789"
-                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableDataCell, {
-                              className: "codeLine",
-                              children: "2021-10-30 08:11:00"
-                            })]
-                          })]
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableBody, {
+                          children: this.table()
                         })]
-                      })
+                      })]
                     })]
                   })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
                   xs: 12,
                   lg: 1,
                   style: {
                     minHeight: '1rem'
                   }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
                   xs: 12,
                   lg: 5,
                   className: "border border-dark",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CRow, {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CRow, {
                     xs: {
                       cols: 1
                     },
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
                       xs: 12,
                       id: "Book_Room_Form_Container_Name",
                       className: "mb-3 mt-3",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormLabel, {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormLabel, {
                         htmlFor: "Book_Room_Form_Input_Name",
                         children: "Full name"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormInput, {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormInput, {
                         type: "text",
                         name: "Book_Room_Form_Input_Name",
                         onChange: this.isChange,
                         defaultValue: this.state.Book_Room_Form_Input_Name,
                         placeholder: "Nguyen Van A"
                       })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
                       xs: 12,
                       id: "Book_Room_Form_Container_Date_Of_Birth",
                       className: "mb-3 mt-2",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormLabel, {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormLabel, {
                         htmlFor: "Book_Room_Form_Input_Date_Of_Birth",
                         children: "Date of birth"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormInput, {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormInput, {
                         type: "date",
                         name: "Book_Room_Form_Input_Date_Of_Birth",
                         onChange: this.isChange,
                         defaultValue: this.state.Book_Room_Form_Input_Date_Of_Birth,
                         placeholder: "dd/mm/yyyy"
                       })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
                       xs: 12,
                       id: "Book_Room_Form_Container_CCCD",
                       className: "mb-3 mt-2",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormLabel, {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormLabel, {
                         htmlFor: "Book_Room_Form_Input_CCCD",
                         children: "CCCD/CMND/Passport"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormInput, {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormInput, {
                         type: "number",
                         name: "Book_Room_Form_Input_CCCD",
                         onChange: this.isChange,
@@ -487,14 +750,14 @@ var Bookroom = /*#__PURE__*/function (_Component) {
                         min: "100000000",
                         max: "9999999999"
                       })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
                       xs: 12,
                       id: "Book_Room_Form_Container_Phone",
                       className: "mb-3 mt-2",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormLabel, {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormLabel, {
                         htmlFor: "Book_Room_Form_Input_Phone",
                         children: "Number phone"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormInput, {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormInput, {
                         type: "number",
                         name: "Book_Room_Form_Input_Phone",
                         onChange: this.isChange,
@@ -503,14 +766,14 @@ var Bookroom = /*#__PURE__*/function (_Component) {
                         min: "10000000",
                         max: "9999999999"
                       })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
                       xs: 12,
                       id: "Book_Room_Form_Container_Number_Of_People",
                       className: "mb-3 mt-2",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormLabel, {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormLabel, {
                         htmlFor: "Book_Room_Form_Input_Number_Of_People",
                         children: "Number Of People"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormInput, {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormInput, {
                         type: "number",
                         name: "Book_Room_Form_Input_Number_Of_People",
                         onChange: this.isChange,
@@ -518,14 +781,14 @@ var Bookroom = /*#__PURE__*/function (_Component) {
                         min: "1",
                         max: "50"
                       })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
                       xs: 12,
                       id: "Book_Room_Form_Container_Number_Of_Days_Stay",
                       className: "mb-3 mt-2",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormLabel, {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormLabel, {
                         htmlFor: "Book_Room_Form_Input_Number_Of_Days_Stay",
                         children: "Number Of Days Stay"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormInput, {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormInput, {
                         type: "number",
                         name: "Book_Room_Form_Input_Number_Of_Days_Stay",
                         onChange: this.isChange,
@@ -533,41 +796,41 @@ var Bookroom = /*#__PURE__*/function (_Component) {
                         min: "1",
                         max: "50"
                       })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
                       xs: 12,
                       id: "Book_Room_Form_Container_Room_Code",
                       className: "mb-3 mt-2",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormLabel, {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormLabel, {
                         htmlFor: "Book_Room_Form_Input_Room_Code",
                         children: "Room Code"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormSelect, {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormSelect, {
                         defaultValue: "0",
                         name: "Book_Room_Form_Input_Room_Code",
                         onChange: this.isChange,
-                        children: [this.option(), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
+                        children: [this.option(), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
                           value: "0",
                           disabled: true
                         })]
                       })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
                       xs: 12,
                       className: "mb-3 mt-2",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CButton, {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CButton, {
                         type: "submit",
                         className: "float-right",
                         id: "btn_save",
                         onClick: function onClick(event) {
-                          return _this3.save(event);
+                          return _this5.save(event);
                         },
                         disabled: this.state.loading_save,
-                        children: [this.state.loading_save && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+                        children: [this.state.loading_save && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                             className: "spinner-border spinner-border-sm",
                             role: "status",
                             "aria-hidden": "true"
                           }), " Loading..."]
-                        }), !this.state.loading_save && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-                          children: ["Save ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("i", {
+                        }), !this.state.loading_save && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+                          children: ["Save ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
                             className: "fas fa-save"
                           })]
                         })]
@@ -588,7 +851,7 @@ var Bookroom = /*#__PURE__*/function (_Component) {
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Bookroom);
 /**
- * cần thêm bảng hiện thị mã đặt phòng trước
+ *
  * và xuất ra thông tin đã đăng ký trước vào form bên cạnh
  * làm bảng và phân trang
  *  */

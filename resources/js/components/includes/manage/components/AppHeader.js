@@ -32,6 +32,7 @@ class AppHeader extends Component {
         }
 
     };
+
     logout = (event) => {
         event.preventDefault();
         var cookie = {

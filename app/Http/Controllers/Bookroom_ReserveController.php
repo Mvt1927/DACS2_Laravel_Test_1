@@ -18,7 +18,7 @@ class Bookroom_ReserveController extends Controller
     public function index()
     {
         $Bookroom_reserve = Bookroom_reserve::all();
-        return response()->json($Bookroom_reserve, $this->successStatus);
+        return response()->json(['Bookroom_reserve'=> $Bookroom_reserve], $this->successStatus);
     }
 
     /**
@@ -103,7 +103,7 @@ class Bookroom_ReserveController extends Controller
             $bookroom_reserve['date']= date_format(date_create($bookroom_reserve['date']), "d/m/Y");
             //date_format($regidate, "H:i:s d/m/Y")
             $bookroom_reserve['regidate']=date_format(date_create($bookroom_reserve['regidate']), "H:i:s d/m/Y");
-            return response()->json($bookroom_reserve,$this->successStatus);
+            return response()->json(['Bookroom_reserve'=>$bookroom_reserve],$this->successStatus);
         }else{
             return response()->json(['status' => 'none'],$this->successStatus);
         }

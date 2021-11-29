@@ -653,6 +653,11 @@ html:not([dir=rtl]) .list-inline-item:not(:last-child) {
     max-width: 540px;
   }
 }
+@media (max-width: 576px) {
+    .container-sm, .container {
+      font-size: 50%;
+    }
+}
 @media (min-width: 768px) {
   .container-md, .container-sm, .container {
     max-width: 720px;
@@ -7748,7 +7753,7 @@ html:not([dir=rtl]) .sidebar-close {
   .sidebar-backdrop {
     position: fixed;
     top: 0;
-    z-index: 1030;
+    z-index: 1029;
     width: 100vw;
     height: 100vh;
     background-color: #000015;

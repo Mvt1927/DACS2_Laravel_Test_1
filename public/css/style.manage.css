@@ -192,16 +192,19 @@ i {
     height: auto;
     width: 100%;
 }
-.cursor-default :is(h1,h2,h3,h4,h5,h6,div,a,i,p,label,span){
+.cursor-default :is(h1,h2,h3,h4,h5,h6,div,a,i,p,label,span,td,th){
     cursor: default;
 
 }
-.cursor-pointer :is(h1,h2,h3,h4,h5,h6,div,a,i,p,label,span){
+.cursor-pointer :is(h1,h2,h3,h4,h5,h6,div,a,i,p,label,span,td){
     cursor: pointer;
 
 }
-.cursor-default :is(h1,h2,h3,h4,h5,h6,div,a,i,p,label,span)::selection,
-.cursor-pointer :is(h1,h2,h3,h4,h5,h6,div,a,i,p,label,span)::selection{
+.cursor-pointer :is(th){
+    cursor: default;
+}
+.cursor-default :is(h1,h2,h3,h4,h5,h6,div,a,i,p,label,span,td,th)::selection,
+.cursor-pointer :is(h1,h2,h3,h4,h5,h6,div,a,i,p,label,span,td,th)::selection{
     background-color: unset;
 }
 .breadcrumb {

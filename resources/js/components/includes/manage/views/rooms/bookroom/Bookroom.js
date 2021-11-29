@@ -1,10 +1,8 @@
-import { CButton, CCard, CCardBody, CCol, CContainer, CForm, CFormInput, CFormLabel, CFormSelect, CFormTextarea, CInputGroup, CRow, CTable, CTableBody, CTableDataCell, CTableHead, CTableHeaderCell, CTableRow } from "@coreui/react";
+import { CButton, CCard, CCardBody, CCol, CContainer, CForm, CFormInput, CFormLabel, CFormSelect, CInputGroup, CRow, CTable, CTableBody, CTableDataCell, CTableHead, CTableHeaderCell, CTableRow } from "@coreui/react";
 import axios from "axios";
 import React, { Component } from "react";
 import Option from "./Option";
 import MyGlobleSetting from "../MyGlobleSetting";
-import { useDispatch, useSelector } from "react-redux";
-import { isNumber } from "lodash";
 class Bookroom extends Component {
     constructor(props) {
         super(props);
@@ -12,44 +10,93 @@ class Bookroom extends Component {
             options: '',
             loading_find: false,
             loading_save: false,
-            Book_Room_Form_Input_Name:'',
+            Book_Room_Form_Input_Name: '',
             Book_Room_Form_Input_Date_Of_Birth: '',
             Book_Room_Form_Input_CCCD: '',
             Book_Room_Form_Input_Phone: '',
             Book_Room_Form_Input_Number_Of_People: '1',
             Book_Room_Form_Input_Number_Of_Days_Stay: '1',
-            Book_Room_Form_Input_Room_Code: '',
+            Book_Room_Form_Input_Room_Code: '0',
             Find_code_FormControlInput: '',
-            data: [],
+            splitData: [[]],
+            bookroom_reserveData: [[]],
+            pageNumbers: '1',
+            currentPage: '1'
         }
-        if (localStorage.Book_Room_Form_Input_Name!=null) {
+        if (localStorage.Book_Room_Form_Input_Name != null) {
             this.state.Book_Room_Form_Input_Name = localStorage.Book_Room_Form_Input_Name;
         }
-        if (localStorage.Book_Room_Form_Input_Date_Of_Birth!=null) {
+        if (localStorage.Book_Room_Form_Input_Date_Of_Birth != null) {
             this.state.Book_Room_Form_Input_Date_Of_Birth = localStorage.Book_Room_Form_Input_Date_Of_Birth;
         }
-        if (localStorage.Book_Room_Form_Input_CCCD!=null) {
+        if (localStorage.Book_Room_Form_Input_CCCD != null) {
             this.state.Book_Room_Form_Input_CCCD = localStorage.Book_Room_Form_Input_CCCD;
         }
-        if (localStorage.Book_Room_Form_Input_Phone!=null) {
+        if (localStorage.Book_Room_Form_Input_Phone != null) {
             this.state.Book_Room_Form_Input_Phone = localStorage.Book_Room_Form_Input_Phone;
         }
-        if (localStorage.Book_Room_Form_Input_Number_Of_People!=null) {
+        if (localStorage.Book_Room_Form_Input_Number_Of_People != null) {
             this.state.Book_Room_Form_Input_Number_Of_People = localStorage.Book_Room_Form_Input_Number_Of_People;
         }
-        if (localStorage.Book_Room_Form_Input_Number_Of_Days_Stay!=null) {
+        if (localStorage.Book_Room_Form_Input_Number_Of_Days_Stay != null) {
             this.state.Book_Room_Form_Input_Number_Of_Days_Stay = localStorage.Book_Room_Form_Input_Number_Of_Days_Stay;
         }
-        // console.log(localStorage);
     }
-    componentDidMount() {
+    getbookroom() {
+        axios.get(MyGlobleSetting.url + '/api/control/get/bookroom-reserve')
+            .then(response => {
+                const n = 16; //items per page
+                var data = response.data.Bookroom_reserve;
+                if (data.length != 0) {
+                    const pageNumbers = Math.ceil(data.length / n);
+                    const splitData = new Array(pageNumbers)
+                        .fill()
+                        .map(_ => data.splice(0, n));
+                    this.setState({
+                        pageNumbers: pageNumbers,
+                        splitData: splitData
+                    })
+                } else {
+                    this.setState({
+                        pageNumbers: '1',
+                        splitData: [[]]
+                    })
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+    }
+    getbookroom_reserveData() {
+        axios.get(MyGlobleSetting.url + '/api/control/get/bookroom-reserve')
+            .then(response => {
+                var data = response.data.Bookroom_reserve;
+                const pageNumbers = Math.ceil(1);
+                const splitData = new Array(pageNumbers)
+                    .fill()
+                    .map(_ => data.splice(0, data.length));
+                this.setState({
+                    bookroom_reserveData: splitData
+                })
+                // console.log(this.state.bookroom_reserveData);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+    }
+    getoptionroom() {
         axios.get(MyGlobleSetting.url + '/api/control/get/option_rooms')
             .then(response => {
                 this.setState({ options: response.data });
             })
             .catch(function (error) {
                 console.log(error);
-            })
+            });
+    }
+    componentDidMount() {
+        this.getbookroom();
+        this.getbookroom_reserveData();
+        this.getoptionroom();
     }
     option() {
         var num = 0;
@@ -60,12 +107,80 @@ class Bookroom extends Component {
             })
         }
     }
+    inputValueSelect= (event,id)=> {
+
+    }
+    btnfind = (event) => {
+        event.preventDefault();
+        this.setState({
+            loading_find: true,
+            currentPage: '1'
+        });
+        const searchString = this.state.Find_code_FormControlInput;
+        // console.log(searchString + ':' + searchString.length);
+        const data = this.state.bookroom_reserveData.at(0);
+        if (data != null) {
+            const filteredData = data.filter(element => {
+                return element.id.toLowerCase().includes(searchString.toLowerCase())
+                    || element.phone.toLowerCase().includes(searchString.toLowerCase())
+                    || element.name.toLowerCase().includes(searchString.toLowerCase())
+            });
+            const n = 16; //items per line
+            const pageNumbers = Math.ceil(filteredData.length / n);
+            const splitData = new Array(Math.ceil(filteredData.length / n))
+                .fill()
+                .map(_ => filteredData.splice(0, n));
+            if (splitData.at(0) == null) {
+                this.setState({
+                    loading_find: false,
+                    pageNumbers: '1',
+                    splitData: [[]],
+                });
+            } else {
+                this.setState({
+                    loading_find: false,
+                    pageNumbers: pageNumbers,
+                    splitData: splitData,
+                });
+            }
+        }
+    }
     find = (event) => {
         event.preventDefault();
-        this.setState({ loading_find: true });
-        setTimeout(() => {
-            this.setState({ loading_find: false });
-        }, 2000)
+        this.setState({
+            Find_code_FormControlInput: event.target.value,
+            loading_find: true,
+            currentPage: '1'
+        });
+        localStorage[event.target.name] = event.target.value;
+        const searchString = event.target.value;
+        const data = this.state.bookroom_reserveData.at(0);
+        if (data != null) {
+            const filteredData = data.filter(element => {
+                return element.id.toLowerCase().includes(searchString.toLowerCase())
+                    || element.phone.toLowerCase().includes(searchString.toLowerCase())
+                    || element.name.toLowerCase().includes(searchString.toLowerCase())
+            });
+            const n = 16; //items per line
+            const pageNumbers = Math.ceil(filteredData.length / n);
+            const splitData = new Array(Math.ceil(filteredData.length / n))
+                .fill()
+                .map(_ => filteredData.splice(0, n));
+            if (splitData.at(0) == null) {
+                this.setState({
+                    loading_find: false,
+                    pageNumbers: '1',
+                    splitData: [[]],
+                });
+            } else {
+                this.setState({
+                    loading_find: false,
+                    pageNumbers: pageNumbers,
+                    splitData: splitData,
+                });
+            }
+        }
+
     }
     save = (event) => {
         event.preventDefault();
@@ -121,25 +236,25 @@ class Bookroom extends Component {
                 axios.post(url, Bookroom_form).then(response => {
                     if (response.data.error == null) {
                         alert('Book room success');
-                        if (localStorage.Book_Room_Form_Input_Name!=null) {
+                        if (localStorage.Book_Room_Form_Input_Name != null) {
                             delete localStorage.Book_Room_Form_Input_Name;
                         }
-                        if (localStorage.Book_Room_Form_Input_Date_Of_Birth!=null) {
+                        if (localStorage.Book_Room_Form_Input_Date_Of_Birth != null) {
                             delete localStorage.Book_Room_Form_Input_Date_Of_Birth;
                         }
-                        if (localStorage.Book_Room_Form_Input_CCCD!=null) {
+                        if (localStorage.Book_Room_Form_Input_CCCD != null) {
                             delete localStorage.Book_Room_Form_Input_CCCD;
                         }
-                        if (localStorage.Book_Room_Form_Input_Phone!=null) {
+                        if (localStorage.Book_Room_Form_Input_Phone != null) {
                             delete localStorage.Book_Room_Form_Input_Phone;
                         }
-                        if (localStorage.Book_Room_Form_Input_Number_Of_People!=null) {
+                        if (localStorage.Book_Room_Form_Input_Number_Of_People != null) {
                             delete localStorage.Book_Room_Form_Input_Number_Of_People;
                         }
-                        if (localStorage.Book_Room_Form_Input_Number_Of_Days_Stay!=null) {
+                        if (localStorage.Book_Room_Form_Input_Number_Of_Days_Stay != null) {
                             delete localStorage.Book_Room_Form_Input_Number_Of_Days_Stay;
                         }
-                        if (localStorage.Book_Room_Form_Input_Room_Code!=null) {
+                        if (localStorage.Book_Room_Form_Input_Room_Code != null) {
                             delete localStorage.Book_Room_Form_Input_Room_Code;
                         }
                         location.reload();
@@ -159,14 +274,91 @@ class Bookroom extends Component {
         this.setState({
             [name]: value
         });
-        localStorage[event.target.name]=event.target.value;
+        localStorage[event.target.name] = event.target.value;
         // console.log(event.target.name+" : "+event.target.value);
         event.target.offsetParent.firstChild.classList.remove('text-danger');
         event.target.offsetParent.lastChild.classList.remove('border-danger');
+        // console.log(this.state);
+
     }
-
+    pageNext() {
+        if (this.state.currentPage < this.state.pageNumbers) {
+            return "cursor-pointer"
+        } else return "disabled"
+    }
+    pageLast() {
+        if (this.state.currentPage < this.state.pageNumbers) {
+            return "cursor-pointer"
+        } else return "disabled"
+    }
+    pagePre() {
+        if (this.state.currentPage > 1) {
+            return "cursor-pointer"
+        } else return "disabled"
+    }
+    pageFist() {
+        if (this.state.currentPage > 1) {
+            return "cursor-pointer"
+        } else return "disabled"
+    }
+    pageNextOnClick = (event) => {
+        event.preventDefault();
+        if (this.state.currentPage < this.state.pageNumbers) {
+            this.setState({
+                currentPage: this.state.currentPage - 0 + 1
+            })
+        }
+    }
+    pageLastOnClick = (event) => {
+        event.preventDefault();
+        if (this.state.currentPage < this.state.pageNumbers) {
+            this.setState({
+                currentPage: this.state.pageNumbers
+            })
+        }
+    }
+    pagePreOnClick = (event) => {
+        event.preventDefault();
+        if (this.state.currentPage > 1) {
+            this.setState({
+                currentPage: this.state.currentPage - 1
+            })
+        }
+    }
+    pageFistOnClick = (event) => {
+        event.preventDefault();
+        if (this.state.currentPage > 1) {
+            this.setState({
+                currentPage: 1
+            })
+        }
+    }
+    table() {
+        if (this.state.splitData.at(this.state.currentPage - 1).length != 0) {
+            // console.log(this.state.splitData.at(this.state.currentPage - 1));
+            return this.state.splitData.at(this.state.currentPage - 1).map((i) => {
+                return (
+                    <CTableRow id={i.id} key={i.id} onClick={(event) => console.log(event)}>
+                        <CTableDataCell>{i.id}</CTableDataCell>
+                        <CTableDataCell>{i.name}</CTableDataCell>
+                        <CTableDataCell>{i.phone}</CTableDataCell>
+                        <CTableDataCell>{i.regidate}</CTableDataCell>
+                    </CTableRow>
+                )
+            })
+        } else {
+            return (
+                <CTableRow disabled className="font-italic text-center">
+                    <CTableDataCell>null</CTableDataCell>
+                    <CTableDataCell>null</CTableDataCell>
+                    <CTableDataCell>null</CTableDataCell>
+                    <CTableDataCell>null</CTableDataCell>
+                </CTableRow>
+            )
+        }
+    }
     render() {
-
+        var index = 0;
         return (
             <>
                 <CCard className='mb-1'>
@@ -179,16 +371,36 @@ class Bookroom extends Component {
                                             <CCol className="mb-3 mt-3">
                                                 <CFormLabel htmlFor="Find_code_FormControlInput1">Reservation code or phone number</CFormLabel>
                                                 <CInputGroup>
-                                                    <CFormInput type="text" id="Find_code_FormControlInput" name="Find_code_FormControlInput" placeholder="Reservation code or phone number" onChange={(event) => this.isChange(event)} />
-                                                    <CButton type="submit" className="float-right" onClick={(event) => this.find(event)} disabled={this.state.loading_find}>
+                                                    <CFormInput type="text" id="Find_code_FormControlInput" name="Find_code_FormControlInput" placeholder="Reservation code or phone number" defaultValue={this.state.Find_code_FormControlInput} onChange={(event) => this.find(event)} />
+                                                    <CButton type="submit" className="float-right" /* onClick={(event) => this.btnfind(event)} */ disabled={this.state.loading_find}>
                                                         {this.state.loading_find && <><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></>}
                                                         {!this.state.loading_find && <><i className="far fa-search"></i></>}
                                                     </CButton>
                                                 </CInputGroup>
                                             </CCol>
                                         </CRow>
+
                                         <CRow className='mt-4 border border-dark p-2'>
-                                            <CTable hover bordered small className=''>
+                                            <div className="float-left">
+                                                <ul className="pagination" style={{ justifyContent: "flex-end" }}>
+                                                    <li className={"cursor-default page-item " + this.pageFist()}>
+                                                        <a className="page-link" onClick={event => this.pageFistOnClick(event)} aria-label="Go to first page">«</a>
+                                                    </li>
+                                                    <li className={"cursor-default page-item " + this.pagePre()}>
+                                                        <a className="page-link" onClick={event => this.pagePreOnClick(event)} aria-label="Go to previous page">⟨</a>
+                                                    </li>
+                                                    <li className="cursor-default page-item active">
+                                                        <a className="page-link" aria-label="Go to previous page">{this.state.currentPage}</a>
+                                                    </li>
+                                                    <li className={"cursor-default page-item " + this.pageNext()}>
+                                                        <a className="page-link" onClick={event => this.pageNextOnClick(event)} aria-label="Go to next page">⟩</a>
+                                                    </li>
+                                                    <li className={"cursor-default page-item " + this.pageLast()}>
+                                                        <a className="page-link" onClick={event => this.pageLastOnClick(event)} aria-label="Go to last page">»</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <CTable hover bordered small className='cursor-pointer'>
                                                 <CTableHead className="thead-light">
                                                     <CTableRow >
                                                         <CTableHeaderCell scope='col' className="col-4">Reservation code</CTableHeaderCell>
@@ -198,24 +410,15 @@ class Bookroom extends Component {
                                                     </CTableRow>
                                                 </CTableHead>
                                                 <CTableBody>
-                                                    <CTableRow>
-                                                        <CTableDataCell>202110300541AMFB0CD9</CTableDataCell>
-                                                        <CTableDataCell>Tran minh vu</CTableDataCell>
-                                                        <CTableDataCell>0123456789</CTableDataCell>
-                                                        <CTableDataCell className="codeLine">2021-10-30 08:11:00</CTableDataCell>
-                                                    </CTableRow>
-                                                    <CTableRow>
-                                                        <CTableDataCell>202110300541AMFB0CD9</CTableDataCell>
-                                                        <CTableDataCell>Tran minh vu</CTableDataCell>
-                                                        <CTableDataCell>0123456789</CTableDataCell>
-                                                        <CTableDataCell className="codeLine">2021-10-30 08:11:00</CTableDataCell>
-                                                    </CTableRow>
+                                                    {
+                                                        this.table()
+                                                    }
                                                 </CTableBody>
                                             </CTable>
                                         </CRow>
                                     </div>
                                 </CCol>
-                                <CCol xs={12} lg={1} style={{ minHeight: '1rem'}} />
+                                <CCol xs={12} lg={1} style={{ minHeight: '1rem' }} />
                                 <CCol xs={12} lg={5} className="border border-dark">
                                     <CRow xs={{ cols: 1 }}>
                                         <CCol xs={12} id="Book_Room_Form_Container_Name" className="mb-3 mt-3">
@@ -267,7 +470,7 @@ class Bookroom extends Component {
 }
 export default Bookroom
 /**
- * cần thêm bảng hiện thị mã đặt phòng trước
+ *
  * và xuất ra thông tin đã đăng ký trước vào form bên cạnh
  * làm bảng và phân trang
  *  */
