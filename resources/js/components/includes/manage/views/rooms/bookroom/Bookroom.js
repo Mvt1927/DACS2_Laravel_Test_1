@@ -6,6 +6,7 @@ import MyGlobleSetting from "../MyGlobleSetting";
 class Bookroom extends Component {
     constructor(props) {
         super(props);
+        this.itemsPerPage=10;
         this.state = {
             options: '',
             loading_find: false,
@@ -45,7 +46,7 @@ class Bookroom extends Component {
     getbookroom() {
         axios.get(MyGlobleSetting.url + '/api/control/get/bookroom-reserve')
             .then(response => {
-                const n = 16; //items per page
+                const n = this.itemsPerPage; //items per page
                 var data = response.data.Bookroom_reserve;
                 if (data.length != 0) {
                     const pageNumbers = Math.ceil(data.length / n);
@@ -78,7 +79,6 @@ class Bookroom extends Component {
                 this.setState({
                     bookroom_reserveData: splitData
                 })
-                // console.log(this.state.bookroom_reserveData);
             })
             .catch(function (error) {
                 console.log(error);
@@ -107,9 +107,7 @@ class Bookroom extends Component {
             })
         }
     }
-    inputValueSelect= (event,id)=> {
 
-    }
     btnfind = (event) => {
         event.preventDefault();
         this.setState({
@@ -117,7 +115,6 @@ class Bookroom extends Component {
             currentPage: '1'
         });
         const searchString = this.state.Find_code_FormControlInput;
-        // console.log(searchString + ':' + searchString.length);
         const data = this.state.bookroom_reserveData.at(0);
         if (data != null) {
             const filteredData = data.filter(element => {
@@ -125,7 +122,7 @@ class Bookroom extends Component {
                     || element.phone.toLowerCase().includes(searchString.toLowerCase())
                     || element.name.toLowerCase().includes(searchString.toLowerCase())
             });
-            const n = 16; //items per line
+            const n = this.itemsPerPage; //items per line
             const pageNumbers = Math.ceil(filteredData.length / n);
             const splitData = new Array(Math.ceil(filteredData.length / n))
                 .fill()
@@ -161,7 +158,7 @@ class Bookroom extends Component {
                     || element.phone.toLowerCase().includes(searchString.toLowerCase())
                     || element.name.toLowerCase().includes(searchString.toLowerCase())
             });
-            const n = 16; //items per line
+            const n = this.itemsPerPage; //items per line
             const pageNumbers = Math.ceil(filteredData.length / n);
             const splitData = new Array(Math.ceil(filteredData.length / n))
                 .fill()
@@ -232,7 +229,6 @@ class Bookroom extends Component {
                     idroom: this.state.Book_Room_Form_Input_Room_Code,
                 };
                 let url = MyGlobleSetting.url + '/api/control/post/bookrooms';
-                /* console.log(Bookroom_form); */
                 axios.post(url, Bookroom_form).then(response => {
                     if (response.data.error == null) {
                         alert('Book room success');
@@ -275,10 +271,8 @@ class Bookroom extends Component {
             [name]: value
         });
         localStorage[event.target.name] = event.target.value;
-        // console.log(event.target.name+" : "+event.target.value);
         event.target.offsetParent.firstChild.classList.remove('text-danger');
         event.target.offsetParent.lastChild.classList.remove('border-danger');
-        // console.log(this.state);
 
     }
     pageNext() {
@@ -333,12 +327,47 @@ class Bookroom extends Component {
             })
         }
     }
+    checkOptions=(value)=>{
+        if (this.state.options instanceof Array) {
+            for (let index = 0; index < this.state.options.length; index++) {
+                if (this.state.options[index].id==value) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+    inputValueSelect = (event, id) => {
+        event.preventDefault();
+        axios.get(MyGlobleSetting.url + '/api/control/get/bookrooms-reserve/' + id)
+            .then(response => {
+                this.setState({
+                    Book_Room_Form_Input_Name: response.data.Bookroom_reserve.name,
+                    Book_Room_Form_Input_Phone: response.data.Bookroom_reserve.phone,
+                    Book_Room_Form_Input_Number_Of_People: response.data.Bookroom_reserve.num,
+                    Book_Room_Form_Input_Room_Code: '0',
+                });
+                if (response.data.Bookroom_reserve.idroom!=null) {
+                    if (this.checkOptions(response.data.Bookroom_reserve.idroom)==true) {
+
+                        this.setState({
+                            Book_Room_Form_Input_Room_Code: response.data.Bookroom_reserve.idroom+"",
+                        });
+                    }else{
+                        alert("Room is already in use, please choose another room");
+                    }
+                }
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
     table() {
         if (this.state.splitData.at(this.state.currentPage - 1).length != 0) {
-            // console.log(this.state.splitData.at(this.state.currentPage - 1));
             return this.state.splitData.at(this.state.currentPage - 1).map((i) => {
                 return (
-                    <CTableRow id={i.id} key={i.id} onClick={(event) => console.log(event)}>
+                    <CTableRow id={i.id} key={i.id} onClick={(event) => this.inputValueSelect(event, i.id)}>
                         <CTableDataCell>{i.id}</CTableDataCell>
                         <CTableDataCell>{i.name}</CTableDataCell>
                         <CTableDataCell>{i.phone}</CTableDataCell>
@@ -357,8 +386,8 @@ class Bookroom extends Component {
             )
         }
     }
+
     render() {
-        var index = 0;
         return (
             <>
                 <CCard className='mb-1'>
@@ -431,15 +460,15 @@ class Bookroom extends Component {
                                         </CCol>
                                         <CCol xs={12} id="Book_Room_Form_Container_CCCD" className="mb-3 mt-2">
                                             <CFormLabel htmlFor="Book_Room_Form_Input_CCCD">CCCD/CMND/Passport</CFormLabel>
-                                            <CFormInput type="number" name="Book_Room_Form_Input_CCCD" onChange={this.isChange} defaultValue={this.state.Book_Room_Form_Input_CCCD} placeholder="123456789" min='100000000' max='9999999999' />
+                                            <CFormInput type="number" name="Book_Room_Form_Input_CCCD" onChange={this.isChange} defaultValue={this.state.Book_Room_Form_Input_CCCD} placeholder="123456789" min='1' max='9999999999' />
                                         </CCol>
                                         <CCol xs={12} id="Book_Room_Form_Container_Phone" className="mb-3 mt-2">
                                             <CFormLabel htmlFor="Book_Room_Form_Input_Phone">Number phone</CFormLabel>
-                                            <CFormInput type="number" name="Book_Room_Form_Input_Phone" onChange={this.isChange} defaultValue={this.state.Book_Room_Form_Input_Phone} placeholder="0123456789" min='10000000' max='9999999999' />
+                                            <CFormInput type="number" name="Book_Room_Form_Input_Phone" onChange={this.isChange} value={this.state.Book_Room_Form_Input_Phone} placeholder="0123456789" min='1' max='9999999999' />
                                         </CCol>
                                         <CCol xs={12} id="Book_Room_Form_Container_Number_Of_People" className="mb-3 mt-2">
                                             <CFormLabel htmlFor="Book_Room_Form_Input_Number_Of_People">Number Of People</CFormLabel>
-                                            <CFormInput type="number" name="Book_Room_Form_Input_Number_Of_People" onChange={this.isChange} defaultValue={this.state.Book_Room_Form_Input_Number_Of_People} min='1' max='50' />
+                                            <CFormInput type="number" name="Book_Room_Form_Input_Number_Of_People" onChange={this.isChange} value={this.state.Book_Room_Form_Input_Number_Of_People} min='1' max='50' />
                                         </CCol>
                                         <CCol xs={12} id="Book_Room_Form_Container_Number_Of_Days_Stay" className="mb-3 mt-2">
                                             <CFormLabel htmlFor="Book_Room_Form_Input_Number_Of_Days_Stay">Number Of Days Stay</CFormLabel>
@@ -447,7 +476,7 @@ class Bookroom extends Component {
                                         </CCol>
                                         <CCol xs={12} id="Book_Room_Form_Container_Room_Code" className="mb-3 mt-2">
                                             <CFormLabel htmlFor="Book_Room_Form_Input_Room_Code">Room Code</CFormLabel>
-                                            <CFormSelect defaultValue='0' name="Book_Room_Form_Input_Room_Code" onChange={this.isChange}>
+                                            <CFormSelect value={this.state.Book_Room_Form_Input_Room_Code} name="Book_Room_Form_Input_Room_Code" onChange={this.isChange}>
                                                 {this.option()}
                                                 <option value='0' disabled></option>
                                             </CFormSelect>
@@ -471,6 +500,6 @@ class Bookroom extends Component {
 export default Bookroom
 /**
  *
- * và xuất ra thông tin đã đăng ký trước vào form bên cạnh
- * làm bảng và phân trang
+ * ok xong
+ *
  *  */

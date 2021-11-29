@@ -33,13 +33,13 @@ class View extends Component {
                 } else {
                     this.setState({
                         status: response.data.status,
-                        id: response.data.id,
-                        fullname: response.data.name,
-                        phone: response.data.phone,
-                        num: response.data.num,
-                        date: response.data.date,
-                        regitime: response.data.regidate,
-                        idroom: response.data.idroom
+                        id: response.data.Bookroom_reserve.id,
+                        fullname: response.data.Bookroom_reserve.name,
+                        phone: response.data.Bookroom_reserve.phone,
+                        num: response.data.Bookroom_reserve.num,
+                        date: response.data.Bookroom_reserve.date,
+                        regitime: response.data.Bookroom_reserve.regidate,
+                        idroom: response.data.Bookroom_reserve.idroom
                     });
                 }
             })

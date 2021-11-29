@@ -93,8 +93,6 @@ var Bookroom = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this), "inputValueSelect", function (event, id) {});
-
     _defineProperty(_assertThisInitialized(_this), "btnfind", function (event) {
       event.preventDefault();
 
@@ -103,7 +101,7 @@ var Bookroom = /*#__PURE__*/function (_Component) {
         currentPage: '1'
       });
 
-      var searchString = _this.state.Find_code_FormControlInput; // console.log(searchString + ':' + searchString.length);
+      var searchString = _this.state.Find_code_FormControlInput;
 
       var data = _this.state.bookroom_reserveData.at(0);
 
@@ -111,7 +109,7 @@ var Bookroom = /*#__PURE__*/function (_Component) {
         var filteredData = data.filter(function (element) {
           return element.id.toLowerCase().includes(searchString.toLowerCase()) || element.phone.toLowerCase().includes(searchString.toLowerCase()) || element.name.toLowerCase().includes(searchString.toLowerCase());
         });
-        var n = 16; //items per line
+        var n = _this.itemsPerPage; //items per line
 
         var pageNumbers = Math.ceil(filteredData.length / n);
         var splitData = new Array(Math.ceil(filteredData.length / n)).fill().map(function (_) {
@@ -152,7 +150,7 @@ var Bookroom = /*#__PURE__*/function (_Component) {
         var filteredData = data.filter(function (element) {
           return element.id.toLowerCase().includes(searchString.toLowerCase()) || element.phone.toLowerCase().includes(searchString.toLowerCase()) || element.name.toLowerCase().includes(searchString.toLowerCase());
         });
-        var n = 16; //items per line
+        var n = _this.itemsPerPage; //items per line
 
         var pageNumbers = Math.ceil(filteredData.length / n);
         var splitData = new Array(Math.ceil(filteredData.length / n)).fill().map(function (_) {
@@ -251,8 +249,6 @@ var Bookroom = /*#__PURE__*/function (_Component) {
             idroom: _this.state.Book_Room_Form_Input_Room_Code
           };
           var url = _MyGlobleSetting__WEBPACK_IMPORTED_MODULE_4__["default"].url + '/api/control/post/bookrooms';
-          /* console.log(Bookroom_form); */
-
           axios__WEBPACK_IMPORTED_MODULE_1___default().post(url, Bookroom_form).then(function (response) {
             if (response.data.error == null) {
               alert('Book room success');
@@ -305,10 +301,9 @@ var Bookroom = /*#__PURE__*/function (_Component) {
 
       _this.setState(_defineProperty({}, name, value));
 
-      localStorage[event.target.name] = event.target.value; // console.log(event.target.name+" : "+event.target.value);
-
+      localStorage[event.target.name] = event.target.value;
       event.target.offsetParent.firstChild.classList.remove('text-danger');
-      event.target.offsetParent.lastChild.classList.remove('border-danger'); // console.log(this.state);
+      event.target.offsetParent.lastChild.classList.remove('border-danger');
     });
 
     _defineProperty(_assertThisInitialized(_this), "pageNextOnClick", function (event) {
@@ -351,6 +346,43 @@ var Bookroom = /*#__PURE__*/function (_Component) {
       }
     });
 
+    _defineProperty(_assertThisInitialized(_this), "checkOptions", function (value) {
+      if (_this.state.options instanceof Array) {
+        for (var index = 0; index < _this.state.options.length; index++) {
+          if (_this.state.options[index].id == value) {
+            return true;
+          }
+        }
+
+        return false;
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "inputValueSelect", function (event, id) {
+      event.preventDefault();
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(_MyGlobleSetting__WEBPACK_IMPORTED_MODULE_4__["default"].url + '/api/control/get/bookrooms-reserve/' + id).then(function (response) {
+        _this.setState({
+          Book_Room_Form_Input_Name: response.data.Bookroom_reserve.name,
+          Book_Room_Form_Input_Phone: response.data.Bookroom_reserve.phone,
+          Book_Room_Form_Input_Number_Of_People: response.data.Bookroom_reserve.num,
+          Book_Room_Form_Input_Room_Code: '0'
+        });
+
+        if (response.data.Bookroom_reserve.idroom != null) {
+          if (_this.checkOptions(response.data.Bookroom_reserve.idroom) == true) {
+            _this.setState({
+              Book_Room_Form_Input_Room_Code: response.data.Bookroom_reserve.idroom + ""
+            });
+          } else {
+            alert("Room is already in use, please choose another room");
+          }
+        }
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    });
+
+    _this.itemsPerPage = 10;
     _this.state = {
       options: '',
       loading_find: false,
@@ -402,7 +434,7 @@ var Bookroom = /*#__PURE__*/function (_Component) {
       var _this2 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_1___default().get(_MyGlobleSetting__WEBPACK_IMPORTED_MODULE_4__["default"].url + '/api/control/get/bookroom-reserve').then(function (response) {
-        var n = 16; //items per page
+        var n = _this2.itemsPerPage; //items per page
 
         var data = response.data.Bookroom_reserve;
 
@@ -440,8 +472,7 @@ var Bookroom = /*#__PURE__*/function (_Component) {
 
         _this3.setState({
           bookroom_reserveData: splitData
-        }); // console.log(this.state.bookroom_reserveData);
-
+        });
       })["catch"](function (error) {
         console.log(error);
       });
@@ -512,13 +543,14 @@ var Bookroom = /*#__PURE__*/function (_Component) {
   }, {
     key: "table",
     value: function table() {
+      var _this5 = this;
+
       if (this.state.splitData.at(this.state.currentPage - 1).length != 0) {
-        // console.log(this.state.splitData.at(this.state.currentPage - 1));
         return this.state.splitData.at(this.state.currentPage - 1).map(function (i) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableRow, {
             id: i.id,
             onClick: function onClick(event) {
-              return console.log(event);
+              return _this5.inputValueSelect(event, i.id);
             },
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CTableDataCell, {
               children: i.id
@@ -550,9 +582,8 @@ var Bookroom = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this5 = this;
+      var _this6 = this;
 
-      var index = 0;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCard, {
           className: "mb-1",
@@ -580,7 +611,7 @@ var Bookroom = /*#__PURE__*/function (_Component) {
                             placeholder: "Reservation code or phone number",
                             defaultValue: this.state.Find_code_FormControlInput,
                             onChange: function onChange(event) {
-                              return _this5.find(event);
+                              return _this6.find(event);
                             }
                           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CButton, {
                             type: "submit",
@@ -616,7 +647,7 @@ var Bookroom = /*#__PURE__*/function (_Component) {
                             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
                               className: "page-link",
                               onClick: function onClick(event) {
-                                return _this5.pageFistOnClick(event);
+                                return _this6.pageFistOnClick(event);
                               },
                               "aria-label": "Go to first page",
                               children: "\xAB"
@@ -626,7 +657,7 @@ var Bookroom = /*#__PURE__*/function (_Component) {
                             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
                               className: "page-link",
                               onClick: function onClick(event) {
-                                return _this5.pagePreOnClick(event);
+                                return _this6.pagePreOnClick(event);
                               },
                               "aria-label": "Go to previous page",
                               children: "\u27E8"
@@ -643,7 +674,7 @@ var Bookroom = /*#__PURE__*/function (_Component) {
                             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
                               className: "page-link",
                               onClick: function onClick(event) {
-                                return _this5.pageNextOnClick(event);
+                                return _this6.pageNextOnClick(event);
                               },
                               "aria-label": "Go to next page",
                               children: "\u27E9"
@@ -653,7 +684,7 @@ var Bookroom = /*#__PURE__*/function (_Component) {
                             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
                               className: "page-link",
                               onClick: function onClick(event) {
-                                return _this5.pageLastOnClick(event);
+                                return _this6.pageLastOnClick(event);
                               },
                               "aria-label": "Go to last page",
                               children: "\xBB"
@@ -747,7 +778,7 @@ var Bookroom = /*#__PURE__*/function (_Component) {
                         onChange: this.isChange,
                         defaultValue: this.state.Book_Room_Form_Input_CCCD,
                         placeholder: "123456789",
-                        min: "100000000",
+                        min: "1",
                         max: "9999999999"
                       })]
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
@@ -761,9 +792,9 @@ var Bookroom = /*#__PURE__*/function (_Component) {
                         type: "number",
                         name: "Book_Room_Form_Input_Phone",
                         onChange: this.isChange,
-                        defaultValue: this.state.Book_Room_Form_Input_Phone,
+                        value: this.state.Book_Room_Form_Input_Phone,
                         placeholder: "0123456789",
-                        min: "10000000",
+                        min: "1",
                         max: "9999999999"
                       })]
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
@@ -777,7 +808,7 @@ var Bookroom = /*#__PURE__*/function (_Component) {
                         type: "number",
                         name: "Book_Room_Form_Input_Number_Of_People",
                         onChange: this.isChange,
-                        defaultValue: this.state.Book_Room_Form_Input_Number_Of_People,
+                        value: this.state.Book_Room_Form_Input_Number_Of_People,
                         min: "1",
                         max: "50"
                       })]
@@ -804,7 +835,7 @@ var Bookroom = /*#__PURE__*/function (_Component) {
                         htmlFor: "Book_Room_Form_Input_Room_Code",
                         children: "Room Code"
                       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CFormSelect, {
-                        defaultValue: "0",
+                        value: this.state.Book_Room_Form_Input_Room_Code,
                         name: "Book_Room_Form_Input_Room_Code",
                         onChange: this.isChange,
                         children: [this.option(), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
@@ -820,7 +851,7 @@ var Bookroom = /*#__PURE__*/function (_Component) {
                         className: "float-right",
                         id: "btn_save",
                         onClick: function onClick(event) {
-                          return _this5.save(event);
+                          return _this6.save(event);
                         },
                         disabled: this.state.loading_save,
                         children: [this.state.loading_save && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
@@ -852,8 +883,8 @@ var Bookroom = /*#__PURE__*/function (_Component) {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Bookroom);
 /**
  *
- * và xuất ra thông tin đã đăng ký trước vào form bên cạnh
- * làm bảng và phân trang
+ * ok xong
+ *
  *  */
 
 /***/ }),
