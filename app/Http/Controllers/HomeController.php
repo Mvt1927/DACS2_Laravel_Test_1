@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('Classic_hotel.dashboard');
+        if (Auth::check()) {
+            return view('Classic_hotel.dashboard');
+        }else {
+            return redirect()->route('login');
+        }
+
     }
 }

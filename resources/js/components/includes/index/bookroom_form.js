@@ -3,19 +3,10 @@ import React, { Component } from "react";
 import MyGlobleSetting from "./MyGlobleSetting";
 import ReactDOM from 'react-dom';
 import { isEmpty, isInteger, isNull, isNumber } from "lodash";
+import { CButton } from "@coreui/react";
 
 export default class Bookroom_form extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            book_input_name: '',
-            book_input_phone: '',
-            book_input_num: '1',
-            book_input_date: MyGlobleSetting.currentTime,
-            book_input_idrooms:'',
-        }
-    };
-    getQueryVariable(variable) {
+    getQueryVariable = (variable)=> {
         /**
          * copyright by MING WU https://stackoverflow.com/users/9822763/ming-wu
          *
@@ -33,6 +24,26 @@ export default class Bookroom_form extends Component {
         }
         return (false);
     }
+    constructor(props) {
+        super(props);
+        let idrooms='';
+        let id = this.getQueryVariable('idroom');
+        if (id!=null) {
+            if (isInteger(parseInt(id))) {
+                idrooms = id;
+            }
+        }
+        this.state = {
+            book_input_name: '',
+            book_input_phone: '',
+            book_input_num: '1',
+            book_input_date: MyGlobleSetting.currentTime,
+            book_input_idrooms: idrooms,
+            loading: false,
+        }
+
+    };
+
     isChange = (event) => {
         var name_box = document.querySelector('#input_name_box');
         var phone_box = document.querySelector('#input_phone_box');
@@ -52,6 +63,9 @@ export default class Bookroom_form extends Component {
     };
     handleSubmit = (event) => {
         event.preventDefault();
+        this.setState({
+            loading: true,
+        });
         var name_box = document.querySelector('#input_name_box');
         var phone_box = document.querySelector('#input_phone_box');
         var num_box = document.querySelector('#input_num_box');
@@ -71,44 +85,45 @@ export default class Bookroom_form extends Component {
                             let url = MyGlobleSetting.url + '/api/control/post/bookrooms-reserve';
                             /* console.log(Bookroom_form); */
                             axios.post(url, Bookroom_form).then(response => {
-                               /*  alert('Book room success'); */
-                                window.location.href = MyGlobleSetting.url + '/DACS2_Laravel_Test_1/bookroom-reserve/#/view/'+response.data.success.id;
+                                window.location.href = MyGlobleSetting.url + '/DACS2_Laravel_Test_1/bookroom-reserve/#/view/' + response.data.success.id;
                                 /* console.log(response.data.id); view/bookroom-reserve/'+response.data.id*/
                             });
+
                         } else {
                             if (!date_box.classList.contains('error')) {
                                 date_box.classList.toggle('error');
                             };
+
                             alert('Your Arrivals date unknown value');
                         }
                     } else {
                         if (!num_box.classList.contains('error')) {
                             num_box.classList.toggle('error');
                         };
+
                         alert('Your number partner unknown value');
                     }
                 } else {
                     if (!phone_box.classList.contains('error')) {
                         phone_box.classList.toggle('error');
                     };
+
                     alert('Your Phone cannot be blank');
                 }
             } else {
                 if (!name_box.classList.contains('error')) {
                     name_box.classList.toggle('error');
                 };
+
                 alert('Your Full Name cannot be blank');
             }
         };
     }
-
-    input_Idroom() {
-        let id = this.getQueryVariable('idroom');
-        if (!isEmpty(id)) {
-            if (isInteger(parseInt(id))) {
-                return <input type="hidden" id="book_input_idrooms" name="book_input_idrooms" value={id} />
-            }
-        }
+    Submit=(event)=>{
+        event.preventDefault();
+        this.setState({
+            loading: true,
+        })
     }
     render() {
         return (
@@ -116,7 +131,7 @@ export default class Bookroom_form extends Component {
                 <div className="image">
                     <img className="image col-12" src={MyGlobleSetting.url + '/resources/Image/5244516.png'} alt="" />
                 </div>
-                <form onSubmit={(event) => this.handleSubmit(event)}>
+                <form>
                     <div className="inputBox" id="input_name_box">
                         <h3>What your full name <span>*</span></h3>
                         <input type="text" id="book_input_name" name="book_input_name" placeholder="Your name" onChange={(event) => { this.isChange(event) }} />
@@ -133,11 +148,14 @@ export default class Bookroom_form extends Component {
                         <h3>Arrivals</h3>
                         <input type="date" datatype="date" id="book_input_date" name="book_input_date" min={this.state.book_input_date} defaultValue={this.state.book_input_date} onChange={(event) => { this.isChange(event) }} />
                     </div>
+                    {this.state.book_input_idrooms!=''&& <div><input type="hidden" id="book_input_idrooms" name="book_input_idrooms" value={this.state.book_input_idrooms}></input></div>}
                     <div>
                         <div className="g-recaptcha" data-sitekey={MyGlobleSetting.recaptcha_sitekey} data-callback="onSubmit" data-size="invisible"></div>
                     </div>
-                    {this.input_Idroom()}
-                    <input type="submit" className="btn" name="btn_book_submit" id="btn_book_submit" value="book now" />
+                    <CButton type="submit" className="btn" id="btn_book_submit" name="btn_book_submit" disabled={this.state.loading} onClick={(event) => this.handleSubmit(event)} >
+                        {this.state.loading && <><span className="spinner-border" role="status" aria-hidden="true"></span> Loading...</>}
+                        {!this.state.loading && <>book now</>}
+                    </CButton>
                 </form>
             </div>
         )
