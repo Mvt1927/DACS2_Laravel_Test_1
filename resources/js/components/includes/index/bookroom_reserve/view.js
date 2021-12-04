@@ -63,7 +63,7 @@ class View extends Component {
     render() {
         return (
             <main>
-                <h1 className="text-uppercase font-weight-bold text-primary text-center">Booking information</h1>
+                <h1 className="text-uppercase font-weight-bold text-primary text-center pt-2">Booking information</h1>
                 <h2 style={{ margin: "1rem" }}>
                     Reservation code: <code style={{ font: '1em "Consolas", sans-serif' }} >{this.props.match.params.id}</code>
                 </h2>

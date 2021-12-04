@@ -6,7 +6,7 @@ import { isEmpty, isInteger, isNull, isNumber } from "lodash";
 import { CButton } from "@coreui/react";
 
 export default class Bookroom_form extends Component {
-    getQueryVariable = (variable)=> {
+    getQueryVariable = (variable) => {
         /**
          * copyright by MING WU https://stackoverflow.com/users/9822763/ming-wu
          *
@@ -26,9 +26,9 @@ export default class Bookroom_form extends Component {
     }
     constructor(props) {
         super(props);
-        let idrooms='';
+        let idrooms = '';
         let id = this.getQueryVariable('idroom');
-        if (id!=null) {
+        if (id != null) {
             if (isInteger(parseInt(id))) {
                 idrooms = id;
             }
@@ -119,11 +119,12 @@ export default class Bookroom_form extends Component {
             }
         };
     }
-    Submit=(event)=>{
+    viewSubmit = (event) => {
         event.preventDefault();
         this.setState({
             loading: true,
         })
+        window.location.href = MyGlobleSetting.url + '/DACS2_Laravel_Test_1/bookroom-reserve/#/view/';
     }
     render() {
         return (
@@ -148,14 +149,20 @@ export default class Bookroom_form extends Component {
                         <h3>Arrivals</h3>
                         <input type="date" datatype="date" id="book_input_date" name="book_input_date" min={this.state.book_input_date} defaultValue={this.state.book_input_date} onChange={(event) => { this.isChange(event) }} />
                     </div>
-                    {this.state.book_input_idrooms!=''&& <div><input type="hidden" id="book_input_idrooms" name="book_input_idrooms" value={this.state.book_input_idrooms}></input></div>}
+                    {this.state.book_input_idrooms != '' && <div><input type="hidden" id="book_input_idrooms" name="book_input_idrooms" value={this.state.book_input_idrooms}></input></div>}
                     <div>
                         <div className="g-recaptcha" data-sitekey={MyGlobleSetting.recaptcha_sitekey} data-callback="onSubmit" data-size="invisible"></div>
                     </div>
+                    <div style={{display: "flex",flexDirection: 'row', justifyContent: "space-between"}}>
                     <CButton type="submit" className="btn" id="btn_book_submit" name="btn_book_submit" disabled={this.state.loading} onClick={(event) => this.handleSubmit(event)} >
                         {this.state.loading && <><span className="spinner-border" role="status" aria-hidden="true"></span> Loading...</>}
-                        {!this.state.loading && <>book now</>}
+                        {!this.state.loading && <>Book Now</>}
                     </CButton>
+                    <CButton type="submit" className="btn" id="btn_book_view" name="btn_book_view" disabled={this.state.loading} onClick={(event) => this.viewSubmit(event)} >
+                        {this.state.loading && <><span className="spinner-border" role="status" aria-hidden="true"></span> Loading...</>}
+                        {!this.state.loading && <>Booked, Search Now</>}
+                    </CButton>
+                    </div>
                 </form>
             </div>
         )

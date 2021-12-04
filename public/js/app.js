@@ -10455,12 +10455,14 @@ var Bookroom_form = /*#__PURE__*/function (_Component) {
       ;
     });
 
-    _defineProperty(_assertThisInitialized(_this), "Submit", function (event) {
+    _defineProperty(_assertThisInitialized(_this), "viewSubmit", function (event) {
       event.preventDefault();
 
       _this.setState({
         loading: true
       });
+
+      window.location.href = _MyGlobleSetting__WEBPACK_IMPORTED_MODULE_2__["default"].url + '/DACS2_Laravel_Test_1/bookroom-reserve/#/view/';
     });
 
     var idrooms = '';
@@ -10580,23 +10582,48 @@ var Bookroom_form = /*#__PURE__*/function (_Component) {
               "data-callback": "onSubmit",
               "data-size": "invisible"
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_5__.CButton, {
-            type: "submit",
-            className: "btn",
-            id: "btn_book_submit",
-            name: "btn_book_submit",
-            disabled: this.state.loading,
-            onClick: function onClick(event) {
-              return _this2.handleSubmit(event);
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            style: {
+              display: "flex",
+              flexDirection: 'row',
+              justifyContent: "space-between"
             },
-            children: [this.state.loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-                className: "spinner-border",
-                role: "status",
-                "aria-hidden": "true"
-              }), " Loading..."]
-            }), !this.state.loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-              children: "book now"
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_5__.CButton, {
+              type: "submit",
+              className: "btn",
+              id: "btn_book_submit",
+              name: "btn_book_submit",
+              disabled: this.state.loading,
+              onClick: function onClick(event) {
+                return _this2.handleSubmit(event);
+              },
+              children: [this.state.loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                  className: "spinner-border",
+                  role: "status",
+                  "aria-hidden": "true"
+                }), " Loading..."]
+              }), !this.state.loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+                children: "Book Now"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_5__.CButton, {
+              type: "submit",
+              className: "btn",
+              id: "btn_book_view",
+              name: "btn_book_view",
+              disabled: this.state.loading,
+              onClick: function onClick(event) {
+                return _this2.viewSubmit(event);
+              },
+              children: [this.state.loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                  className: "spinner-border",
+                  role: "status",
+                  "aria-hidden": "true"
+                }), " Loading..."]
+              }), !this.state.loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+                children: "Booked, Search Now"
+              })]
             })]
           })]
         })]
@@ -11070,7 +11097,7 @@ var View = /*#__PURE__*/function (_Component) {
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("main", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
-          className: "text-uppercase font-weight-bold text-primary text-center",
+          className: "text-uppercase font-weight-bold text-primary text-center pt-2",
           children: "Booking information"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h2", {
           style: {
