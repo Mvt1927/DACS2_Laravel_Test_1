@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bookroom_reserve;
+use App\Models\Bookrooms;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -128,10 +129,13 @@ class Bookroom_ReserveController extends Controller
         $input = $request->all();
         $rooms = Bookroom_reserve::where('id', $input['id'])->first('stats');
         $stats = $rooms->stats;
-        if ($stats != $input['stats']) {
-            DB::table('bookroom_reserve')->where('id', $input['id'])->update(['stats' => $input['stats']]);
+        if ($input['stats']=='received'||$input['stats']=='waiting'||$input['stats']=='cancelled') {
+            if ($stats != $input['stats']) {
+                DB::table('bookroom_reserve')->where('id', $input['id'])->update(['stats' => $input['stats'],'updated_at' => now()]);
+            }
+            return response()->json(['success' => $input], $this->successStatus);
         }
-        return response()->json(['success' => $input], $this->successStatus);
+        return response()->json(['error' => "stats undefined"], 401);
     }
     public function getWaiting()
     {

@@ -99,11 +99,13 @@ class RoomsController extends Controller
         $input = $request->all();
         $rooms = Rooms::where('id', $input['id'])->first('stats');
         $stats = $rooms->stats;
-        if ($stats != $input['stats']) {
-            DB::table('rooms')->where('id', $input['id'])->update(['stats' => $input['stats']]);
+        if ($input['stats'] == 'used' || $input['stats'] == 'uncleaned' || $input['stats'] == 'available'|| $input['stats'] == 'repair') {
+            if ($stats != $input['stats']) {
+                DB::table('rooms')->where('id', $input['id'])->update(['stats' => $input['stats'], 'updated_at' => now()]);
+            }
             return response()->json(['success' => $input], $this->successStatus);
-        } else
-            return response()->json(['success' => $input], $this->successStatus);
+        }
+        return response()->json(['error' => "stats undefined"], 401);
     }
 
     /**

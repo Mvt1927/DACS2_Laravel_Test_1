@@ -3127,7 +3127,7 @@ var InfoBooking = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function 
   return __webpack_require__.e(/*! import() */ "resources_js_components_includes_manage_views_rooms_info_booking_booking_info_js").then(__webpack_require__.bind(__webpack_require__, /*! ./views/rooms/info_booking/booking_info */ "./resources/js/components/includes/manage/views/rooms/info_booking/booking_info.js"));
 });
 var EditBooking = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
-  return Promise.resolve().then(function webpackMissingModule() { var e = new Error("Cannot find module './views/rooms/edit_booking/Edit_Booking'"); e.code = 'MODULE_NOT_FOUND'; throw e; });
+  return __webpack_require__.e(/*! import() */ "resources_js_components_includes_manage_views_rooms_edit_booking_Edit_Booking_js").then(__webpack_require__.bind(__webpack_require__, /*! ./views/rooms/edit_booking/Edit_Booking */ "./resources/js/components/includes/manage/views/rooms/edit_booking/Edit_Booking.js"));
 }); // const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
 // const Typography = React.lazy(() => import('./views/theme/typography/Typography'))
 

@@ -7,19 +7,19 @@ class Room_info extends Component {
         super(props);
         this.itemsPerPage = 10;
         this.state = {
-            Find_room_FormControlInput: "",
+            Find_booking_FormControlInput: "",
             loading_find: false,
             currentPage: '1',
             pageNumbers: '1',
-            roomsData: [[]],
+            bookingsData: [[]],
             splitData: [[]]
         }
     }
-    getrooms() {
-        axios.get(MyGlobleSetting.url + '/api/control/get/getrooms')
+    getBookings() {
+        axios.get(MyGlobleSetting.url + '/api/control/get/get-booking')
             .then(response => {
                 const n = this.itemsPerPage; //items per page
-                var data = response.data.roomsData;
+                var data = response.data.bookrooms;
                 if (data.length != 0) {
                     const pageNumbers = Math.ceil(data.length / n);
                     const splitData = new Array(pageNumbers)
@@ -40,16 +40,16 @@ class Room_info extends Component {
                 console.log(error);
             })
     }
-    getroomsData() {
-        axios.get(MyGlobleSetting.url + '/api/control/get/getrooms')
+    getBookingsData() {
+        axios.get(MyGlobleSetting.url + '/api/control/get/get-booking')
             .then(response => {
-                var data = response.data.roomsData;
+                var data = response.data.bookrooms;
                 const pageNumbers = Math.ceil(1);
                 const splitData = new Array(pageNumbers)
                     .fill()
                     .map(_ => data.splice(0, data.length));
                 this.setState({
-                    roomsData: splitData
+                    bookingsData: splitData
                 })
             })
             .catch(function (error) {
@@ -57,24 +57,24 @@ class Room_info extends Component {
             })
     }
     componentDidMount() {
-        this.getrooms();
-        this.getroomsData();
+        this.getBookings();
+        this.getBookingsData();
     }
     find = (event) => {
         event.preventDefault();
         this.setState({
-            Find_room_FormControlInput: event.target.value,
+            Find_booking_FormControlInput: event.target.value,
             loading_find: true,
             currentPage: '1'
         })
         const searchString = event.target.value;
-        const data = this.state.roomsData.at(0);
+        const data = this.state.bookingsData.at(0);
 
         if (data != null) {
             const filteredData = data.filter(element => {
                 return element.id.toString().toLowerCase().includes(searchString.toLowerCase())
                     || element.name.toString().toLowerCase().includes(searchString.toLowerCase())
-                    || element.price.toString().toLowerCase().includes(searchString.toLowerCase())
+                    || element.phone.toString().toLowerCase().includes(searchString.toLowerCase())
                     || element.stats.toString().toLowerCase().includes(searchString.toLowerCase())
             });
             const n = this.itemsPerPage; //items per line
@@ -136,15 +136,15 @@ class Room_info extends Component {
                 [id]: true,
                 ['loading_'+id]: true
             })
-            var room_stats = {
+            var booking_stats = {
                 id: id,
                 stats: this.state['stats_' + id]
             }
-            let url = MyGlobleSetting.url + '/api/control/post/edit-rooms-stats';
-            axios.post(url, room_stats)
+            let url = MyGlobleSetting.url + '/api/control/post/edit-booking-stats';
+            axios.post(url, booking_stats)
                 .then(response => {
-                    this.getrooms();
-                    this.getroomsData();
+                    this.getBookings();
+                    this.getBookingsData();
                     this.setState({
                         ['loading_'+id]: false
                     })
@@ -166,13 +166,14 @@ class Room_info extends Component {
                     <CTableRow id={i.id} key={i.id} /* onClick={(event) => this.inputValueSelect(event, i.id)} */>
                         <CTableDataCell>{i.id}</CTableDataCell>
                         <CTableDataCell>{i.name}</CTableDataCell>
-                        <CTableDataCell>{i.price}</CTableDataCell>
+                        <CTableDataCell>{i.phone}</CTableDataCell>
+                        <CTableDataCell>{i.day}</CTableDataCell>
+                        <CTableDataCell>{i.idroom}</CTableDataCell>
                         <CTableDataCell style={{ padding: "1.5px" }}>
                             <CFormSelect defaultValue={i.stats} name="Book_Room_Form_Input_Room_Code" onChange={event => this.isChange(event, i.id, i.stats)}>
-                                <option value='available'>available</option>
-                                <option value='used'>used</option>
-                                <option value='uncleaned'>uncleaned</option>
-                                <option value='repair'>repair</option>
+                                <option value='are renting'>Are renting</option>
+                                <option value='checked out'>Checked out</option>
+                                <option value='cancelled'>Cancelled</option>
                             </CFormSelect>
                         </CTableDataCell>
                         <CTableDataCell style={{ padding: "1.5px" }} className="text-center">
@@ -187,6 +188,8 @@ class Room_info extends Component {
         } else {
             return (
                 <CTableRow disabled className="font-italic text-center">
+                    <CTableDataCell>null</CTableDataCell>
+                    <CTableDataCell>null</CTableDataCell>
                     <CTableDataCell>null</CTableDataCell>
                     <CTableDataCell>null</CTableDataCell>
                     <CTableDataCell>null</CTableDataCell>
@@ -263,7 +266,7 @@ class Room_info extends Component {
                                     <CCol xs={8}>
                                         <CFormLabel htmlFor="Find_room_FormControlInput">Room code or room name</CFormLabel>
                                         <CInputGroup>
-                                            <CFormInput type="text" id="Find_room_FormControlInput" name="Find_room_FormControlInput" placeholder="Room code or room name" defaultValue={this.state.Find_room_FormControlInput} onChange={(event) => this.find(event)} />
+                                            <CFormInput type="text" id="Find_room_FormControlInput" name="Find_room_FormControlInput" placeholder="Room code or room name" defaultValue={this.state.Find_booking_FormControlInput} onChange={(event) => this.find(event)} />
                                             <CButton type="submit" className="float-right" onClick={(event) => this.find_btn(event)} disabled={this.state.loading_find}>
                                                 {this.state.loading_find && <><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></>}
                                                 {!this.state.loading_find && <><i className="far fa-search"></i></>}
@@ -299,11 +302,13 @@ class Room_info extends Component {
                                 <CTable hover bordered className='cursor-pointer'>
                                     <CTableHead className="thead-light">
                                         <CTableRow >
-                                            <CTableHeaderCell scope='col' className="col-2 text-center">ID Room</CTableHeaderCell>
+                                            <CTableHeaderCell scope='col' className="col-1 text-center">ID</CTableHeaderCell>
                                             <CTableHeaderCell scope='col' className='col-2 text-center'>Name</CTableHeaderCell>
-                                            <CTableHeaderCell scope='col' className="col-2 text-center">Price</CTableHeaderCell>
+                                            <CTableHeaderCell scope='col' className="col-2 text-center">Phone</CTableHeaderCell>
+                                            <CTableHeaderCell scope='col' className="col-1 text-center">Day</CTableHeaderCell>
+                                            <CTableHeaderCell scope='col' className="col-1 text-center">IDRoom</CTableHeaderCell>
                                             <CTableHeaderCell scope='col' className="col-2 text-center">Stats</CTableHeaderCell>
-                                            <CTableHeaderCell scope='col' className="col-2 text-center"></CTableHeaderCell>
+                                            <CTableHeaderCell scope='col' className="col-1 text-center"></CTableHeaderCell>
                                         </CTableRow>
                                     </CTableHead>
                                     <CTableBody>

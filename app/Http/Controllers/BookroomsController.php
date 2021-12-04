@@ -18,7 +18,7 @@ class BookroomsController extends Controller
     public function index()
     {
         $Bookrooms = Bookrooms::all();
-        return response()->json($Bookrooms, $this->successStatus);
+        return response()->json(['bookrooms' => $Bookrooms], $this->successStatus);
     }
     public function store(Request $request)
     {
@@ -37,15 +37,34 @@ class BookroomsController extends Controller
             return response()->json(['error' => $validator->errors()], 401);
         }
         $input = $request->all();
-        $input['birth']=date_format(date_create($input['birth']),'Y/m/d');
-        $rooms=Rooms::where('id', $input['idroom'])->first('stats');
-        $stats=$rooms->stats;
-        if ($stats=="available") {
+        $input['birth'] = date_format(date_create($input['birth']), 'Y/m/d');
+        $rooms = Rooms::where('id', $input['idroom'])->first('stats');
+        $stats = $rooms->stats;
+        if ($stats == "available") {
             $bookroom = Bookrooms::create($input);
-            DB::table('rooms')->where('id', $input['idroom'])->update(['stats'=>'used']);
+            DB::table('rooms')->where('id', $input['idroom'])->update(['stats' => 'used', 'updated_at' => now()]);
             return response()->json(['success' => $bookroom], $this->successStatus);
-        }else
-            return response()->json(['error' => 'Room is '.$stats], $this->successStatus);
-
+        } else
+            return response()->json(['error' => 'Room is ' . $stats], $this->successStatus);
+    }
+    public function editStats(Request $request)
+    {
+        $validator = $this->getValidationFactory()->make($request->all(), [
+            'id'     => 'required',
+            'stats'  => 'required|string',
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()], 401);
+        }
+        $input = $request->all();
+        $rooms = Bookrooms::where('id', $input['id'])->first('stats');
+        $stats = $rooms->stats;
+        if ($input['stats']=='are renting'||$input['stats']=='checked out'||$input['stats']=='cancelled') {
+            if ($stats != $input['stats']) {
+                DB::table('bookrooms')->where('id', $input['id'])->update(['stats' => $input['stats'], 'updated_at' => now()]);
+            }
+            return response()->json(['success' => $input], $this->successStatus);
+        }
+        return response()->json(['error' => "stats undefined"], 401);
     }
 }
