@@ -1,5 +1,5 @@
 "use strict";
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_components_includes_manage_views_rooms_bookroom_Bookroom_js"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_components_includes_manage_views_rooms_edit_booking_Edit_Booking_js"],{
 
 /***/ "./resources/js/components/includes/manage/views/rooms/MyGlobleSetting.js":
 /*!********************************************************************************!*\
@@ -31,10 +31,10 @@ var MyGlobleSetting = function MyGlobleSetting() {
 
 /***/ }),
 
-/***/ "./resources/js/components/includes/manage/views/rooms/bookroom/Bookroom.js":
-/*!**********************************************************************************!*\
-  !*** ./resources/js/components/includes/manage/views/rooms/bookroom/Bookroom.js ***!
-  \**********************************************************************************/
+/***/ "./resources/js/components/includes/manage/views/rooms/edit_booking/Edit_Booking.js":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/includes/manage/views/rooms/edit_booking/Edit_Booking.js ***!
+  \******************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _Option__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Option */ "./resources/js/components/includes/manage/views/rooms/bookroom/Option.js");
+/* harmony import */ var _Option__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Option */ "./resources/js/components/includes/manage/views/rooms/edit_booking/Option.js");
 /* harmony import */ var _MyGlobleSetting__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../MyGlobleSetting */ "./resources/js/components/includes/manage/views/rooms/MyGlobleSetting.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -81,15 +81,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var Bookroom = /*#__PURE__*/function (_Component) {
-  _inherits(Bookroom, _Component);
+var Edit_Booking = /*#__PURE__*/function (_Component) {
+  _inherits(Edit_Booking, _Component);
 
-  var _super = _createSuper(Bookroom);
+  var _super = _createSuper(Edit_Booking);
 
-  function Bookroom(props) {
+  function Edit_Booking(props) {
     var _this;
 
-    _classCallCheck(this, Bookroom);
+    _classCallCheck(this, Edit_Booking);
 
     _this = _super.call(this, props);
 
@@ -428,7 +428,7 @@ var Bookroom = /*#__PURE__*/function (_Component) {
     return _this;
   }
 
-  _createClass(Bookroom, [{
+  _createClass(Edit_Booking, [{
     key: "getbookroom",
     value: function getbookroom() {
       var _this2 = this;
@@ -877,10 +877,10 @@ var Bookroom = /*#__PURE__*/function (_Component) {
     }
   }]);
 
-  return Bookroom;
+  return Edit_Booking;
 }(react__WEBPACK_IMPORTED_MODULE_2__.Component);
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Bookroom);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Edit_Booking);
 /**
  *
  * ok xong
@@ -889,10 +889,10 @@ var Bookroom = /*#__PURE__*/function (_Component) {
 
 /***/ }),
 
-/***/ "./resources/js/components/includes/manage/views/rooms/bookroom/Option.js":
-/*!********************************************************************************!*\
-  !*** ./resources/js/components/includes/manage/views/rooms/bookroom/Option.js ***!
-  \********************************************************************************/
+/***/ "./resources/js/components/includes/manage/views/rooms/edit_booking/Option.js":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/includes/manage/views/rooms/edit_booking/Option.js ***!
+  \************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);

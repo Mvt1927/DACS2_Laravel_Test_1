@@ -2270,8 +2270,8 @@ var _nav = [{
     to: '/rooms/information-book-room-reserve'
   }, {
     component: _coreui_react__WEBPACK_IMPORTED_MODULE_2__.CNavItem,
-    name: 'Edit reserve',
-    to: '/rooms/edit-book-room-reserve'
+    name: 'Edit booking',
+    to: '/rooms/edit-booking'
   }]
 }];
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_nav);
@@ -3118,7 +3118,16 @@ var Dashboard = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function ()
   return __webpack_require__.e(/*! import() */ "resources_js_components_includes_manage_views_dashboard_Dashboard_js").then(__webpack_require__.bind(__webpack_require__, /*! ./views/dashboard/Dashboard */ "./resources/js/components/includes/manage/views/dashboard/Dashboard.js"));
 });
 var Bookroom = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
-  return __webpack_require__.e(/*! import() */ "resources_js_components_includes_manage_views_rooms_bookroom_Bookroom_js").then(__webpack_require__.bind(__webpack_require__, /*! ./views/rooms/bookroom/Bookroom.js */ "./resources/js/components/includes/manage/views/rooms/bookroom/Bookroom.js"));
+  return __webpack_require__.e(/*! import() */ "resources_js_components_includes_manage_views_rooms_bookroom_Bookroom_js").then(__webpack_require__.bind(__webpack_require__, /*! ./views/rooms/bookroom/Bookroom */ "./resources/js/components/includes/manage/views/rooms/bookroom/Bookroom.js"));
+});
+var Inforoom = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_includes_manage_views_rooms_room_info_room_info_js").then(__webpack_require__.bind(__webpack_require__, /*! ./views/rooms/room_info/room_info */ "./resources/js/components/includes/manage/views/rooms/room_info/room_info.js"));
+});
+var InfoBooking = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_includes_manage_views_rooms_info_booking_booking_info_js").then(__webpack_require__.bind(__webpack_require__, /*! ./views/rooms/info_booking/booking_info */ "./resources/js/components/includes/manage/views/rooms/info_booking/booking_info.js"));
+});
+var EditBooking = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
+  return Promise.resolve().then(function webpackMissingModule() { var e = new Error("Cannot find module './views/rooms/edit_booking/Edit_Booking'"); e.code = 'MODULE_NOT_FOUND'; throw e; });
 }); // const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
 // const Typography = React.lazy(() => import('./views/theme/typography/Typography'))
 
@@ -3138,13 +3147,16 @@ var routes = [{
   component: Bookroom
 }, {
   path: '/rooms/information-room',
-  name: 'Information room'
+  name: 'Information room',
+  component: Inforoom
 }, {
   path: '/rooms/information-book-room-reserve',
-  name: 'Information reserve'
+  name: 'Information reserve',
+  component: InfoBooking
 }, {
-  path: '/rooms/edit-book-room-reserve',
-  name: 'Edit reserve'
+  path: '/rooms/edit-booking',
+  name: 'Edit booking',
+  component: EditBooking
 }];
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (routes);
 

@@ -41,10 +41,13 @@ Route::prefix('/control')->group(function () {
         Route::get('/inforooms', [RoomsController::class, 'infoRooms']);
         Route::get('/option_rooms', [RoomsController::class, 'optionRooms']);
         Route::get('/bookroom-reserve', [Bookroom_reserveController::class, 'index']);
+        Route::get('/bookroom-reserve-waiting', [Bookroom_reserveController::class, 'getWaiting']);
 
     });
     Route::prefix('/post')->group(function () {
         Route::post('/add-rooms', [RoomsController::class, 'store']);
+        Route::post('/edit-rooms-stats', [RoomsController::class, 'editStats']);
+        Route::post('/edit-bookroom-reserve-stats', [Bookroom_reserveController::class, 'editStats']);
         Route::post('/bookrooms-reserve', [Bookroom_reserveController::class, 'store']);
         Route::post('/bookrooms', [BookroomsController::class, 'store']);
     });

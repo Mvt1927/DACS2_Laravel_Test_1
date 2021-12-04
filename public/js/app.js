@@ -10195,7 +10195,7 @@ var Rooms = /*#__PURE__*/function (_Component) {
 
       axios__WEBPACK_IMPORTED_MODULE_0___default().get(_MyGlobleSetting__WEBPACK_IMPORTED_MODULE_2__["default"].url + '/api/control/get/getrooms').then(function (response) {
         _this2.setState({
-          rooms: response.data
+          rooms: response.data.roomsData
         });
       })["catch"](function (error) {
         console.log(error);
@@ -67356,7 +67356,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_includes_manage_layout_DefaultLayout_js":1,"resources_js_components_includes_manage_views_dashboard_Dashboard_js":1,"resources_js_components_includes_manage_views_rooms_bookroom_Bookroom_js":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_includes_manage_layout_DefaultLayout_js":1,"resources_js_components_includes_manage_views_dashboard_Dashboard_js":1,"resources_js_components_includes_manage_views_rooms_bookroom_Bookroom_js":1,"resources_js_components_includes_manage_views_rooms_room_info_room_info_js":1,"resources_js_components_includes_manage_views_rooms_info_booking_booking_info_js":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

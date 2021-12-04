@@ -18,7 +18,7 @@ class Bookroom_ReserveController extends Controller
     public function index()
     {
         $Bookroom_reserve = Bookroom_reserve::all();
-        return response()->json(['Bookroom_reserve'=> $Bookroom_reserve], $this->successStatus);
+        return response()->json(['Bookroom_reserve' => $Bookroom_reserve], $this->successStatus);
     }
 
     /**
@@ -30,14 +30,15 @@ class Bookroom_ReserveController extends Controller
     {
         //
     }
-    public function check(string $name,$value){
+    public function check(string $name, $value)
+    {
         try {
-            $bookroom = DB::table('bookroom_reserve')->where($name,'=',$value)->get();
+            $bookroom = DB::table('bookroom_reserve')->where($name, '=', $value)->get();
         } catch (\Throwable $th) {
             //throw $th;
             return false;
         }
-        if (count($bookroom)==0) {
+        if (count($bookroom) == 0) {
             return false;
         }
         return true;
@@ -59,7 +60,7 @@ class Bookroom_ReserveController extends Controller
         do {
             sleep(2);
             $regidate = date("Y-m-d H:i:s");
-            $id=date("YmdhiA") . strtoupper(substr(MD5(rand()), 0, 6));
+            $id = date("YmdhiA") . strtoupper(substr(MD5(rand()), 0, 6));
         } while ($this->check('id', $id));
         $validator = $this->getValidationFactory()->make($request->all(), [
             'id' => '',
@@ -75,8 +76,8 @@ class Bookroom_ReserveController extends Controller
         }
         $input = $request->all();
         $input['id'] = $id;
-        $input['date']=date_format(date_create($input['date']),'Y/m/d');
-        $input['regidate']=$regidate;
+        $input['date'] = date_format(date_create($input['date']), 'Y/m/d');
+        $input['regidate'] = $regidate;
         $bookrooom_seserve = Bookroom_reserve::create($input);
         $success['id'] =  $id;
         $success['name'] =  $bookrooom_seserve->name;
@@ -97,15 +98,15 @@ class Bookroom_ReserveController extends Controller
     public function show($id)
     {
         date_default_timezone_set("Asia/Ho_Chi_Minh");
-        if ($this->check('id',$id)) {
+        if ($this->check('id', $id)) {
             $bookroom_reserve = Bookroom_reserve::find($id);
-            $bookroom_reserve['status']='success';
-            $bookroom_reserve['date']= date_format(date_create($bookroom_reserve['date']), "d/m/Y");
+            $bookroom_reserve['status'] = 'success';
+            $bookroom_reserve['date'] = date_format(date_create($bookroom_reserve['date']), "d/m/Y");
             //date_format($regidate, "H:i:s d/m/Y")
-            $bookroom_reserve['regidate']=date_format(date_create($bookroom_reserve['regidate']), "H:i:s d/m/Y");
-            return response()->json(['Bookroom_reserve'=>$bookroom_reserve],$this->successStatus);
-        }else{
-            return response()->json(['status' => 'none'],$this->successStatus);
+            $bookroom_reserve['regidate'] = date_format(date_create($bookroom_reserve['regidate']), "H:i:s d/m/Y");
+            return response()->json(['Bookroom_reserve' => $bookroom_reserve], $this->successStatus);
+        } else {
+            return response()->json(['status' => 'none'], $this->successStatus);
         }
     }
 
@@ -115,11 +116,28 @@ class Bookroom_ReserveController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editStats(Request $request)
     {
-        //
+        $validator = $this->getValidationFactory()->make($request->all(), [
+            'id'     => 'required|string',
+            'stats'  => 'required|string',
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()], 401);
+        }
+        $input = $request->all();
+        $rooms = Bookroom_reserve::where('id', $input['id'])->first('stats');
+        $stats = $rooms->stats;
+        if ($stats != $input['stats']) {
+            DB::table('bookroom_reserve')->where('id', $input['id'])->update(['stats' => $input['stats']]);
+        }
+        return response()->json(['success' => $input], $this->successStatus);
     }
-
+    public function getWaiting()
+    {
+        $Bookroom_reserve =  DB::table('bookroom_reserve')->where('stats' ,'waiting')->get();
+        return response()->json(['Bookroom_reserve' => $Bookroom_reserve], $this->successStatus);
+    }
     /**
      * Update the specified resource in storage.
      *

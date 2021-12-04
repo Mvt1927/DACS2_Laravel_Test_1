@@ -17,7 +17,7 @@ class RoomsController extends Controller
     public function index()
     {
         $room = Rooms::all();
-        return response()->json($room);
+        return response()->json(['roomsData' => $room]);
     }
 
     /**
@@ -74,7 +74,7 @@ class RoomsController extends Controller
         $Rooms['available'] = DB::table('rooms')->where('stats', 'available')->count();
         $Rooms['uncleaned'] = DB::table('rooms')->where('stats', 'uncleaned')->count();
         $Rooms['repair'] = DB::table('rooms')->where('stats', 'repair')->count();
-        return response()->json(['rooms'=>$Rooms], $this->successStatus);
+        return response()->json(['rooms' => $Rooms], $this->successStatus);
     }
     /**
      * Show the form for editing the specified resource.
@@ -84,12 +84,26 @@ class RoomsController extends Controller
      */
     public function optionRooms()
     {
-        $room = DB::table('rooms')->select('id','name')->where('stats','available')->get();
+        $room = DB::table('rooms')->select('id', 'name')->where('stats', 'available')->get();
         return response()->json($room);
     }
-    public function edit($id)
+    public function editStats(Request $request)
     {
-        //
+        $validator = $this->getValidationFactory()->make($request->all(), [
+            'id'     => 'required|numeric',
+            'stats'  => 'required|string',
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()], 401);
+        }
+        $input = $request->all();
+        $rooms = Rooms::where('id', $input['id'])->first('stats');
+        $stats = $rooms->stats;
+        if ($stats != $input['stats']) {
+            DB::table('rooms')->where('id', $input['id'])->update(['stats' => $input['stats']]);
+            return response()->json(['success' => $input], $this->successStatus);
+        } else
+            return response()->json(['success' => $input], $this->successStatus);
     }
 
     /**

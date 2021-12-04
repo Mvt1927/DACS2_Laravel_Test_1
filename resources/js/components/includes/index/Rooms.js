@@ -14,7 +14,7 @@ export default class Rooms extends Component {
     componentDidMount() {
         axios.get(MyGlobleSetting.url + '/api/control/get/getrooms')
             .then(response => {
-                this.setState({ rooms: response.data });
+                this.setState({ rooms: response.data.roomsData });
             })
             .catch(function (error) {
                 console.log(error);

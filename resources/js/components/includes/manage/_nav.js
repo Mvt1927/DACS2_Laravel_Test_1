@@ -32,8 +32,8 @@ const _nav = [
             },
             {
                 component: CNavItem,
-                name: 'Edit reserve',
-                to: '/rooms/edit-book-room-reserve',
+                name: 'Edit booking',
+                to: '/rooms/edit-booking',
             },
 
         ],
