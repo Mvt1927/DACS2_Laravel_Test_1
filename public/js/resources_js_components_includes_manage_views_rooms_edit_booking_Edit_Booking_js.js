@@ -158,13 +158,13 @@ var Room_info = /*#__PURE__*/function (_Component) {
       } else return _this.state[value];
     });
 
-    _defineProperty(_assertThisInitialized(_this), "isChange", function (event, id, stats) {
+    _defineProperty(_assertThisInitialized(_this), "isChange", function (event, id, idroom, stats) {
       event.preventDefault();
 
       if (event.target.value != stats) {
         var _this$setState;
 
-        _this.setState((_this$setState = {}, _defineProperty(_this$setState, id, false), _defineProperty(_this$setState, 'stats_' + id, event.target.value), _this$setState));
+        _this.setState((_this$setState = {}, _defineProperty(_this$setState, id, false), _defineProperty(_this$setState, 'idroom_' + id, idroom), _defineProperty(_this$setState, 'stats_' + id, event.target.value), _this$setState));
       } else _this.setState(_defineProperty({}, id, true));
     });
 
@@ -178,6 +178,7 @@ var Room_info = /*#__PURE__*/function (_Component) {
 
         var booking_stats = {
           id: id,
+          idroom: _this.state['idroom_' + id],
           stats: _this.state['stats_' + id]
         };
         var url = _MyGlobleSetting__WEBPACK_IMPORTED_MODULE_3__["default"].url + '/api/control/post/edit-booking-stats';
@@ -331,7 +332,7 @@ var Room_info = /*#__PURE__*/function (_Component) {
                 defaultValue: i.stats,
                 name: "Book_Room_Form_Input_Room_Code",
                 onChange: function onChange(event) {
-                  return _this4.isChange(event, i.id, i.stats);
+                  return _this4.isChange(event, i.id, i.idroom, i.stats);
                 },
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                   value: "are renting",

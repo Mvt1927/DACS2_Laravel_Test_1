@@ -17,7 +17,7 @@ class BookroomsController extends Controller
      */
     public function index()
     {
-        $Bookrooms = Bookrooms::all();
+        $Bookrooms = DB::table('bookrooms')->orderBy('id', 'desc')->get();
         return response()->json(['bookrooms' => $Bookrooms], $this->successStatus);
     }
     public function store(Request $request)
@@ -65,6 +65,7 @@ class BookroomsController extends Controller
     {
         $validator = $this->getValidationFactory()->make($request->all(), [
             'id'     => 'required',
+            'idroom'     => 'required',
             'stats'  => 'required|string',
         ]);
         if ($validator->fails()) {
@@ -76,7 +77,14 @@ class BookroomsController extends Controller
         if ($input['stats']=='are renting'||$input['stats']=='checked out'||$input['stats']=='cancelled') {
             if ($stats != $input['stats']) {
                 DB::table('bookrooms')->where('id', $input['id'])->update(['stats' => $input['stats'], 'updated_at' => now()]);
+                if ($input['stats']!='are renting') {
+                    DB::table('rooms')->where('id', $input['idroom'])->update(['stats' => 'uncleaned', 'updated_at' => now()]);
+                }
+                if ($input['stats']=='are renting') {
+                    DB::table('rooms')->where('id', $input['idroom'])->update(['stats' => 'used', 'updated_at' => now()]);
+                }
             }
+
             return response()->json(['success' => $input], $this->successStatus);
         }
         return response()->json(['error' => "stats undefined"], 401);

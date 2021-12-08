@@ -120,11 +120,12 @@ class Room_info extends Component {
             return true
         } else return this.state[value]
     }
-    isChange = (event, id, stats) => {
+    isChange = (event, id,idroom, stats) => {
         event.preventDefault();
         if (event.target.value != stats) {
             this.setState({
                 [id]: false,
+                ['idroom_'+id]: idroom,
                 ['stats_' + id]: event.target.value
             })
         } else this.setState({ [id]: true })
@@ -138,7 +139,8 @@ class Room_info extends Component {
             })
             var booking_stats = {
                 id: id,
-                stats: this.state['stats_' + id]
+                idroom: this.state['idroom_'+id],
+                stats: this.state['stats_' + id],
             }
             let url = MyGlobleSetting.url + '/api/control/post/edit-booking-stats';
             axios.post(url, booking_stats)
@@ -170,7 +172,7 @@ class Room_info extends Component {
                         <CTableDataCell>{i.day}</CTableDataCell>
                         <CTableDataCell>{i.idroom}</CTableDataCell>
                         <CTableDataCell style={{ padding: "1.5px" }}>
-                            <CFormSelect defaultValue={i.stats} name="Book_Room_Form_Input_Room_Code" onChange={event => this.isChange(event, i.id, i.stats)}>
+                            <CFormSelect defaultValue={i.stats} name="Book_Room_Form_Input_Room_Code" onChange={event => this.isChange(event, i.id,i.idroom, i.stats)}>
                                 <option value='are renting'>Are renting</option>
                                 <option value='checked out'>Checked out</option>
                                 <option value='cancelled'>Cancelled</option>
