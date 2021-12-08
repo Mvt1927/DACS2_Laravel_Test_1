@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { Component } from "react";
 import Option from "./Option";
 import MyGlobleSetting from "../MyGlobleSetting";
+import { error } from "jquery";
 class Bookroom extends Component {
     constructor(props) {
         super(props);
@@ -11,6 +12,7 @@ class Bookroom extends Component {
             options: '',
             loading_find: false,
             loading_save: false,
+            Book_Room_Form_Input_Reservation_code: '',
             Book_Room_Form_Input_Name: '',
             Book_Room_Form_Input_Date_Of_Birth: '',
             Book_Room_Form_Input_CCCD: '',
@@ -214,7 +216,7 @@ class Bookroom extends Component {
                 Number_Of_Days_Stay.firstChild.classList.add('text-danger');
                 Number_Of_Days_Stay.lastChild.classList.add('border-danger');
                 this.setState({ loading_save: false });
-            } else if (this.state.Book_Room_Form_Input_Room_Code == "") {
+            } else if (this.state.Book_Room_Form_Input_Room_Code == ""||this.state.Book_Room_Form_Input_Room_Code == "0") {
                 Room_Code.firstChild.classList.add('text-danger');
                 Room_Code.lastChild.classList.add('border-danger');
                 this.setState({ loading_save: false });
@@ -227,6 +229,7 @@ class Bookroom extends Component {
                     num: this.state.Book_Room_Form_Input_Number_Of_People,
                     day: this.state.Book_Room_Form_Input_Number_Of_Days_Stay,
                     idroom: this.state.Book_Room_Form_Input_Room_Code,
+                    reservationcode: this.state.Book_Room_Form_Input_Reservation_code
                 };
                 let url = MyGlobleSetting.url + '/api/control/post/bookrooms';
                 axios.post(url, Bookroom_form).then(response => {
@@ -258,6 +261,10 @@ class Bookroom extends Component {
                         alert(response.data.error);
                         location.reload();
                     }
+                    this.setState({ loading_save: false });
+                })
+                .catch(error=>{
+                    alert(error);
                     this.setState({ loading_save: false });
                 });
             }
@@ -342,6 +349,7 @@ class Bookroom extends Component {
         axios.get(MyGlobleSetting.url + '/api/control/get/bookrooms-reserve/' + id)
             .then(response => {
                 this.setState({
+                    Book_Room_Form_Input_Reservation_code: response.data.Bookroom_reserve.id,
                     Book_Room_Form_Input_Name: response.data.Bookroom_reserve.name,
                     Book_Room_Form_Input_Phone: response.data.Bookroom_reserve.phone,
                     Book_Room_Form_Input_Number_Of_People: response.data.Bookroom_reserve.num,
@@ -481,6 +489,7 @@ class Bookroom extends Component {
                                                 <option value='0' disabled></option>
                                             </CFormSelect>
                                         </CCol>
+                                        <CFormInput type="hidden" name="Book_Room_Form_Input_Reservation_code" value={this.state.Book_Room_Form_Input_Reservation_code} />
                                         <CCol xs={12} className="mb-1 mt-1">
                                             <CButton type="submit" className="float-right" id="btn_save" onClick={(event) => this.save(event)} disabled={this.state.loading_save} >
                                                 {this.state.loading_save && <><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...</>}

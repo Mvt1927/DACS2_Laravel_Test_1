@@ -32,13 +32,12 @@ class BookroomsController extends Controller
             'num'               => 'required|between:1,99',
             'day'               => 'required|numeric',
             'idroom'            => 'required|string',
-            'reservationcode'   => 'required|string',
+            'reservationcode'   ,
         ]);
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 401);
         }
         $input = $request->all();
-        $input2['id'] = $input['id'];
         $input2['name'] = $input['name'];
         $input2['birth'] = $input['birth'];
         $input2['cccd'] = $input['cccd'];
@@ -46,16 +45,21 @@ class BookroomsController extends Controller
         $input2['num'] = $input['num'];
         $input2['day'] = $input['day'];
         $input2['idroom'] = $input['idroom'];
+        if ($input2['idroom']==null) {
+            return response()->json(['error' => 'idroom null'], 401);
+        }
         $input['birth'] = date_format(date_create($input['birth']), 'Y/m/d');
         $rooms = Rooms::where('id', $input['idroom'])->first('stats');
         $stats = $rooms->stats;
         if ($stats == "available") {
             $bookroom = Bookrooms::create($input2);
             DB::table('rooms')->where('id', $input['idroom'])->update(['stats' => 'used', 'updated_at' => now()]);
-            DB::table('bookroom_reserve')->where('id', $input['reservationcode'])->update(['stats' => 'received', 'updated_at' => now()]);
+            if ($input['reservationcode']!=null) {
+                DB::table('bookroom_reserve')->where('id', $input['reservationcode'])->update(['stats' => 'received', 'updated_at' => now()]);
+            }
             return response()->json(['success' => $bookroom], $this->successStatus);
         } else
-            return response()->json(['error' => 'Room is ' . $stats], $this->successStatus);
+            return response()->json(['error' => 'Room is ' . $stats], 401);
     }
     public function editStats(Request $request)
     {
