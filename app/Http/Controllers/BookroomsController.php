@@ -24,25 +24,35 @@ class BookroomsController extends Controller
     {
         date_default_timezone_set("Asia/Ho_Chi_Minh");
         $validator = $this->getValidationFactory()->make($request->all(), [
-            'id'        => '',
-            'name'      => 'required|string',
-            'birth'     => 'required|date',
-            'cccd'      => 'required|numeric',
-            'phone'     => 'required|numeric',
-            'num'       => 'required|between:1,99',
-            'day'       => 'required|numeric',
-            'idroom'    => 'required|string'
+            'id'                => '',
+            'name'              => 'required|string',
+            'birth'             => 'required|date',
+            'cccd'              => 'required|numeric',
+            'phone'             => 'required|numeric',
+            'num'               => 'required|between:1,99',
+            'day'               => 'required|numeric',
+            'idroom'            => 'required|string',
+            'reservationcode'   => 'required|string',
         ]);
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 401);
         }
         $input = $request->all();
+        $input2['id'] = $input['id'];
+        $input2['name'] = $input['name'];
+        $input2['birth'] = $input['birth'];
+        $input2['cccd'] = $input['cccd'];
+        $input2['phone'] = $input['phone'];
+        $input2['num'] = $input['num'];
+        $input2['day'] = $input['day'];
+        $input2['idroom'] = $input['idroom'];
         $input['birth'] = date_format(date_create($input['birth']), 'Y/m/d');
         $rooms = Rooms::where('id', $input['idroom'])->first('stats');
         $stats = $rooms->stats;
         if ($stats == "available") {
-            $bookroom = Bookrooms::create($input);
+            $bookroom = Bookrooms::create($input2);
             DB::table('rooms')->where('id', $input['idroom'])->update(['stats' => 'used', 'updated_at' => now()]);
+            DB::table('bookroom_reserve')->where('id', $input['reservationcode'])->update(['stats' => 'received', 'updated_at' => now()]);
             return response()->json(['success' => $bookroom], $this->successStatus);
         } else
             return response()->json(['error' => 'Room is ' . $stats], $this->successStatus);
