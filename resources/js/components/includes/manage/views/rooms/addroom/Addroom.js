@@ -21,6 +21,9 @@ class Addroom extends Component {
 
     }
     save = (event) => {
+        this.setState({
+            loading_save: true,
+        })
         const formData = new FormData()
         formData.append('name', this.state.Name);
         formData.append('file', this.state.image);
@@ -33,6 +36,9 @@ class Addroom extends Component {
             alert("Add room success !");
         }).catch(error => {
             alert(error.response.data.error);
+        })
+        this.setState({
+            loading_save: false,
         })
     }
     isChange = (event) => {
@@ -94,7 +100,7 @@ class Addroom extends Component {
                                         <CCol xs={12} className="mb-1 mt-1">
                                             <CButton type="submit" className="float-right" id="btn_save" onClick={(event) => this.save(event)} disabled={this.state.loading_save} >
                                                 {this.state.loading_save && <><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...</>}
-                                                {!this.state.loading_save && <>Save <i className="fas fa-save"></i></>}
+                                                {!this.state.loading_save && <>Add <i className="fas fa-save"></i></>}
                                             </CButton>
                                         </CCol>
                                     </CRow>

@@ -94,6 +94,10 @@ var Addroom = /*#__PURE__*/function (_Component) {
     _this = _super.call(this, props);
 
     _defineProperty(_assertThisInitialized(_this), "save", function (event) {
+      _this.setState({
+        loading_save: true
+      });
+
       var formData = new FormData();
       formData.append('name', _this.state.Name);
       formData.append('file', _this.state.image);
@@ -106,6 +110,10 @@ var Addroom = /*#__PURE__*/function (_Component) {
         alert("Add room success !");
       })["catch"](function (error) {
         alert(error.response.data.error);
+      });
+
+      _this.setState({
+        loading_save: false
       });
     });
 
@@ -280,10 +288,14 @@ var Addroom = /*#__PURE__*/function (_Component) {
                           return _this2.isChange2(event);
                         }
                       })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
                       xs: 12,
                       className: "mb-1 mt-1",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CButton, {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CButton, {
+                        type: "submit",
+                        className: "float-left",
+                        children: "Reset"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CButton, {
                         type: "submit",
                         className: "float-right",
                         id: "btn_save",
@@ -298,11 +310,11 @@ var Addroom = /*#__PURE__*/function (_Component) {
                             "aria-hidden": "true"
                           }), " Loading..."]
                         }), !this.state.loading_save && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-                          children: ["Save ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
+                          children: ["Add ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
                             className: "fas fa-save"
                           })]
                         })]
-                      })
+                      })]
                     })]
                   })
                 })
