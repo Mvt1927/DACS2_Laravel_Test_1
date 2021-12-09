@@ -48,6 +48,7 @@ Route::prefix('/control')->group(function () {
     Route::prefix('/post')->group(function () {
         Route::post('/add-rooms', [RoomsController::class, 'store']);
         Route::post('/edit-rooms-stats', [RoomsController::class, 'editStats']);
+        Route::post('/checkimage', [RoomsController::class, 'checkImage']);
         Route::post('/edit-bookroom-reserve-stats', [Bookroom_reserveController::class, 'editStats']);
         Route::post('/edit-booking-stats', [BookroomsController::class, 'editStats']);
         Route::post('/bookrooms-reserve', [Bookroom_reserveController::class, 'store']);

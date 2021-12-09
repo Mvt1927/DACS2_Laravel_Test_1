@@ -2258,6 +2258,10 @@ var _nav = [{
   }),
   items: [{
     component: _coreui_react__WEBPACK_IMPORTED_MODULE_2__.CNavItem,
+    name: 'Add room',
+    to: '/rooms/add-room'
+  }, {
+    component: _coreui_react__WEBPACK_IMPORTED_MODULE_2__.CNavItem,
     name: 'Booking',
     to: '/rooms/book-room'
   }, {
@@ -3117,6 +3121,9 @@ __webpack_require__.r(__webpack_exports__);
 var Dashboard = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_components_includes_manage_views_dashboard_Dashboard_js").then(__webpack_require__.bind(__webpack_require__, /*! ./views/dashboard/Dashboard */ "./resources/js/components/includes/manage/views/dashboard/Dashboard.js"));
 });
+var Addroom = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_includes_manage_views_rooms_addroom_Addroom_js").then(__webpack_require__.bind(__webpack_require__, /*! ./views/rooms/addroom/Addroom */ "./resources/js/components/includes/manage/views/rooms/addroom/Addroom.js"));
+});
 var Bookroom = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_components_includes_manage_views_rooms_bookroom_Bookroom_js").then(__webpack_require__.bind(__webpack_require__, /*! ./views/rooms/bookroom/Bookroom */ "./resources/js/components/includes/manage/views/rooms/bookroom/Bookroom.js"));
 });
@@ -3141,6 +3148,10 @@ var routes = [{
   name: 'Rooms',
   component: Bookroom,
   exact: true
+}, {
+  path: '/rooms/add-room',
+  name: 'Add room',
+  component: Addroom
 }, {
   path: '/rooms/book-room',
   name: 'Book room',

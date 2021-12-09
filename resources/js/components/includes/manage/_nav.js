@@ -17,6 +17,11 @@ const _nav = [
         items: [
             {
                 component: CNavItem,
+                name: 'Add room',
+                to: '/rooms/add-room',
+            },
+            {
+                component: CNavItem,
                 name: 'Booking',
                 to: '/rooms/book-room',
             },

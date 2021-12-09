@@ -38,10 +38,16 @@ class RoomsController extends Controller
      */
     public function store(Request $request)
     {
+        date_default_timezone_set("Asia/Ho_Chi_Minh");
+        /**$regidate = date("Y-m-d H:i:s");
+         * $id=date("YmdhiA").strtoupper(substr(MD5(rand()), 0, 6));
+         *
+         * return response()->json(['success' => $this->check('id','202110300541AMFB0CD9')],401);
+         * */
         $validator = $this->getValidationFactory()
             ->make($request->all(), [
                 'name' => 'required',
-                'src' => 'required',
+                'file' => 'image|max:202800',
                 'info' => 'required',
                 'star' => 'required|between:0,5',
                 'price' => 'required|min:0',
@@ -49,10 +55,19 @@ class RoomsController extends Controller
                 'type' => 'required|min:0'
             ]);
         if ($validator->fails()) {
-            return response()->json(['error' => $validator->errors()], 401);
+            return response()->json(['error' => $validator->errors()->first()], 401);
         }
         $input = $request->all();
-        $room = Rooms::create($input);
+        $filename = date("YmdhiA") . strtoupper(substr(MD5(rand()), 0, 6)) . ".jpg";
+        $request->file('file')->move('resources/Image/Upload/Rooms',$filename);
+        $input2['src']='Image/Upload/Rooms/'. $filename;
+        $input2['name']=$input['name'];
+        $input2['info']=$input['info'];
+        $input2['star']=$input['star'];
+        $input2['price']=$input['price'];
+        $input2['defprice']=$input['defprice'];
+        $input2['type']=$input['type'];
+        $room = Rooms::create($input2);
         $success['id'] =  $room->id;
         $success['name'] =  $room->name;
         return response()->json(['success' => $success], $this->successStatus);
@@ -126,6 +141,10 @@ class RoomsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function checkImage(Request $request)
+    {
+
+    }
     public function destroy($id)
     {
         //
