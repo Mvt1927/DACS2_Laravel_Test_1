@@ -58,7 +58,7 @@ class View extends Component {
         if (this.location) {
             return (<Link to={'/'} className="btn ">Back <i className="fas fa-reply"></i></Link>);
         }
-        return (<a href={MyGlobleSetting.url + "/DACS2_Laravel_Test_1"} className="btn ">Back <i className="fas fa-reply"></i></a>)
+        return (<a href={MyGlobleSetting.url + "/Classic-Hotel"} className="btn ">Back <i className="fas fa-reply"></i></a>)
     }
     render() {
         return (

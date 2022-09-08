@@ -41,7 +41,7 @@ const AppBreadcrumb = () => {
 
     return (
         <CBreadcrumb className="m-0 ms-2">
-            <CBreadcrumbItem href="/DACS2_Laravel_Test_1">Home</CBreadcrumbItem>
+            <CBreadcrumbItem href="/Classic-Hotel">Home</CBreadcrumbItem>
             <NonDashBoard />
             {breadcrumbs.map((breadcrumb, index) => {
                 return (

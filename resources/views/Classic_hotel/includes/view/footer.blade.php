@@ -30,13 +30,13 @@
             <div class="box">
                 <h3>quick links</h3>
                 <p>quick links : </p>
-                <a href="{{asset('')}}DACS2_Laravel_Test_1#home"><label for="">Home</label></a>
-                <a href="{{asset('')}}DACS2_Laravel_Test_1#book"><label for="">Book</label></a>
-                <a href="{{asset('')}}DACS2_Laravel_Test_1#rooms"><label for="">Rooms</label></a>
-                <a href="{{asset('')}}DACS2_Laravel_Test_1#services"><label for="">Services</label></a>
-                <a href="{{asset('')}}DACS2_Laravel_Test_1#review"><label for="">Review</label></a>
-                <a href="{{asset('')}}DACS2_Laravel_Test_1#contact"><label for="">Contact</label></a>
-                <a href="{{asset('')}}DACS2_Laravel_Test_1#aboutus"><label for="">About us</label></a>
+                <a href="{{asset('')}}Classic-Hotel#home"><label for="">Home</label></a>
+                <a href="{{asset('')}}Classic-Hotel#book"><label for="">Book</label></a>
+                <a href="{{asset('')}}Classic-Hotel#rooms"><label for="">Rooms</label></a>
+                <a href="{{asset('')}}Classic-Hotel#services"><label for="">Services</label></a>
+                <a href="{{asset('')}}Classic-Hotel#review"><label for="">Review</label></a>
+                <a href="{{asset('')}}Classic-Hotel#contact"><label for="">Contact</label></a>
+                <a href="{{asset('')}}Classic-Hotel#aboutus"><label for="">About us</label></a>
             </div>
             <div class="box follow">
                 <h3>follow us</h3>

@@ -2355,7 +2355,7 @@ var AppBreadcrumb = function AppBreadcrumb() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CBreadcrumb, {
     className: "m-0 ms-2",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CBreadcrumbItem, {
-      href: "/DACS2_Laravel_Test_1",
+      href: "/Classic-Hotel",
       children: "Home"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(NonDashBoard, {}), breadcrumbs.map(function (breadcrumb, index) {
       return /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_coreui_react__WEBPACK_IMPORTED_MODULE_2__.CBreadcrumbItem, _objectSpread(_objectSpread({}, breadcrumb.active ? {
@@ -2689,9 +2689,9 @@ var AppHeader = /*#__PURE__*/function (_Component) {
         _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
       }; // console.log(cookie);
 
-      /*  axios.post(MyGlobleSetting.url + '/DACS2_Laravel_Test_1/logout', cookie)
+      /*  axios.post(MyGlobleSetting.url + '/Classic-Hotel/logout', cookie)
            .then(response => {
-               location.href = MyGlobleSetting.url + '/DACS2_Laravel_Test_1/logout';
+               location.href = MyGlobleSetting.url + '/Classic-Hotel/logout';
            })
            .catch(function (error) {
                console.log(error);
@@ -2699,15 +2699,15 @@ var AppHeader = /*#__PURE__*/function (_Component) {
            lỗi 419
            */
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get(_MyGlobleSetting__WEBPACK_IMPORTED_MODULE_3__["default"].url + '/DACS2_Laravel_Test_1/logout', cookie).then(function (response) {
-        location.href = _MyGlobleSetting__WEBPACK_IMPORTED_MODULE_3__["default"].url + '/DACS2_Laravel_Test_1/logout';
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get(_MyGlobleSetting__WEBPACK_IMPORTED_MODULE_3__["default"].url + '/Classic-Hotel/logout', cookie).then(function (response) {
+        location.href = _MyGlobleSetting__WEBPACK_IMPORTED_MODULE_3__["default"].url + '/Classic-Hotel/logout';
       })["catch"](function (error) {
         console.log(error);
       });
     });
 
     if (document.querySelector('meta[name="csrf-token"]') == null) {
-      location.href = _MyGlobleSetting__WEBPACK_IMPORTED_MODULE_3__["default"].url + '/DACS2_Laravel_Test_1/login';
+      location.href = _MyGlobleSetting__WEBPACK_IMPORTED_MODULE_3__["default"].url + '/Classic-Hotel/login';
     }
 
     return _this;
@@ -2816,7 +2816,7 @@ var AppHeader = /*#__PURE__*/function (_Component) {
                     className: "far fa-user-cog mr-4"
                   }), "Setting"]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("a", {
-                  href: _MyGlobleSetting__WEBPACK_IMPORTED_MODULE_3__["default"].url + '/DACS2_Laravel_Test_1/logout',
+                  href: _MyGlobleSetting__WEBPACK_IMPORTED_MODULE_3__["default"].url + '/Classic-Hotel/logout',
                   className: "dropdown-item",
                   onClick: function onClick(event) {
                     return _this2.logout(event);

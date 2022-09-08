@@ -85,7 +85,7 @@ export default class Bookroom_form extends Component {
                             let url = MyGlobleSetting.url + '/api/control/post/bookrooms-reserve';
                             /* console.log(Bookroom_form); */
                             axios.post(url, Bookroom_form).then(response => {
-                                window.location.href = MyGlobleSetting.url + '/DACS2_Laravel_Test_1/bookroom-reserve/#/view/' + response.data.success.id;
+                                window.location.href = MyGlobleSetting.url + '/Classic-Hotel/bookroom-reserve/#/view/' + response.data.success.id;
                                 /* console.log(response.data.id); view/bookroom-reserve/'+response.data.id*/
                             });
 
@@ -124,7 +124,7 @@ export default class Bookroom_form extends Component {
         this.setState({
             loading: true,
         })
-        window.location.href = MyGlobleSetting.url + '/DACS2_Laravel_Test_1/bookroom-reserve/#/view/';
+        window.location.href = MyGlobleSetting.url + '/Classic-Hotel/bookroom-reserve/#/view/';
     }
     render() {
         return (

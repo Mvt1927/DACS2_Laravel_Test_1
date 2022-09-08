@@ -50,10 +50,10 @@ const AppHeader = () => {
                             <a className="dropdown-item" onClick="">
                                 <i className="far fa-user-cog mr-4"></i>Setting
                             </a>
-                            <a href={MyGlobleSetting.url+'/DACS2_Laravel_Test_1/logout'} className="dropdown-item" onClick=''>
+                            <a href={MyGlobleSetting.url+'/Classic-Hotel/logout'} className="dropdown-item" onClick=''>
                                 <i className="far fa-sign-out-alt mr-4"></i>Logout
                             </a>
-                            <form id="logout-form" action={MyGlobleSetting.url+'/DACS2_Laravel_Test_1/logout'} method="POST" className="d-none">
+                            <form id="logout-form" action={MyGlobleSetting.url+'/Classic-Hotel/logout'} method="POST" className="d-none">
                                 <input type="hidden" name="_token" value={getCookie('csrf-token')}></input>
                             </form>
                         </div>

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'DACS2_Laravel_Test_1'),
+    'name' => env('APP_NAME', 'Classic-Hotel'),
 
     /*
     |--------------------------------------------------------------------------

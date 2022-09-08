@@ -17,7 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = 'DACS2_Laravel_Test_1/dashboard';
+    public const HOME = 'Classic-Hotel/dashboard';
 
     /**
      * The controller namespace for the application.

@@ -10415,7 +10415,7 @@ var Bookroom_form = /*#__PURE__*/function (_Component) {
                 /* console.log(Bookroom_form); */
 
                 axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, _Bookroom_form).then(function (response) {
-                  window.location.href = _MyGlobleSetting__WEBPACK_IMPORTED_MODULE_2__["default"].url + '/DACS2_Laravel_Test_1/bookroom-reserve/#/view/' + response.data.success.id;
+                  window.location.href = _MyGlobleSetting__WEBPACK_IMPORTED_MODULE_2__["default"].url + '/Classic-Hotel/bookroom-reserve/#/view/' + response.data.success.id;
                   /* console.log(response.data.id); view/bookroom-reserve/'+response.data.id*/
                 });
               } else {
@@ -10462,7 +10462,7 @@ var Bookroom_form = /*#__PURE__*/function (_Component) {
         loading: true
       });
 
-      window.location.href = _MyGlobleSetting__WEBPACK_IMPORTED_MODULE_2__["default"].url + '/DACS2_Laravel_Test_1/bookroom-reserve/#/view/';
+      window.location.href = _MyGlobleSetting__WEBPACK_IMPORTED_MODULE_2__["default"].url + '/Classic-Hotel/bookroom-reserve/#/view/';
     });
 
     var idrooms = '';
@@ -11085,7 +11085,7 @@ var View = /*#__PURE__*/function (_Component) {
       }
 
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
-        href: _MyGlobleSetting__WEBPACK_IMPORTED_MODULE_1__["default"].url + "/DACS2_Laravel_Test_1",
+        href: _MyGlobleSetting__WEBPACK_IMPORTED_MODULE_1__["default"].url + "/Classic-Hotel",
         className: "btn ",
         children: ["Back ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
           className: "fas fa-reply"

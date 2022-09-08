@@ -18,43 +18,43 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     // return view('welcome');
-    return redirect()->route('DACS2_Laravel_Test_1');
+    return redirect()->route('Classic-Hotel');
 });
 /* Route::get('/home', function () {
     // return view('welcome');
     return redirect()->route('home');
 }); */
-Route::get('DACS2_Laravel_Test_1', function () {
+Route::get('Classic-Hotel', function () {
     return view('Classic_hotel/index');
-})->name("DACS2_Laravel_Test_1");
-Route::get('DACS2_Laravel_Test_1/logout', function () {
+})->name("Classic-Hotel");
+Route::get('Classic-Hotel/logout', function () {
     if (Auth::check()) {
         Auth::logout();
     }
-    return redirect()->route('DACS2_Laravel_Test_1');
+    return redirect()->route('Classic-Hotel');
 });
 
-Route::post('DACS2_Laravel_Test_1/logout', function () {
+Route::post('Classic-Hotel/logout', function () {
     if (Auth::check()) {
         Auth::logout();
     }
-    return redirect()->route('DACS2_Laravel_Test_1');
+    return redirect()->route('Classic-Hotel');
 });
-Route::get('DACS2_Laravel_Test_1/bookroom-reserve', function () {
+Route::get('Classic-Hotel/bookroom-reserve', function () {
     return view('Classic_hotel/view/bookroom_reserve');
 });
-Route::get('DACS2_Laravel_Test_1/login', function () {
+Route::get('Classic-Hotel/login', function () {
     return view('auth.login');
 })->name('login');
-Route::get('DACS2_Laravel_Test_1/bookroom-reserve/#/view/{id}', function () {
+Route::get('Classic-Hotel/bookroom-reserve/#/view/{id}', function () {
     return view('Classic_hotel/view/bookroom_reserve');
 })->name('Classic_hotel/view/bookroom_reserve');
 
 
-// Route::get('DACS2_Laravel_Test_1/dashboard', [HomeController::class, 'index'])->name('home');
+// Route::get('Classic-Hotel/dashboard', [HomeController::class, 'index'])->name('home');
 
 Auth::routes();
-Route::get('DACS2_Laravel_Test_1/dashboard', function () {
+Route::get('Classic-Hotel/dashboard', function () {
     if (Auth::check()) {
         return view('Classic_hotel.dashboard');
     }else return redirect()->route('login');

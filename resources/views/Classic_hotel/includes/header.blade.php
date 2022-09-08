@@ -21,7 +21,7 @@
         @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <a href="{{ url('DACS2_Laravel_Test_1/dashboard') }}" ><i class="fas fa-tools"></i></a>
+                        <a href="{{ url('Classic-Hotel/dashboard') }}" ><i class="fas fa-tools"></i></a>
                     @else
                     <a href="{{ route('login') }}">
                         <i class="fas fa-user" id="login-btn"></i></a>

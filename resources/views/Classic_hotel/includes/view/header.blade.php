@@ -7,19 +7,19 @@
         </a>
     </div>
     <nav id="nav-bar">
-        <a href="{{asset('')}}DACS2_Laravel_Test_1#home">Home</a>
-        <a href="{{asset('')}}DACS2_Laravel_Test_1#book">Book</a>
-        <a href="{{asset('')}}DACS2_Laravel_Test_1#rooms">Rooms</a>
-        <a href="{{asset('')}}DACS2_Laravel_Test_1#services">Services</a>
-        <a href="{{asset('')}}DACS2_Laravel_Test_1#review">Review</a>
-        <a href="{{asset('')}}DACS2_Laravel_Test_1#contact">Contact</a>
-        <a href="{{asset('')}}DACS2_Laravel_Test_1#aboutus">About us</a>
+        <a href="{{asset('')}}Classic-Hotel#home">Home</a>
+        <a href="{{asset('')}}Classic-Hotel#book">Book</a>
+        <a href="{{asset('')}}Classic-Hotel#rooms">Rooms</a>
+        <a href="{{asset('')}}Classic-Hotel#services">Services</a>
+        <a href="{{asset('')}}Classic-Hotel#review">Review</a>
+        <a href="{{asset('')}}Classic-Hotel#contact">Contact</a>
+        <a href="{{asset('')}}Classic-Hotel#aboutus">About us</a>
     </nav>
     <div class="icons">
         @if (Route::has('login'))
         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
             @auth
-                <a href="{{ url('DACS2_Laravel_Test_1/dashboard') }}" ><i class="fas fa-tools"></i></a>
+                <a href="{{ url('Classic-Hotel/dashboard') }}" ><i class="fas fa-tools"></i></a>
             @else
             <a href="{{ route('login') }}">
                 <i class="fas fa-user" id="login-btn"></i></a>

@@ -35,7 +35,7 @@ class UserController extends Controller
         if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
             $id = Auth::user()->id;
             $user = User::find($id);
-            $success['token'] =  $user->createToken('DACS2_Laravel_test_1')->accessToken;
+            $success['token'] =  $user->createToken('Classic_Hotel_Mvt1927')->accessToken;
             $_SESSION['token']= $success['token'];
             return response()->json(['success' => $success], $this->successStatus);
         } else {
@@ -65,7 +65,7 @@ class UserController extends Controller
         }
         $input['password'] = bcrypt($input['password']);
         $user = User::create($input);
-        $success['token'] =  $user->createToken('DACS2_Laravel_test_1')->accessToken;
+        $success['token'] =  $user->createToken('Classic_Hotel_Mvt1927')->accessToken;
         $success['name'] =  $user->name;
         return response()->json(['success' => $success], $this->successStatus);
     }

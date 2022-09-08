@@ -28,7 +28,7 @@ class AppHeader extends Component {
     constructor(props) {
         super(props);
         if (document.querySelector('meta[name="csrf-token"]')==null) {
-            location.href = MyGlobleSetting.url + '/DACS2_Laravel_Test_1/login';
+            location.href = MyGlobleSetting.url + '/Classic-Hotel/login';
         }
 
     };
@@ -39,18 +39,18 @@ class AppHeader extends Component {
             _token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
         };
         // console.log(cookie);
-       /*  axios.post(MyGlobleSetting.url + '/DACS2_Laravel_Test_1/logout', cookie)
+       /*  axios.post(MyGlobleSetting.url + '/Classic-Hotel/logout', cookie)
             .then(response => {
-                location.href = MyGlobleSetting.url + '/DACS2_Laravel_Test_1/logout';
+                location.href = MyGlobleSetting.url + '/Classic-Hotel/logout';
             })
             .catch(function (error) {
                 console.log(error);
             })
             lỗi 419
             */
-        axios.get(MyGlobleSetting.url + '/DACS2_Laravel_Test_1/logout', cookie)
+        axios.get(MyGlobleSetting.url + '/Classic-Hotel/logout', cookie)
             .then(response => {
-                location.href = MyGlobleSetting.url + '/DACS2_Laravel_Test_1/logout';
+                location.href = MyGlobleSetting.url + '/Classic-Hotel/logout';
             })
             .catch(function (error) {
                 console.log(error);
@@ -95,7 +95,7 @@ class AppHeader extends Component {
                                 <a className="dropdown-item">
                                     <i className="far fa-user-cog mr-4"></i>Setting
                                 </a>
-                                <a href={MyGlobleSetting.url + '/DACS2_Laravel_Test_1/logout'} className="dropdown-item" onClick={(event) => this.logout(event)}>
+                                <a href={MyGlobleSetting.url + '/Classic-Hotel/logout'} className="dropdown-item" onClick={(event) => this.logout(event)}>
                                     <i className="far fa-sign-out-alt mr-4"></i>Logout
                                 </a>
                             </div>

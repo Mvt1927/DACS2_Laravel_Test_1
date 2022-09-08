@@ -288,14 +288,10 @@ var Addroom = /*#__PURE__*/function (_Component) {
                           return _this2.isChange2(event);
                         }
                       })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CCol, {
                       xs: 12,
                       className: "mb-1 mt-1",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CButton, {
-                        type: "submit",
-                        className: "float-left",
-                        children: "Reset"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CButton, {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_coreui_react__WEBPACK_IMPORTED_MODULE_0__.CButton, {
                         type: "submit",
                         className: "float-right",
                         id: "btn_save",
@@ -314,7 +310,7 @@ var Addroom = /*#__PURE__*/function (_Component) {
                             className: "fas fa-save"
                           })]
                         })]
-                      })]
+                      })
                     })]
                   })
                 })
